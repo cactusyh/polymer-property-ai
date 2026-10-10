@@ -1,0 +1,16 @@
+{
+  "schema_version": "6a.1.0",
+  "identity_key": "polymer_id = poly_ + first 16 hex of SHA256(canonical_psmiles)",
+  "structure_hash": "full SHA256 of stereochemistry-aware canonical PSMILES",
+  "columns": [
+    "polymer_id", "raw_psmiles", "canonical_psmiles", "stereochemistry",
+    "connection_count", "connection_positions", "structure_hash", "source_dataset",
+    "source_sample_id", "source_provenance", "target_availability",
+    "md_mapping_status", "md_mapping_confidence", "qc_status", "split_assignment"
+  ],
+  "md_feature_order": [
+    "log_Rg", "Re/Rg", "q1", "q2", "anisotropy", "contact_fraction",
+    "torsion_entropy", "log_torsion_transition_rate"
+  ],
+  "locked_holdout": "identity exclusion from Phase 6A training, pretraining and evaluation"
+}

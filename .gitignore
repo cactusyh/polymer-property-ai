@@ -1,11 +1,21 @@
 __pycache__/
 *.pyc
-.venv/
+.venv*/
 venv/
+.ipynb_checkpoints/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
 
 .env
 *.key
 *.pem
+*.p12
+*.pfx
+*.asc
+*.kubeconfig
+id_rsa*
+id_ed25519*
 credentials*
 secrets/
 
@@ -23,10 +33,24 @@ outputs/
 runs/
 checkpoints/
 logs/
+phase6a_runs/
+phase6a_artifacts/
+!phase6a_artifacts/
+!phase6a_artifacts/manifest.v1.json
+!phase6a_artifacts/leakage_audit.json
+!phase6a_artifacts/unit_audit.json
+!phase6a_artifacts/md_coverage.json
+!phase6a_artifacts/smoke/
+!phase6a_artifacts/smoke/smoke.json
+!phase6a_artifacts/smoke/benchmark_matrix.json
 
 # Scientific data and generated outputs
-data/
-results/
+/data/
+/results/
+*.parquet
+*.arrow
+*.feather
+*.safetensors
 bulk_md_*/
 *.lammpstrj
 *.dcd

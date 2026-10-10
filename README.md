@@ -77,6 +77,25 @@ Generated final artifacts:
 
 Scientific defaults: do not use Rouse relaxation times as default targets; use quality weights and validity flags for MD multitask losses; keep duplicate canonical polymers in one PI1M split.
 
+## Phase 6A unified benchmark
+
+Prepare the leakage-safe identity contract from the real registries:
+
+```bash
+python scripts/prepare_phase6a_manifest.py
+```
+
+Run only the deterministic CPU software smoke test (synthetic fixtures are not
+scientific training data):
+
+```bash
+python scripts/run_phase6a_smoke.py
+```
+
+The three inference modes are `structure_only`, `chain_md_observed`, and
+`chain_md_predicted`. Phase 6A does not extract bulk-MD descriptors or use the
+LOCKED_HOLDOUT for feature selection; those actions are reserved for Phase 6B.
+
 ## Tg Proof-of-Concept Commands
 
 Prepare Tg canonical registry, random/OOD splits, low-data subsets, strict PI1M corpus, and strict MD manifests:
