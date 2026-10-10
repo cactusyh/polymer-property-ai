@@ -4,7 +4,7 @@ The append-only registry is initialized with explicit `PENDING_PILOT` and `NOT_R
 
 {
   "candidate_count": 128,
-  "created_at_utc": "2026-10-10T12:35:59+00:00",
+  "created_at_utc": "2026-10-10T12:44:18+00:00",
   "descriptor_provenance_required": true,
   "errors": {
     "descriptor_rows_without_qc": [],
@@ -18,7 +18,7 @@ The append-only registry is initialized with explicit `PENDING_PILOT` and `NOT_R
   "locked_holdout_exclusion": "PASS",
   "manifest_sha256": "a18588e16d702fba82bead7128e4aa808ffe4f9169cdc79c6a0805b84e488509",
   "registry_rows": 512,
-  "registry_sha256": "b7d4d520149a7c43deaef8f7eff5c8bc4711c45f16f193aa2cf9ecb478f1de18",
+  "registry_sha256": "dc322dfe7db793fdef3e375efbb9907a073dda3a85b7ce764b2071a796750c74",
   "schema_version": "phase6d.integrity_audit.v1",
   "status": "PASS"
 }
