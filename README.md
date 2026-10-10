@@ -96,6 +96,15 @@ The three inference modes are `structure_only`, `chain_md_observed`, and
 `chain_md_predicted`. Phase 6A does not extract bulk-MD descriptors or use the
 LOCKED_HOLDOUT for feature selection; those actions are reserved for Phase 6B.
 
+## Phase 6B frozen bulk-MD evaluation
+
+Phase 6B reconciles the authoritative 150-polymer bulk cohort, freezes descriptors
+from the validated multi-temperature registry, selects models with DEVELOPMENT
+only nested validation, and evaluates the LOCKED_HOLDOUT once. Use
+`python scripts/run_phase6b.py reconcile`, then `freeze`, then `evaluate`.
+The immutable result record prevents a second holdout evaluation. The 120/30
+assignment and 119/29 all-temperature completion counts are reported separately.
+
 ## Tg Proof-of-Concept Commands
 
 Prepare Tg canonical registry, random/OOD splits, low-data subsets, strict PI1M corpus, and strict MD manifests:
