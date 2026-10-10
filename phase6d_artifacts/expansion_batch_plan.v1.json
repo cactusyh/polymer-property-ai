@@ -6,7 +6,7 @@
   "measured_full_expansion_storage_GiB": 11.50000536441803,
   "measured_remaining_wall_time_hours_four_gpus": 47.84745930305785,
   "pilot_required_before_production": true,
-  "pilot_results_sha256": "7f940ae4081adf57c8aebddb0f728972c62f23fc6ae9d8dba6d6636ad8296aa2",
+  "pilot_results_sha256": "74751771f16253128498e7b8740d878391eebcdca53bb667ff75dec8b3ab2e54",
   "pilot_status": "PASS",
   "production_batch_size": 4,
   "remaining_candidates_not_launched": 124,
