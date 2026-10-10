@@ -1030,7 +1030,7 @@
       "returncode": 1
     }
   ],
-  "pilot_code_commit": "e09e99123437b024e76d59fb2cbf3f31ff2badd9",
+  "pilot_code_commit": "1d73856d003bb743f50a3f1626a3da0b3d1577ca",
   "pilot_selection_sha256": "b3d6c54b68b75f70825e43677ea4ec9d21a2b1c796647c87366b9867d0e9665b",
   "pilot_status": "PASS",
   "pilot_storage_bytes": 385876148,
