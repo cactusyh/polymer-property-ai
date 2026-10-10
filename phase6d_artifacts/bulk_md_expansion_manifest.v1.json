@@ -14,7 +14,7 @@
   "polymer_temperature_rows": 512,
   "raw_data_policy": "raw trajectories, restarts and large generated outputs remain outside Git",
   "registry_path": "phase6d_artifacts/bulk_md_expansion_registry.v1.csv",
-  "registry_sha256": "c985901e9862258b66b89c5bb019ada0a3c8f6bca73c6eb7346ee9a4b10538e8",
+  "registry_sha256": "86567298f66f096fe11a93a192425dffa83aa2e187765079489f8cac1ee504e8",
   "schema_version": "phase6d.bulk_md_expansion_manifest.v1",
   "temperatures_K": [
     300,

@@ -413,6 +413,11 @@ def update_registry() -> None:
     expansion_manifest = json.loads(EXPANSION_MANIFEST.read_text(encoding="utf-8"))
     expansion_manifest.update({"registry_sha256": sha(EXPANSION_REGISTRY), "pilot_selection_sha256": sha(SELECTION), "pilot_results_sha256": sha(PILOT_RESULTS), "pilot_complete_four_temperature_systems": sum(candidate["status"] == "COMPLETE_QC_PASS" for candidate in payload["candidates"]), "pilot_status": payload["pilot_status"]})
     write_json(EXPANSION_MANIFEST, expansion_manifest)
+    batch_plan_path = ART / "expansion_batch_plan.v1.json"
+    if batch_plan_path.exists():
+        batch_plan = json.loads(batch_plan_path.read_text(encoding="utf-8"))
+        batch_plan.update({"pilot_status": payload["pilot_status"], "pilot_results_sha256": sha(PILOT_RESULTS), "execution_blocked_until_pilot_pass": False, "production_batch_size": 4, "remaining_candidates_not_launched": 124, "measured_remaining_wall_time_hours_four_gpus": payload.get("estimated_remaining_wall_time_hours_four_gpus"), "measured_full_expansion_storage_GiB": payload.get("estimated_full_expansion_storage_GiB")})
+        write_json(batch_plan_path, batch_plan)
 
 
 def main() -> None:
