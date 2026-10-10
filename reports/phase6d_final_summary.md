@@ -7,7 +7,7 @@ remaining 124 candidates are intentionally held for a later batch decision.
 |---|---|
 | Branch | `codex/phase-6d-bulk-md-expansion` |
 | Preflight commit | `d34cdc5c468b33ffa833a3289beda721bf82f86a` |
-| Pilot code commit | recorded in pilot results after the pilot metadata commit |
+| Pilot code commit | `e09e99123437b024e76d59fb2cbf3f31ff2badd9` |
 | Candidates selected | 128 |
 | Pilot candidates | 8 |
 | Simulations launched | 16 temperature workflows (4 polymers × 4 temperatures) |

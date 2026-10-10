@@ -900,7 +900,7 @@
   "descriptor_coverage": 1.0,
   "descriptor_rows": 16,
   "descriptor_table": "phase6d_artifacts/phase6d_pilot_descriptors.v1.csv",
-  "estimated_full_expansion_storage_GiB": 11.499856799840927,
+  "estimated_full_expansion_storage_GiB": 11.50000536441803,
   "estimated_full_expansion_wall_time_hours_four_gpus": 49.390925732188755,
   "estimated_remaining_wall_time_hours_four_gpus": 47.84745930305785,
   "failure_categories": {
@@ -1030,11 +1030,11 @@
       "returncode": 1
     }
   ],
-  "pilot_code_commit": "80e8fe744823ad8e463eeef71968a81593fbe5dc",
+  "pilot_code_commit": "e09e99123437b024e76d59fb2cbf3f31ff2badd9",
   "pilot_selection_sha256": "b3d6c54b68b75f70825e43677ea4ec9d21a2b1c796647c87366b9867d0e9665b",
   "pilot_status": "PASS",
-  "pilot_storage_bytes": 385871163,
-  "pilot_storage_bytes_per_polymer_mean": 96467790.75,
+  "pilot_storage_bytes": 385876148,
+  "pilot_storage_bytes_per_polymer_mean": 96469037.0,
   "pilot_wall_time_seconds_mean": 5556.479144871235,
   "pilot_wall_time_seconds_per_polymer": [
     5412.856623411179,
