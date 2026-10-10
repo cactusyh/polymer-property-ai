@@ -1,0 +1,9 @@
+# MD / Electronic Property Overlap Audit
+
+All identities use `src.data.polymer_smiles.canonicalize_psmiles` and the existing processed MD registry.
+
+         property  total_usable_property_polymers  total_usable_md_polymers  exact_canonical_overlap_count  property_fraction_with_md  md_fraction_with_property  number_with_valid_topology  number_with_readable_trajectory  number_with_sufficient_frames  high_backbone_confidence  medium_backbone_confidence  low_backbone_confidence
+   band_gap_chain                            3380                      7614                           1593                   0.471302                   0.209220                        1593                             1593                           1593                        20                         486                     1087
+electron_affinity                             368                      7614                             32                   0.086957                   0.004203                          32                               32                             32                         5                          14                       13
+ionization_energy                             370                      7614                             33                   0.089189                   0.004334                          33                               33                             33                         5                          15                       13
+    band_gap_bulk                             561                      7614                            141                   0.251337                   0.018519                         141                              141                            141                         6                          42                       93

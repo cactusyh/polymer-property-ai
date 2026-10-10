@@ -1,0 +1,12 @@
+# Map-Aware MD Failure Diagnosis
+
+All five original failures occurred before atom mapping, during RadonPy random-walk chain construction.
+
+           polymer_id                                                    canonical_psmiles  aromatic_atom_count  conjugated_bond_count  sp2_atom_count  repeat_unit_atom_count  estimated_repeat_count  rigidity_proxy                                                     exact_error                     failure_category
+poly_6b48dbdab6fc1fe5                                     *CC(*)c1ccc(Cl)c([N+](=O)[O-])c1                    6                      9               9                      14                      21              24 RadonPyError: Reached maximum number of retrying polymerize_rw. chain growth / geometry construction
+poly_6e95c85143be1ba0                                                    *C#CC#Cc1ccc(*)s1                    5                      9               5                      11                      27              19 RadonPyError: Reached maximum number of retrying polymerize_rw. chain growth / geometry construction
+poly_e4ca8901a2d48a49                                              *CC(*)C(=O)c1ccc(Br)cc1                    6                      8               8                      13                      23              22 RadonPyError: Reached maximum number of retrying polymerize_rw. chain growth / geometry construction
+poly_cdf56834602957d8                                                  *CC(*)n1ccc2ccccc21                    9                     10               9                      13                      23              28 RadonPyError: Reached maximum number of retrying polymerize_rw. chain growth / geometry construction
+poly_14935f771a8f2f1e *c1ccc(Oc2ccc(-n3c(=O)c4cc5c(=O)n(-c6ncc(*)s6)c(=O)c5cc4c3=O)cc2)cc1                   29                     39              34                      36                       8             102 RadonPyError: Reached maximum number of retrying polymerize_rw. chain growth / geometry construction
+
+The failures are concentrated in aromatic/conjugated repeat units, including one larger fused/multiring system. No force-field or LAMMPS failure was reached for these systems.

@@ -1,0 +1,50 @@
+{
+  "version": 2,
+  "wall_time_seconds": 3600,
+  "max_seeds": 3,
+  "workers": 8,
+  "seed_rule": "(int(polymer_id[-8:],16) + 104729*(attempt_number-1)) % 2147483647; Python, NumPy and RDKit embedding seeded",
+  "construction": "frozen build_one, default polymerize_rw settings; isotactic; iterative molecule-ID export traversal for every system",
+  "chain_rule": "adaptive 4-8, DP>=10, estimated atoms 5000-15000, minimize distance to 9000; fixed across all retries",
+  "forcefield": "GAFF2_mod, frozen database; Gasteiger with existing explicitly recorded zero-charge fallback",
+  "retry_rule": "Retry only BUILD_TIMEOUT, stochastic polymerize_rw exhaustion, or stochastic amorphous-cell packing exhaustion; no retries of deterministic parsing, chemistry, force-field, export or topology failures.",
+  "reuse": "original PASS exports allowed only after same identity, DP/chains, atom budget, metadata and topology QC; historical seed/time unknown recorded explicitly; attempt_number=0",
+  "unsupported_rule": "Proved absent GAFF2_mod database elements are rejected before construction; actual ff_assign=False under frozen protocol also stops seeds; unexpected GAFF implementation exceptions are RADONPY_FAILED, never automatically unsupported.",
+  "selection": "full valid canonical structural dataset; Morgan radius2/2048 bits; Butina distance0.35; one medoid per cluster then deterministic farthest-point selection; no build outcome filtering",
+  "domain_gate": {
+    "min_pass_go": 180,
+    "min_pass_clusters_go": 150,
+    "min_full_mean_similarity_retained": 0.9,
+    "min_common_motif_retention": 0.9,
+    "common_motif_full_prevalence": 0.01,
+    "max_absolute_structural_smd_go": 0.8,
+    "caution_min_pass": 150
+  },
+  "split_rule": "diverse selection of 150 distinct successful clusters; max-min fingerprint selection of 30 holdout clusters; remainder120 development",
+  "holdout_rule": "Freeze identities before any new MD or modeling; holdout Tg/performance prohibited for descriptor/MD protocol changes, model/feature selection and hyperparameter tuning",
+  "builder_sha256": "451a751e32f573c7cf5c67f18fd6e0d3e341b9a38071968fea639bfbf2aca16c",
+  "pool_sha256": "1cdf6f4aeffc25ffc650c842cd571d88c48bc91b6c86dadd677c4f6183356bcf",
+  "universe_sha256": "c8832afc39bed51a1d99dcd23678678d2a58bfda639ac2001153b496629b3558",
+  "old_archive_sha256": {
+    "bulk_md_tg_cohort_150.csv": "e1d5540c6b666a10087a9a426b95a6444359c04f2b6131f5da24d7f360b625b8",
+    "bulk_md_tg_cohort_150_split.csv": "de6ab5e153683ed2aad52bc97bf7b3ad55c85f590685421b9c8fca8686ba9b2a",
+    "bulk_md_tg_150_build_registry.csv": "beee9e0ecac5e6f256f9d7b424ecb15f567e814bf41405071b8c3875f1eddc1c",
+    "bulk_md_tg_150_600K_registry.csv": "c5c0e874b9c1cec3ac85c443cb3738e16ef4f4674a8fa8985971dba0785f8fbf"
+  },
+  "new_MD": false,
+  "target_values_read": false,
+  "runner_sha256": "3b958e4f78ff41886854658b86ec19c41b1c63e76e7407602e0fde8eb47728e5",
+  "dependency_sha256": {
+    "/inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/miniforge3/envs/radonpy/lib/python3.11/site-packages/radonpy/core/utils.py": "a68eb34766930db9ffb317ee1cda24f40fac8c08e8c275d638e20f5ec5010b37",
+    "/inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/miniforge3/envs/radonpy/lib/python3.11/site-packages/radonpy/core/poly.py": "8495d8693b8eaf64b1e5a1bb4ece3566bc54c6c6d18c0cef8dd812a26b2ea724",
+    "/inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/miniforge3/envs/radonpy/lib/python3.11/site-packages/radonpy/core/calc.py": "99c61eebb6080254996339424c7d00aadeeb6478c575f2a1e62f8fe8aa4799e8",
+    "/inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/miniforge3/envs/radonpy/lib/python3.11/site-packages/radonpy/ff/gaff.py": "eef468a810a7857422819ade511cebbfa1e5e1aec6ae191029ad1dc7f2ab48a7",
+    "/inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/miniforge3/envs/radonpy/lib/python3.11/site-packages/radonpy/ff/gaff2.py": "c79fde63a9b0f53dfbb42a35fa4f5234afd051699cd83a1ac4b552655cc33fc3",
+    "/inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/miniforge3/envs/radonpy/lib/python3.11/site-packages/radonpy/ff/gaff2_mod.py": "5fff398d48af91f916dce20a89f3386729e57f985c7a7d1f08b02ea977147710",
+    "/inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/miniforge3/envs/radonpy/lib/python3.11/site-packages/radonpy/ff/ff_dat/gaff2_mod.json": "916f484d7c05f999c3f40c09b4f927eafc7556f7be18bc94e60d372acf61ad49",
+    "/inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/miniforge3/envs/radonpy/lib/python3.11/site-packages/radonpy/sim/lammps.py": "b60462b12f3202a726409fcff4993ea019b1fe1ee26d0f01e3356c2f6cf58c17"
+  },
+  "instrumentation_note": "Nested construction-stage reporting corrected during startup validation; chemistry, construction, budgets, seeds, eligibility and domain thresholds unchanged. Interrupted startup attempts replay same seeds; logs archived in their instrumentation_validation_run directories.",
+  "no_replacement_rule": "After FINAL_COHORT_PREREGISTERED = YES, no cohort members may be replaced based on Tg values, MD descriptors, Model B errors, or downstream prediction performance.",
+  "policy_correction": "User explicitly superseded 120-minute policy with 60 minutes per seed. Active attempts keep their original start time and seed; pre-existing outputs and original policy hashes retained. Completed new builds before correction were all within 3600 seconds."
+}

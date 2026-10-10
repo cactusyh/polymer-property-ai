@@ -1,0 +1,49 @@
+# Single-Chain Electronic MD Descriptor QC
+
+                       feature  valid_n  valid_fraction       mean        std        min         max  missing_fraction  near_zero_variance
+                       n_atoms     1593        1.000000 999.486503  12.655216 953.000000 1048.000000          0.000000               False
+                      n_frames     1593        1.000000 101.000000   0.000000 101.000000  101.000000          0.000000                True
+                   temperature        0        0.000000        NaN        NaN        NaN         NaN          1.000000               False
+        trajectory_dt_if_known     1593        1.000000 500.000000   0.000000 500.000000  500.000000          0.000000                True
+                        log_Rg     1593        1.000000   3.137740   0.609062   2.356764    4.845675          0.000000               False
+                    Re_over_Rg      506        0.317640   2.010907   0.490920   0.587363    3.130071          0.682360               False
+     relative_shape_anisotropy     1593        1.000000   0.398294   0.233378   0.018181    0.982418          0.000000               False
+                            q1     1593        1.000000   0.715389   0.136273   0.407962    0.994099          0.000000               False
+                            q2     1593        1.000000   0.191177   0.084427   0.004318    0.398840          0.000000               False
+       bb_planarity_score_mean     1593        1.000000   0.716773   0.112689   0.348705    0.988831          0.000000               False
+        bb_planarity_score_std     1593        1.000000   0.305275   0.051352   0.016434    0.379159          0.000000               False
+             bb_twist_mean_deg     1593        1.000000  35.017425  11.553416   6.796888   65.795367          0.000000               False
+              bb_twist_std_deg     1593        1.000000  27.389332   3.760745   5.250848   33.567884          0.000000               False
+              bb_twist_p10_deg     1593        1.000000   4.353715   3.563149   0.858351   30.328296          0.000000               False
+              bb_twist_p50_deg     1593        1.000000  29.374487  17.893411   5.418625   75.231070          0.000000               False
+              bb_twist_p90_deg     1593        1.000000  76.361611  12.112237  14.072281   87.603328          0.000000               False
+      bb_planar_fraction_20deg     1593        1.000000   0.462161   0.207825   0.059556    0.977129          0.000000               False
+      bb_planar_fraction_30deg     1593        1.000000   0.536177   0.190011   0.098222    0.999247          0.000000               False
+      bb_planar_fraction_40deg     1593        1.000000   0.593172   0.169964   0.153556    1.000000          0.000000               False
+  bb_orthogonal_fraction_60deg     1593        1.000000   0.282788   0.122324   0.000000    0.779704          0.000000               False
+            bb_torsion_entropy     1593        1.000000   0.889554   0.114177   0.443249    0.998743          0.000000               False
+bb_torsion_planarity_mean_mean     1593        1.000000   0.716773   0.112689   0.348705    0.988831          0.000000               False
+ bb_torsion_planarity_mean_std     1593        1.000000   0.232591   0.050269   0.003464    0.355275          0.000000               False
+ bb_torsion_planarity_mean_p10     1593        1.000000   0.363493   0.128678   0.093280    0.984427          0.000000               False
+ bb_torsion_planarity_mean_p50     1593        1.000000   0.772588   0.181920   0.297511    0.992498          0.000000               False
+ bb_torsion_planarity_mean_p90     1593        1.000000   0.960806   0.053828   0.601236    0.996598          0.000000               False
+        conj_mapping_available     1593        1.000000   0.000000   0.000000   0.000000    0.000000          0.000000                True
+           conj_planarity_mean        0        0.000000        NaN        NaN        NaN         NaN          1.000000               False
+           conj_twist_mean_deg        0        0.000000        NaN        NaN        NaN         NaN          1.000000               False
+    conj_planar_fraction_30deg        0        0.000000        NaN        NaN        NaN         NaN          1.000000               False
+          conj_torsion_entropy        0        0.000000        NaN        NaN        NaN         NaN          1.000000               False
+         conj_soft_length_mean        0        0.000000        NaN        NaN        NaN         NaN          1.000000               False
+               contact_4p5_all     1593        1.000000   0.006219   0.004400   0.000000    0.034480          0.000000               False
+               contact_6p0_all     1593        1.000000   0.029033   0.016841   0.002920    0.105120          0.000000               False
+               contact_8p0_all     1593        1.000000   0.066476   0.038431   0.009480    0.230400          0.000000               False
+                 contact_short     1593        1.000000   0.351548   0.101459   0.068000    0.697358          0.000000               False
+                contact_medium     1593        1.000000   0.031394   0.036813   0.000000    0.201429          0.000000               False
+                  contact_long     1593        1.000000   0.006274   0.008244   0.000000    0.055860          0.000000               False
+mean_nonlocal_nearest_distance     1593        1.000000   3.756258   0.408870   2.177048    5.034702          0.000000               False
+  bb_transition_rate_per_frame     1593        1.000000   0.014804   0.065005   0.000000    0.583333          0.000000               False
+     bb_planar_lifetime_frames      605        0.379787  22.605702   6.482264   2.000000   25.000000          0.620213               False
+    bb_twisted_lifetime_frames        3        0.001883  21.666667   5.773503  15.000000   25.000000          0.998117               False
+             bb_autocorr_lag_1     1593        1.000000   0.455624   0.270988  -0.477527    0.972906          0.000000               False
+             bb_autocorr_lag_5     1593        1.000000   0.075575   0.314139  -0.687147    0.960499          0.000000               False
+           trajectory_readable     1593        1.000000   1.000000   0.000000   1.000000    1.000000          0.000000                True
+              bb_torsion_count     1593        1.000000 301.219711 106.900411  62.000000  629.000000          0.000000               False

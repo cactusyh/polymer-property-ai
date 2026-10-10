@@ -1,0 +1,17 @@
+seed: 13
+base_checkpoint: checkpoints/C_PERIODIC/best.pt
+output_dir: checkpoints/D_MD_STATIC
+md_path: data/processed/md_physics_full.parquet
+md_manifest: data/splits/md_pretrain_ood_seed13.csv
+targets: [log_Rg, q1, q2, relative_shape_anisotropy, Re_over_Rg, short_range_contact_fraction, medium_range_contact_fraction, long_range_contact_fraction]
+exclude_targets: [tau_1, tau_2, tau_3, tau_5]
+quality_weights: {good: 1.0, borderline: 0.5, invalid: 0.0}
+training:
+  epochs: 20
+  batch_size: 32
+  encoder_lr: 0.00002
+  head_lr: 0.0001
+  md_fraction: 0.8
+  mlm_replay_fraction: 0.2
+  alpha_mlm_replay: 0.2
+  beta_periodic: 0.05
