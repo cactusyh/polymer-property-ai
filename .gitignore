@@ -52,6 +52,14 @@ phase6a_artifacts/
 *.feather
 *.safetensors
 bulk_md_*/
+phase6d_runs/
+phase6d_logs/
+phase6d_checkpoints/
+phase6d_artifacts/queue_state*.json
+phase6d_artifacts/scheduler.lock
+phase6d_artifacts/*.lammpstrj
+phase6d_artifacts/*.restart
+phase6d_artifacts/*.data
 *.lammpstrj
 *.dcd
 *.xtc
