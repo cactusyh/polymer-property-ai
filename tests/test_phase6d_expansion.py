@@ -32,6 +32,16 @@ class Phase6DExpansionTests(unittest.TestCase):
         self.assertEqual(audit["status"], "PASS")
         self.assertEqual(audit["locked_holdout_exclusion"], "PASS")
 
+    def test_pilot_is_four_distinct_qc_pass_systems(self):
+        result = json.loads((self.artifacts / "phase6d_pilot_results.v1.json").read_text())
+        selection = json.loads((self.artifacts / "phase6d_pilot_selection.v1.json").read_text())
+        self.assertEqual(result["pilot_status"], "PASS")
+        self.assertEqual(len(result["candidates"]), 4)
+        self.assertEqual(result["descriptor_coverage"], 1.0)
+        self.assertEqual(result["checkpoint_resume"]["status"], "PASS")
+        self.assertEqual(len({candidate["chemical_cluster"] for candidate in selection["candidates"]}), 4)
+        self.assertTrue(all(candidate["status"] == "COMPLETE_QC_PASS" for candidate in result["candidates"]))
+
 
 if __name__ == "__main__":
     unittest.main()

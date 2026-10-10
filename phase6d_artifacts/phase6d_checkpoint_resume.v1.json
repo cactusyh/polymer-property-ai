@@ -1,0 +1,17 @@
+{
+  "command": "bash /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/scripts/run_bulk_lammps_kokkos.sh resume_test.in /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/phase6d_runs/pilot/poly_98bc13bed4455c1f/600K/resume_test 0",
+  "ended_at_utc": "2026-10-10T16:15:37+00:00",
+  "gpu_index": 0,
+  "input_sha256": "c453a71c8e5a917f6c6619c29e2b8a0c2f99faee650bff0f61591f88e2e90922",
+  "polymer_id": "poly_98bc13bed4455c1f",
+  "resumed_checkpoint": "phase6d_runs/pilot/poly_98bc13bed4455c1f/600K/resume_test/resume_test.restart",
+  "resumed_checkpoint_sha256": "5f7afc502eb8931009728d78c80291de057f551fdcf2a907cdf3dc40f6e9a9a4",
+  "returncode": 0,
+  "schema_version": "phase6d.checkpoint_resume.v1",
+  "source_checkpoint": "phase6d_runs/pilot/poly_98bc13bed4455c1f/600K/production_600K.restart",
+  "source_checkpoint_sha256": "c27151d104e5e891ddc2f6c83b5538253ccf2be6a6f104e069e6badfa8a8a565",
+  "started_at_utc": "2026-10-10T16:15:31+00:00",
+  "status": "PASS",
+  "temperature_K": 600,
+  "wall_time_seconds": 6.589720964431763
+}

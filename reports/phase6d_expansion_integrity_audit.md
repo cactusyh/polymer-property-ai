@@ -2,7 +2,7 @@
 
 {
   "candidate_count": 128,
-  "created_at_utc": "2026-10-10T12:44:18+00:00",
+  "created_at_utc": "2026-10-10T16:25:04+00:00",
   "descriptor_provenance_required": true,
   "errors": {
     "descriptor_rows_without_qc": [],
@@ -10,13 +10,14 @@
     "locked_holdout_simulated": [],
     "manifest_hash_mismatch": [],
     "missing_explicit_status": [],
+    "qc_rows_without_descriptor": [],
     "wrong_identity_rows": []
   },
   "expected_registry_rows": 512,
   "locked_holdout_exclusion": "PASS",
   "manifest_sha256": "a18588e16d702fba82bead7128e4aa808ffe4f9169cdc79c6a0805b84e488509",
   "registry_rows": 512,
-  "registry_sha256": "dc322dfe7db793fdef3e375efbb9907a073dda3a85b7ce764b2071a796750c74",
+  "registry_sha256": "5235b3a1a957ca703a9c547a65d9e04caa2ab4c6a8fd7c7883addb45048a08f7",
   "schema_version": "phase6d.integrity_audit.v1",
   "status": "PASS"
 }

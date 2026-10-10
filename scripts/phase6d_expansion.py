@@ -524,7 +524,7 @@ def extract_descriptors() -> None:
     registry = read_csv(ART / "bulk_md_expansion_registry.v1.csv")
     records: dict[tuple[str, int], dict] = {}
     for row in registry:
-        if row.get("qc_status") not in {"PASS", "WARN"} or not row.get("provenance"):
+        if row.get("qc_status") not in {"PASS", "WARN", "COMPLETE_QC_PASS", "COMPLETE_QC_WARN"} or not row.get("provenance"):
             continue
         qc_path = ROOT / row["provenance"]
         if qc_path.is_dir():
@@ -575,6 +575,7 @@ def extract_descriptors() -> None:
 def integrity_audit() -> None:
     validate_manifest()
     registry = read_csv(ART / "bulk_md_expansion_registry.v1.csv")
+    descriptors = read_csv(ART / "bulk_md_expansion_descriptors.v1.csv") if (ART / "bulk_md_expansion_descriptors.v1.csv").exists() else []
     selected = read_csv(ART / "expansion_selected_candidates.v1.csv")
     expansion_manifest_path = ART / "bulk_md_expansion_manifest.v1.json"
     expansion_manifest = json.loads(expansion_manifest_path.read_text(encoding="utf-8")) if expansion_manifest_path.exists() else {}
@@ -586,7 +587,8 @@ def integrity_audit() -> None:
         "locked_holdout_simulated": sorted(locked & selected_ids),
         "duplicate_polymer_temperature_pairs": duplicate_pairs,
         "wrong_identity_rows": sorted({row["polymer_id"] for row in registry} - selected_ids),
-        "descriptor_rows_without_qc": [],
+        "descriptor_rows_without_qc": sorted({(row["polymer_id"], row["temperature_K"]) for row in descriptors} - {(row["polymer_id"], row["temperature_K"]) for row in registry if row["qc_status"] == "COMPLETE_QC_PASS"}),
+        "qc_rows_without_descriptor": sorted({(row["polymer_id"], row["temperature_K"]) for row in registry if row["qc_status"] == "COMPLETE_QC_PASS"} - {(row["polymer_id"], row["temperature_K"]) for row in descriptors}),
         "missing_explicit_status": sorted(row["polymer_id"] for row in registry if not row["simulation_status"] or not row["qc_status"]),
         "manifest_hash_mismatch": [] if expansion_manifest.get("candidate_manifest_sha256") == sha256_file(ART / "expansion_candidate_manifest.v1.json") and expansion_manifest.get("registry_sha256") == sha256_file(ART / "bulk_md_expansion_registry.v1.csv") else ["bulk_md_expansion_manifest.v1.json"],
     }
@@ -609,11 +611,10 @@ def integrity_audit() -> None:
     )
     (REPORTS / "phase6d_expansion_qc_report.md").write_text(
         "# Phase 6D expansion QC report\n\n"
-        "The append-only registry is initialized with explicit `PENDING_PILOT` and "
-        "`NOT_RUN` statuses. No descriptor is admitted until a temperature-specific "
+        "The append-only registry records explicit simulation, QC and descriptor statuses. No descriptor is admitted until a temperature-specific "
         "QC pass supplies source hashes and provenance. The registry currently has "
-        f"{len(selected)} candidates and {len(registry)} polymer-temperature rows; "
-        "zero simulations have launched.\n\n" + json.dumps(audit, indent=2, sort_keys=True) + "\n",
+        f"{len(selected)} candidates and {len(registry)} polymer-temperature rows, with "
+        f"{sum(row['simulation_status'] == 'COMPLETE_QC_PASS' for row in registry)} complete pilot rows.\n\n" + json.dumps(audit, indent=2, sort_keys=True) + "\n",
         encoding="utf-8",
     )
 

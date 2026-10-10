@@ -1,0 +1,1049 @@
+{
+  "candidate_manifest_sha256": "a18588e16d702fba82bead7128e4aa808ffe4f9169cdc79c6a0805b84e488509",
+  "candidates": [
+    {
+      "chemical_cluster": 6,
+      "cross_temperature_qc": {
+        "density_increases_on_cooling": true,
+        "missing_temperatures_K": [],
+        "volume_decreases_on_cooling": true
+      },
+      "descriptor_status": "READY",
+      "gpu_index": 0,
+      "polymer_id": "poly_98bc13bed4455c1f",
+      "retries": 0,
+      "stage_records": {
+        "300": [
+          {
+            "checkpoint": "phase6d_runs/pilot/poly_98bc13bed4455c1f/300K/equil_300K_01.restart",
+            "checkpoint_sha256": "bf89edee6d6677543ad792a56839f9f0c5a5dcddcb177c68966de1e2a1e2f8d4",
+            "command": "bash /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/scripts/run_bulk_lammps_kokkos.sh in.equil_300K_01 /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/phase6d_runs/pilot/poly_98bc13bed4455c1f/300K 0",
+            "complete": true,
+            "end_time_utc": "2026-10-10T14:49:07+00:00",
+            "gpu": 0,
+            "input_sha256": "c0c54193f769db5df63acaa5c7ae8791ad8b7fe0f732c6eee556a201a810079f",
+            "returncode": 0,
+            "stage_name": "in.equil_300K_01",
+            "start_time_utc": "2026-10-10T14:42:13+00:00",
+            "wall_time_seconds": 414.3887867927551
+          },
+          {
+            "checkpoint": "phase6d_runs/pilot/poly_98bc13bed4455c1f/300K/production_300K.restart",
+            "checkpoint_sha256": "d0e70b0770a1d2bdf55fb78d27bb8c9756fce40d302ff4bb396cddbeb033272e",
+            "command": "bash /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/scripts/run_bulk_lammps_kokkos.sh in.production_300K_200ps /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/phase6d_runs/pilot/poly_98bc13bed4455c1f/300K 0",
+            "complete": true,
+            "end_time_utc": "2026-10-10T15:02:51+00:00",
+            "gpu": 0,
+            "input_sha256": "e06ada967f58543ffd8a01eaf3efd789711bed3c21285d57012a1660fa172098",
+            "returncode": 0,
+            "stage_name": "in.production_300K_200ps",
+            "start_time_utc": "2026-10-10T14:49:07+00:00",
+            "wall_time_seconds": 823.927921295166
+          }
+        ],
+        "400": [
+          {
+            "checkpoint": "phase6d_runs/pilot/poly_98bc13bed4455c1f/400K/equil_400K_01.restart",
+            "checkpoint_sha256": "9d0e9ff317d822e3d73f549f6493c9b0007a00e5472ffef6389c85180993c3e3",
+            "command": "bash /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/scripts/run_bulk_lammps_kokkos.sh in.equil_400K_01 /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/phase6d_runs/pilot/poly_98bc13bed4455c1f/400K 0",
+            "complete": true,
+            "end_time_utc": "2026-10-10T14:28:15+00:00",
+            "gpu": 0,
+            "input_sha256": "17bb9fe0bf4e4931b8ec65881b41e1184f43aa06d124405425e4d3c5c48b9359",
+            "returncode": 0,
+            "stage_name": "in.equil_400K_01",
+            "start_time_utc": "2026-10-10T14:21:15+00:00",
+            "wall_time_seconds": 420.21898651123047
+          },
+          {
+            "checkpoint": "phase6d_runs/pilot/poly_98bc13bed4455c1f/400K/production_400K.restart",
+            "checkpoint_sha256": "4583fd2fdbe21b101d57f1489c086a90a43561941de68ef37349924115a53d2c",
+            "command": "bash /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/scripts/run_bulk_lammps_kokkos.sh in.production_400K_200ps /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/phase6d_runs/pilot/poly_98bc13bed4455c1f/400K 0",
+            "complete": true,
+            "end_time_utc": "2026-10-10T14:42:13+00:00",
+            "gpu": 0,
+            "input_sha256": "5767017f115818d6ada502e7777cc997969d29258b7ac3b0f533e6865456009f",
+            "returncode": 0,
+            "stage_name": "in.production_400K_200ps",
+            "start_time_utc": "2026-10-10T14:28:15+00:00",
+            "wall_time_seconds": 837.4284591674805
+          }
+        ],
+        "500": [
+          {
+            "checkpoint": "phase6d_runs/pilot/poly_98bc13bed4455c1f/500K/equil_500K_01.restart",
+            "checkpoint_sha256": "591cc4273d5ad57eec188d01ecd86c984d8cbfebf808982aaa457cabdca5b29f",
+            "command": "bash /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/scripts/run_bulk_lammps_kokkos.sh in.equil_500K_01 /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/phase6d_runs/pilot/poly_98bc13bed4455c1f/500K 0",
+            "complete": true,
+            "end_time_utc": "2026-10-10T14:07:09+00:00",
+            "gpu": 0,
+            "input_sha256": "61cfb2c09ac6752a8cac780837f20d7e06bab451f020ad49bef782cfc672497b",
+            "returncode": 0,
+            "stage_name": "in.equil_500K_01",
+            "start_time_utc": "2026-10-10T14:00:07+00:00",
+            "wall_time_seconds": 422.1865494251251
+          },
+          {
+            "checkpoint": "phase6d_runs/pilot/poly_98bc13bed4455c1f/500K/production_500K.restart",
+            "checkpoint_sha256": "19fb72040485109b75da4ef9e02ec934ae03aee2913bfcc6ceb47593b18a321b",
+            "command": "bash /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/scripts/run_bulk_lammps_kokkos.sh in.production_500K_200ps /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/phase6d_runs/pilot/poly_98bc13bed4455c1f/500K 0",
+            "complete": true,
+            "end_time_utc": "2026-10-10T14:21:14+00:00",
+            "gpu": 0,
+            "input_sha256": "237fd94cd65da4f2496acad89406bc5e2481670b13ab48a11cd9eafe849fd8f3",
+            "returncode": 0,
+            "stage_name": "in.production_500K_200ps",
+            "start_time_utc": "2026-10-10T14:07:09+00:00",
+            "wall_time_seconds": 845.595146894455
+          }
+        ],
+        "600": [
+          {
+            "checkpoint": "phase6d_runs/pilot/poly_98bc13bed4455c1f/600K/npt_01.restart",
+            "checkpoint_sha256": "31ae5fe499f5d8c9caedeeca2bfe3168fa9a2861331335a0b25efc62fc8d3119",
+            "command": "bash /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/scripts/run_bulk_lammps_kokkos.sh in.min_nvt_npt01 /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/phase6d_runs/pilot/poly_98bc13bed4455c1f/600K 0",
+            "complete": true,
+            "end_time_utc": "2026-10-10T13:20:15+00:00",
+            "gpu": 0,
+            "input_sha256": "407c8412ac432d671a45fe5fd3ff0b4870976a1c934c0ae9fa4dcc902dfa950b",
+            "returncode": 0,
+            "stage_name": "in.min_nvt_npt01",
+            "start_time_utc": "2026-10-10T13:13:26+00:00",
+            "wall_time_seconds": 408.961608171463
+          },
+          {
+            "checkpoint": "phase6d_runs/pilot/poly_98bc13bed4455c1f/600K/npt_02.restart",
+            "checkpoint_sha256": "dfaa4392e82cc31e30a22e7b8afb50406cc56cbcf3a4d7d56dfc086f6a08dffe",
+            "command": "bash /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/scripts/run_bulk_lammps_kokkos.sh in.npt02 /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/phase6d_runs/pilot/poly_98bc13bed4455c1f/600K 0",
+            "complete": true,
+            "end_time_utc": "2026-10-10T13:27:11+00:00",
+            "gpu": 0,
+            "input_sha256": "dcaf59e0130afc3e300ff02345dd8023b8f12d54cd2517916f7d3744c6c8aad7",
+            "returncode": 0,
+            "stage_name": "in.npt02",
+            "start_time_utc": "2026-10-10T13:20:15+00:00",
+            "wall_time_seconds": 415.46131229400635
+          },
+          {
+            "checkpoint": "phase6d_runs/pilot/poly_98bc13bed4455c1f/600K/production_600K.restart",
+            "checkpoint_sha256": "c27151d104e5e891ddc2f6c83b5538253ccf2be6a6f104e069e6badfa8a8a565",
+            "command": "bash /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/scripts/run_bulk_lammps_kokkos.sh in.production_600K_200ps /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/phase6d_runs/pilot/poly_98bc13bed4455c1f/600K 0",
+            "complete": true,
+            "end_time_utc": "2026-10-10T13:40:55+00:00",
+            "gpu": 0,
+            "input_sha256": "6d0b6605af914b1777d20a00ef163dd6676b58c82a3cf0bf7554e8e684e7be5a",
+            "returncode": 0,
+            "stage_name": "in.production_600K_200ps",
+            "start_time_utc": "2026-10-10T13:27:11+00:00",
+            "wall_time_seconds": 824.6878528594971
+          }
+        ]
+      },
+      "status": "COMPLETE_QC_PASS",
+      "temperature_wall_time_seconds": {
+        "300": 1238.3167080879211,
+        "400": 1257.647445678711,
+        "500": 1267.78169631958,
+        "600": 1649.1107733249664
+      },
+      "temperatures": {
+        "300": {
+          "checkpoint": "phase6d_runs/pilot/poly_98bc13bed4455c1f/300K/production_300K.restart",
+          "checkpoint_sha256": "d0e70b0770a1d2bdf55fb78d27bb8c9756fce40d302ff4bb396cddbeb033272e",
+          "density": 1.1479705313432833,
+          "equilibration_time_ps": 100,
+          "input_sha256": "e06ada967f58543ffd8a01eaf3efd789711bed3c21285d57012a1660fa172098",
+          "production_time_ps": 200,
+          "status": "COMPLETE_QC_PASS",
+          "temperature_mean": 299.8727952238806,
+          "topology": {
+            "atom_count": 8622,
+            "molecule_count": 6
+          },
+          "valid_frame_count": 20,
+          "volume": 84060.42130845776,
+          "wall_time_seconds": 823.927921295166
+        },
+        "400": {
+          "checkpoint": "phase6d_runs/pilot/poly_98bc13bed4455c1f/400K/production_400K.restart",
+          "checkpoint_sha256": "4583fd2fdbe21b101d57f1489c086a90a43561941de68ef37349924115a53d2c",
+          "density": 1.0571316064676615,
+          "equilibration_time_ps": 100,
+          "input_sha256": "5767017f115818d6ada502e7777cc997969d29258b7ac3b0f533e6865456009f",
+          "production_time_ps": 200,
+          "status": "COMPLETE_QC_PASS",
+          "temperature_mean": 399.9844960696519,
+          "topology": {
+            "atom_count": 8622,
+            "molecule_count": 6
+          },
+          "valid_frame_count": 20,
+          "volume": 91285.98641293528,
+          "wall_time_seconds": 837.4284591674805
+        },
+        "500": {
+          "checkpoint": "phase6d_runs/pilot/poly_98bc13bed4455c1f/500K/production_500K.restart",
+          "checkpoint_sha256": "19fb72040485109b75da4ef9e02ec934ae03aee2913bfcc6ceb47593b18a321b",
+          "density": 0.9674027687064679,
+          "equilibration_time_ps": 100,
+          "input_sha256": "237fd94cd65da4f2496acad89406bc5e2481670b13ab48a11cd9eafe849fd8f3",
+          "production_time_ps": 200,
+          "status": "COMPLETE_QC_PASS",
+          "temperature_mean": 500.04752278606986,
+          "topology": {
+            "atom_count": 8622,
+            "molecule_count": 6
+          },
+          "valid_frame_count": 20,
+          "volume": 99756.3303432836,
+          "wall_time_seconds": 845.595146894455
+        },
+        "600": {
+          "checkpoint": "phase6d_runs/pilot/poly_98bc13bed4455c1f/600K/production_600K.restart",
+          "checkpoint_sha256": "c27151d104e5e891ddc2f6c83b5538253ccf2be6a6f104e069e6badfa8a8a565",
+          "density": 0.8771074570646767,
+          "equilibration_time_ps": 200,
+          "input_sha256": "6d0b6605af914b1777d20a00ef163dd6676b58c82a3cf0bf7554e8e684e7be5a",
+          "production_time_ps": 200,
+          "status": "COMPLETE_QC_PASS",
+          "temperature_mean": 599.3809405472637,
+          "topology": {
+            "atom_count": 8622,
+            "molecule_count": 6
+          },
+          "valid_frame_count": 20,
+          "volume": 110036.88293532335,
+          "wall_time_seconds": 824.6878528594971
+        }
+      }
+    },
+    {
+      "chemical_cluster": 1720,
+      "cross_temperature_qc": {
+        "density_increases_on_cooling": true,
+        "missing_temperatures_K": [],
+        "volume_decreases_on_cooling": true
+      },
+      "descriptor_status": "READY",
+      "gpu_index": 1,
+      "polymer_id": "poly_db696efd35d8326b",
+      "retries": 0,
+      "stage_records": {
+        "300": [
+          {
+            "checkpoint": "phase6d_runs/pilot/poly_db696efd35d8326b/300K/equil_300K_01.restart",
+            "checkpoint_sha256": "39f5927a2ed56944721baff52c09cf9f53b6d60cbbe88102d49c97adba9e95ed",
+            "command": "bash /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/scripts/run_bulk_lammps_kokkos.sh in.equil_300K_01 /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/phase6d_runs/pilot/poly_db696efd35d8326b/300K 1",
+            "complete": true,
+            "end_time_utc": "2026-10-10T15:53:15+00:00",
+            "gpu": 1,
+            "input_sha256": "be87a066f03399585328283120f23e40c68f223a022892bff3753c4a8e1c4b66",
+            "returncode": 0,
+            "stage_name": "in.equil_300K_01",
+            "start_time_utc": "2026-10-10T15:46:43+00:00",
+            "wall_time_seconds": 391.8211507797241
+          },
+          {
+            "checkpoint": "phase6d_runs/pilot/poly_db696efd35d8326b/300K/production_300K.restart",
+            "checkpoint_sha256": "96877ac66a9cf6078ff4d39c38593e81b3cfd4d01872a5bcc53f4a45a69e7dd3",
+            "command": "bash /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/scripts/run_bulk_lammps_kokkos.sh in.production_300K_200ps /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/phase6d_runs/pilot/poly_db696efd35d8326b/300K 1",
+            "complete": true,
+            "end_time_utc": "2026-10-10T16:06:15+00:00",
+            "gpu": 1,
+            "input_sha256": "480b1ce51dbd4443a2d012cdec9abc23f75c66fd169d0cf3457fdf11f22401ff",
+            "returncode": 0,
+            "stage_name": "in.production_300K_200ps",
+            "start_time_utc": "2026-10-10T15:53:15+00:00",
+            "wall_time_seconds": 780.4316313266754
+          }
+        ],
+        "400": [
+          {
+            "checkpoint": "phase6d_runs/pilot/poly_db696efd35d8326b/400K/equil_400K_01.restart",
+            "checkpoint_sha256": "f80253dc91d0c96d9cbee0d90515b4d65efc0e87b4c1744fa6c508a9e520f0af",
+            "command": "bash /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/scripts/run_bulk_lammps_kokkos.sh in.equil_400K_01 /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/phase6d_runs/pilot/poly_db696efd35d8326b/400K 1",
+            "complete": true,
+            "end_time_utc": "2026-10-10T15:33:14+00:00",
+            "gpu": 1,
+            "input_sha256": "b8e113c73b0c19c71b32f6d667e47d953087b4795601913f1f54850052d40298",
+            "returncode": 0,
+            "stage_name": "in.equil_400K_01",
+            "start_time_utc": "2026-10-10T15:26:30+00:00",
+            "wall_time_seconds": 403.8004596233368
+          },
+          {
+            "checkpoint": "phase6d_runs/pilot/poly_db696efd35d8326b/400K/production_400K.restart",
+            "checkpoint_sha256": "3283b6399dfd19073fa07d4a0f221aac0ff0a7978d13d1fb90920952bf1c2dec",
+            "command": "bash /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/scripts/run_bulk_lammps_kokkos.sh in.production_400K_200ps /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/phase6d_runs/pilot/poly_db696efd35d8326b/400K 1",
+            "complete": true,
+            "end_time_utc": "2026-10-10T15:46:42+00:00",
+            "gpu": 1,
+            "input_sha256": "5353993ec507203886c865d84467293a7b5a8b01567c9f3f60565c485e31e75f",
+            "returncode": 0,
+            "stage_name": "in.production_400K_200ps",
+            "start_time_utc": "2026-10-10T15:33:14+00:00",
+            "wall_time_seconds": 808.2350323200226
+          }
+        ],
+        "500": [
+          {
+            "checkpoint": "phase6d_runs/pilot/poly_db696efd35d8326b/500K/equil_500K_01.restart",
+            "checkpoint_sha256": "99f67ef5363d7ba3b0bffc02cbe7907677b29dafa77cbfaaae29f9702bfd47b6",
+            "command": "bash /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/scripts/run_bulk_lammps_kokkos.sh in.equil_500K_01 /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/phase6d_runs/pilot/poly_db696efd35d8326b/500K 1",
+            "complete": true,
+            "end_time_utc": "2026-10-10T15:12:53+00:00",
+            "gpu": 1,
+            "input_sha256": "6a6d16b1eb380f9b268d2b2d851d3fc9f6f51507cd79701b02e618eda6ecdddb",
+            "returncode": 0,
+            "stage_name": "in.equil_500K_01",
+            "start_time_utc": "2026-10-10T15:06:03+00:00",
+            "wall_time_seconds": 410.32685375213623
+          },
+          {
+            "checkpoint": "phase6d_runs/pilot/poly_db696efd35d8326b/500K/production_500K.restart",
+            "checkpoint_sha256": "e574f32f26ac066f7cdfa51977a6ead1d351c7a73fc53aaec9d4195f4af3617f",
+            "command": "bash /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/scripts/run_bulk_lammps_kokkos.sh in.production_500K_200ps /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/phase6d_runs/pilot/poly_db696efd35d8326b/500K 1",
+            "complete": true,
+            "end_time_utc": "2026-10-10T15:26:30+00:00",
+            "gpu": 1,
+            "input_sha256": "1f9145d72052e27de3c373976306823c49098a7b05b835ca384d0a44478cf987",
+            "returncode": 0,
+            "stage_name": "in.production_500K_200ps",
+            "start_time_utc": "2026-10-10T15:12:53+00:00",
+            "wall_time_seconds": 816.7463927268982
+          }
+        ],
+        "600": [
+          {
+            "checkpoint": "phase6d_runs/pilot/poly_db696efd35d8326b/600K/npt_01.restart",
+            "checkpoint_sha256": "18baf6dba4a1f6b1f6f947c4c92969dc39693a6a9e8296591ef6ea874453bdb6",
+            "command": "bash /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/scripts/run_bulk_lammps_kokkos.sh in.min_nvt_npt01 /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/phase6d_runs/pilot/poly_db696efd35d8326b/600K 1",
+            "complete": true,
+            "end_time_utc": "2026-10-10T13:20:06+00:00",
+            "gpu": 1,
+            "input_sha256": "407c8412ac432d671a45fe5fd3ff0b4870976a1c934c0ae9fa4dcc902dfa950b",
+            "returncode": 0,
+            "stage_name": "in.min_nvt_npt01",
+            "start_time_utc": "2026-10-10T13:13:26+00:00",
+            "wall_time_seconds": 400.0398199558258
+          },
+          {
+            "checkpoint": "phase6d_runs/pilot/poly_db696efd35d8326b/600K/npt_02.restart",
+            "checkpoint_sha256": "2290f025e5e3d7648ec1d8a96fbfdb06d1a748374cfefb188ae03ad1b7ad788b",
+            "command": "bash /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/scripts/run_bulk_lammps_kokkos.sh in.npt02 /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/phase6d_runs/pilot/poly_db696efd35d8326b/600K 1",
+            "complete": true,
+            "end_time_utc": "2026-10-10T13:26:58+00:00",
+            "gpu": 1,
+            "input_sha256": "dcaf59e0130afc3e300ff02345dd8023b8f12d54cd2517916f7d3744c6c8aad7",
+            "returncode": 0,
+            "stage_name": "in.npt02",
+            "start_time_utc": "2026-10-10T13:20:06+00:00",
+            "wall_time_seconds": 411.62197709083557
+          },
+          {
+            "checkpoint": "phase6d_runs/pilot/poly_db696efd35d8326b/600K/production_600K.restart",
+            "checkpoint_sha256": "7ec3cd1cf99095e0c70f8a51a5259b87bae44adf635353d6c5644d17632814cf",
+            "command": "bash /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/scripts/run_bulk_lammps_kokkos.sh in.production_600K_200ps /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/phase6d_runs/pilot/poly_db696efd35d8326b/600K 1",
+            "complete": true,
+            "end_time_utc": "2026-10-10T13:40:31+00:00",
+            "gpu": 1,
+            "input_sha256": "bbbfbbe1a89abc4a18fcf526a954bf5c850c3f02585a7d102db0af64ab39eb6f",
+            "returncode": 0,
+            "stage_name": "in.production_600K_200ps",
+            "start_time_utc": "2026-10-10T13:26:58+00:00",
+            "wall_time_seconds": 813.165022611618
+          }
+        ]
+      },
+      "status": "COMPLETE_QC_PASS",
+      "temperature_wall_time_seconds": {
+        "300": 1172.2527821063995,
+        "400": 1212.0354919433594,
+        "500": 1227.0732464790344,
+        "600": 1624.8268196582794
+      },
+      "temperatures": {
+        "300": {
+          "checkpoint": "phase6d_runs/pilot/poly_db696efd35d8326b/300K/production_300K.restart",
+          "checkpoint_sha256": "96877ac66a9cf6078ff4d39c38593e81b3cfd4d01872a5bcc53f4a45a69e7dd3",
+          "density": 1.1793753756218903,
+          "equilibration_time_ps": 100,
+          "input_sha256": "480b1ce51dbd4443a2d012cdec9abc23f75c66fd169d0cf3457fdf11f22401ff",
+          "production_time_ps": 200,
+          "status": "COMPLETE_QC_PASS",
+          "temperature_mean": 300.1236690547263,
+          "topology": {
+            "atom_count": 8477,
+            "molecule_count": 7
+          },
+          "valid_frame_count": 20,
+          "volume": 90906.05341791052,
+          "wall_time_seconds": 780.4316313266754
+        },
+        "400": {
+          "checkpoint": "phase6d_runs/pilot/poly_db696efd35d8326b/400K/production_400K.restart",
+          "checkpoint_sha256": "3283b6399dfd19073fa07d4a0f221aac0ff0a7978d13d1fb90920952bf1c2dec",
+          "density": 1.1257364393034826,
+          "equilibration_time_ps": 100,
+          "input_sha256": "5353993ec507203886c865d84467293a7b5a8b01567c9f3f60565c485e31e75f",
+          "production_time_ps": 200,
+          "status": "COMPLETE_QC_PASS",
+          "temperature_mean": 399.95691641791063,
+          "topology": {
+            "atom_count": 8477,
+            "molecule_count": 7
+          },
+          "valid_frame_count": 20,
+          "volume": 95238.36039800997,
+          "wall_time_seconds": 808.2350323200226
+        },
+        "500": {
+          "checkpoint": "phase6d_runs/pilot/poly_db696efd35d8326b/500K/production_500K.restart",
+          "checkpoint_sha256": "e574f32f26ac066f7cdfa51977a6ead1d351c7a73fc53aaec9d4195f4af3617f",
+          "density": 1.0640975358208957,
+          "equilibration_time_ps": 100,
+          "input_sha256": "1f9145d72052e27de3c373976306823c49098a7b05b835ca384d0a44478cf987",
+          "production_time_ps": 200,
+          "status": "COMPLETE_QC_PASS",
+          "temperature_mean": 500.074800646766,
+          "topology": {
+            "atom_count": 8477,
+            "molecule_count": 7
+          },
+          "valid_frame_count": 20,
+          "volume": 100761.15708457712,
+          "wall_time_seconds": 816.7463927268982
+        },
+        "600": {
+          "checkpoint": "phase6d_runs/pilot/poly_db696efd35d8326b/600K/production_600K.restart",
+          "checkpoint_sha256": "7ec3cd1cf99095e0c70f8a51a5259b87bae44adf635353d6c5644d17632814cf",
+          "density": 0.9788516367661694,
+          "equilibration_time_ps": 200,
+          "input_sha256": "bbbfbbe1a89abc4a18fcf526a954bf5c850c3f02585a7d102db0af64ab39eb6f",
+          "production_time_ps": 200,
+          "status": "COMPLETE_QC_PASS",
+          "temperature_mean": 599.9084132835821,
+          "topology": {
+            "atom_count": 8477,
+            "molecule_count": 7
+          },
+          "valid_frame_count": 20,
+          "volume": 109537.1368656716,
+          "wall_time_seconds": 813.165022611618
+        }
+      }
+    },
+    {
+      "chemical_cluster": 1823,
+      "cross_temperature_qc": {
+        "density_increases_on_cooling": true,
+        "missing_temperatures_K": [],
+        "volume_decreases_on_cooling": true
+      },
+      "descriptor_status": "READY",
+      "gpu_index": 2,
+      "polymer_id": "poly_a5cce35c85e525e3",
+      "retries": 0,
+      "stage_records": {
+        "300": [
+          {
+            "checkpoint": "phase6d_runs/pilot/poly_a5cce35c85e525e3/300K/equil_300K_01.restart",
+            "checkpoint_sha256": "b46dc7b4ebf869ba71dcac7e7ed53cea7506d8b65a4a101fefc025f024480f0a",
+            "command": "bash /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/scripts/run_bulk_lammps_kokkos.sh in.equil_300K_01 /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/phase6d_runs/pilot/poly_a5cce35c85e525e3/300K 2",
+            "complete": true,
+            "end_time_utc": "2026-10-10T15:56:13+00:00",
+            "gpu": 2,
+            "input_sha256": "da7f1bf583033087416b4bef452981d78f4174794881d8b6e8bbd13cce0422f1",
+            "returncode": 0,
+            "stage_name": "in.equil_300K_01",
+            "start_time_utc": "2026-10-10T15:49:14+00:00",
+            "wall_time_seconds": 419.56132459640503
+          },
+          {
+            "checkpoint": "phase6d_runs/pilot/poly_a5cce35c85e525e3/300K/production_300K.restart",
+            "checkpoint_sha256": "8868699057f6090e2ff7538297519d531b31c78e9082ab922f4257ab9e748202",
+            "command": "bash /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/scripts/run_bulk_lammps_kokkos.sh in.production_300K_200ps /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/phase6d_runs/pilot/poly_a5cce35c85e525e3/300K 2",
+            "complete": true,
+            "end_time_utc": "2026-10-10T16:10:18+00:00",
+            "gpu": 2,
+            "input_sha256": "4daf0ce314a9eaef78ca7bec273f42ca1d66f88e03deb58b21d20be18cdf5a9d",
+            "returncode": 0,
+            "stage_name": "in.production_300K_200ps",
+            "start_time_utc": "2026-10-10T15:56:13+00:00",
+            "wall_time_seconds": 844.4304094314575
+          }
+        ],
+        "400": [
+          {
+            "checkpoint": "phase6d_runs/pilot/poly_a5cce35c85e525e3/400K/equil_400K_01.restart",
+            "checkpoint_sha256": "701e2a283125459995df2907ede8f290dc89557027361a9d97c347de16534cb3",
+            "command": "bash /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/scripts/run_bulk_lammps_kokkos.sh in.equil_400K_01 /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/phase6d_runs/pilot/poly_a5cce35c85e525e3/400K 2",
+            "complete": true,
+            "end_time_utc": "2026-10-10T15:34:53+00:00",
+            "gpu": 2,
+            "input_sha256": "43ab3766874b9db2c0075f570080cfedc808b43ff61d9d06e882a59e4aceeba0",
+            "returncode": 0,
+            "stage_name": "in.equil_400K_01",
+            "start_time_utc": "2026-10-10T15:27:41+00:00",
+            "wall_time_seconds": 431.8914325237274
+          },
+          {
+            "checkpoint": "phase6d_runs/pilot/poly_a5cce35c85e525e3/400K/production_400K.restart",
+            "checkpoint_sha256": "8f576e627fea36dc498f101edaf6fb29a5262c5779844796d16f1ea2618b7313",
+            "command": "bash /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/scripts/run_bulk_lammps_kokkos.sh in.production_400K_200ps /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/phase6d_runs/pilot/poly_a5cce35c85e525e3/400K 2",
+            "complete": true,
+            "end_time_utc": "2026-10-10T15:49:13+00:00",
+            "gpu": 2,
+            "input_sha256": "b605b98039613953b7ce40c99bd0ae2535829af7da9e82f6dca37842a6403b81",
+            "returncode": 0,
+            "stage_name": "in.production_400K_200ps",
+            "start_time_utc": "2026-10-10T15:34:53+00:00",
+            "wall_time_seconds": 860.1989336013794
+          }
+        ],
+        "500": [
+          {
+            "checkpoint": "phase6d_runs/pilot/poly_a5cce35c85e525e3/500K/equil_500K_01.restart",
+            "checkpoint_sha256": "83c108b5c1587b7a669e4c6f9c76d68d738c5214eb09fa9012fc88917d55442f",
+            "command": "bash /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/scripts/run_bulk_lammps_kokkos.sh in.equil_500K_01 /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/phase6d_runs/pilot/poly_a5cce35c85e525e3/500K 2",
+            "complete": true,
+            "end_time_utc": "2026-10-10T15:13:18+00:00",
+            "gpu": 2,
+            "input_sha256": "18fe86c0879145013c8812df2a2ad23985a48d9bbabffb0a7a3bbf9ca2f54e6e",
+            "returncode": 0,
+            "stage_name": "in.equil_500K_01",
+            "start_time_utc": "2026-10-10T15:06:03+00:00",
+            "wall_time_seconds": 434.99594354629517
+          },
+          {
+            "checkpoint": "phase6d_runs/pilot/poly_a5cce35c85e525e3/500K/production_500K.restart",
+            "checkpoint_sha256": "accdc936291bd87ddcfb18d4853c6a1386ec5ddc80330d684a845d5502564c5f",
+            "command": "bash /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/scripts/run_bulk_lammps_kokkos.sh in.production_500K_200ps /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/phase6d_runs/pilot/poly_a5cce35c85e525e3/500K 2",
+            "complete": true,
+            "end_time_utc": "2026-10-10T15:27:41+00:00",
+            "gpu": 2,
+            "input_sha256": "6255bb768c91cbd102f4ad2ff93be97c797c28b56e378fca0c6c38fc68f6f07e",
+            "returncode": 0,
+            "stage_name": "in.production_500K_200ps",
+            "start_time_utc": "2026-10-10T15:13:18+00:00",
+            "wall_time_seconds": 863.0969154834747
+          }
+        ],
+        "600": [
+          {
+            "checkpoint": "phase6d_runs/pilot/poly_a5cce35c85e525e3/600K/npt_01.restart",
+            "checkpoint_sha256": "2c053f040b35fca97a5332b248f7658e0185a1e55a63ac3c6bdebe43f6152dc8",
+            "command": "bash /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/scripts/run_bulk_lammps_kokkos.sh in.min_nvt_npt01 /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/phase6d_runs/pilot/poly_a5cce35c85e525e3/600K 2",
+            "complete": true,
+            "end_time_utc": "2026-10-10T13:20:35+00:00",
+            "gpu": 2,
+            "input_sha256": "407c8412ac432d671a45fe5fd3ff0b4870976a1c934c0ae9fa4dcc902dfa950b",
+            "returncode": 0,
+            "stage_name": "in.min_nvt_npt01",
+            "start_time_utc": "2026-10-10T13:13:26+00:00",
+            "wall_time_seconds": 428.787677526474
+          },
+          {
+            "checkpoint": "phase6d_runs/pilot/poly_a5cce35c85e525e3/600K/npt_02.restart",
+            "checkpoint_sha256": "4146146a45ac523883b5e5f2c71e775009c2bf48d8f4a1d7985d9d727a0db6a1",
+            "command": "bash /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/scripts/run_bulk_lammps_kokkos.sh in.npt02 /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/phase6d_runs/pilot/poly_a5cce35c85e525e3/600K 2",
+            "complete": true,
+            "end_time_utc": "2026-10-10T13:27:44+00:00",
+            "gpu": 2,
+            "input_sha256": "dcaf59e0130afc3e300ff02345dd8023b8f12d54cd2517916f7d3744c6c8aad7",
+            "returncode": 0,
+            "stage_name": "in.npt02",
+            "start_time_utc": "2026-10-10T13:20:35+00:00",
+            "wall_time_seconds": 428.9188561439514
+          },
+          {
+            "checkpoint": "phase6d_runs/pilot/poly_a5cce35c85e525e3/600K/production_600K.restart",
+            "checkpoint_sha256": "c904b739252424ff89917b0e3783f9ebf1bef899d928b7d2bc64a58f9986a3d3",
+            "command": "bash /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/scripts/run_bulk_lammps_kokkos.sh in.production_600K_200ps /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/phase6d_runs/pilot/poly_a5cce35c85e525e3/600K 2",
+            "complete": true,
+            "end_time_utc": "2026-10-10T13:42:02+00:00",
+            "gpu": 2,
+            "input_sha256": "c3b6d41b33f1b2daa8bfabc83073a895e183569da68636afd3f11a4a22dd9b33",
+            "returncode": 0,
+            "stage_name": "in.production_600K_200ps",
+            "start_time_utc": "2026-10-10T13:27:44+00:00",
+            "wall_time_seconds": 857.6187953948975
+          }
+        ]
+      },
+      "status": "COMPLETE_QC_PASS",
+      "temperature_wall_time_seconds": {
+        "300": 1263.9917340278625,
+        "400": 1292.0903661251068,
+        "500": 1298.09285902977,
+        "600": 1715.3253290653229
+      },
+      "temperatures": {
+        "300": {
+          "checkpoint": "phase6d_runs/pilot/poly_a5cce35c85e525e3/300K/production_300K.restart",
+          "checkpoint_sha256": "8868699057f6090e2ff7538297519d531b31c78e9082ab922f4257ab9e748202",
+          "density": 1.1543661965174132,
+          "equilibration_time_ps": 100,
+          "input_sha256": "4daf0ce314a9eaef78ca7bec273f42ca1d66f88e03deb58b21d20be18cdf5a9d",
+          "production_time_ps": 200,
+          "status": "COMPLETE_QC_PASS",
+          "temperature_mean": 300.01665313432846,
+          "topology": {
+            "atom_count": 8622,
+            "molecule_count": 6
+          },
+          "valid_frame_count": 20,
+          "volume": 83594.61773631838,
+          "wall_time_seconds": 844.4304094314575
+        },
+        "400": {
+          "checkpoint": "phase6d_runs/pilot/poly_a5cce35c85e525e3/400K/production_400K.restart",
+          "checkpoint_sha256": "8f576e627fea36dc498f101edaf6fb29a5262c5779844796d16f1ea2618b7313",
+          "density": 1.0639648348258708,
+          "equilibration_time_ps": 100,
+          "input_sha256": "b605b98039613953b7ce40c99bd0ae2535829af7da9e82f6dca37842a6403b81",
+          "production_time_ps": 200,
+          "status": "COMPLETE_QC_PASS",
+          "temperature_mean": 399.8365220895525,
+          "topology": {
+            "atom_count": 8622,
+            "molecule_count": 6
+          },
+          "valid_frame_count": 20,
+          "volume": 90700.41197014926,
+          "wall_time_seconds": 860.1989336013794
+        },
+        "500": {
+          "checkpoint": "phase6d_runs/pilot/poly_a5cce35c85e525e3/500K/production_500K.restart",
+          "checkpoint_sha256": "accdc936291bd87ddcfb18d4853c6a1386ec5ddc80330d684a845d5502564c5f",
+          "density": 0.9735850944776118,
+          "equilibration_time_ps": 100,
+          "input_sha256": "6255bb768c91cbd102f4ad2ff93be97c797c28b56e378fca0c6c38fc68f6f07e",
+          "production_time_ps": 200,
+          "status": "COMPLETE_QC_PASS",
+          "temperature_mean": 500.15497288557225,
+          "topology": {
+            "atom_count": 8622,
+            "molecule_count": 6
+          },
+          "valid_frame_count": 20,
+          "volume": 99123.20219900501,
+          "wall_time_seconds": 863.0969154834747
+        },
+        "600": {
+          "checkpoint": "phase6d_runs/pilot/poly_a5cce35c85e525e3/600K/production_600K.restart",
+          "checkpoint_sha256": "c904b739252424ff89917b0e3783f9ebf1bef899d928b7d2bc64a58f9986a3d3",
+          "density": 0.8820420585572145,
+          "equilibration_time_ps": 200,
+          "input_sha256": "c3b6d41b33f1b2daa8bfabc83073a895e183569da68636afd3f11a4a22dd9b33",
+          "production_time_ps": 200,
+          "status": "COMPLETE_QC_PASS",
+          "temperature_mean": 599.9365759701493,
+          "topology": {
+            "atom_count": 8622,
+            "molecule_count": 6
+          },
+          "valid_frame_count": 20,
+          "volume": 109424.16756218908,
+          "wall_time_seconds": 857.6187953948975
+        }
+      }
+    },
+    {
+      "chemical_cluster": 2241,
+      "cross_temperature_qc": {
+        "density_increases_on_cooling": true,
+        "missing_temperatures_K": [],
+        "volume_decreases_on_cooling": true
+      },
+      "descriptor_status": "READY",
+      "gpu_index": 3,
+      "polymer_id": "poly_df7c069ad0b2d467",
+      "retries": 0,
+      "stage_records": {
+        "300": [
+          {
+            "checkpoint": "phase6d_runs/pilot/poly_df7c069ad0b2d467/300K/equil_300K_01.restart",
+            "checkpoint_sha256": "16fdc215204b62527186ffaafdbf1ee1185d6cd19a9b7dfcf4b44db2a903782e",
+            "command": "bash /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/scripts/run_bulk_lammps_kokkos.sh in.equil_300K_01 /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/phase6d_runs/pilot/poly_df7c069ad0b2d467/300K 3",
+            "complete": true,
+            "end_time_utc": "2026-10-10T15:56:05+00:00",
+            "gpu": 3,
+            "input_sha256": "6a7e351cf34c9c512937f2fab05f8283bea1c2987194be3d5ebe37ba5e4b061f",
+            "returncode": 0,
+            "stage_name": "in.equil_300K_01",
+            "start_time_utc": "2026-10-10T15:49:11+00:00",
+            "wall_time_seconds": 414.29731130599976
+          },
+          {
+            "checkpoint": "phase6d_runs/pilot/poly_df7c069ad0b2d467/300K/production_300K.restart",
+            "checkpoint_sha256": "102a0112f5647b03181664e5872329f4612e9a85bf0ebaeef486ed467727df1a",
+            "command": "bash /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/scripts/run_bulk_lammps_kokkos.sh in.production_300K_200ps /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/phase6d_runs/pilot/poly_df7c069ad0b2d467/300K 3",
+            "complete": true,
+            "end_time_utc": "2026-10-10T16:09:53+00:00",
+            "gpu": 3,
+            "input_sha256": "79706ca03d22625e5db7fcd71610cb3b93e9af77524170be96cd310944f0cac8",
+            "returncode": 0,
+            "stage_name": "in.production_300K_200ps",
+            "start_time_utc": "2026-10-10T15:56:05+00:00",
+            "wall_time_seconds": 827.561327457428
+          }
+        ],
+        "400": [
+          {
+            "checkpoint": "phase6d_runs/pilot/poly_df7c069ad0b2d467/400K/equil_400K_01.restart",
+            "checkpoint_sha256": "b585b380eb170846e4f02d6e8830701d7ab4ee2a0e0c0343b4dc270f43546514",
+            "command": "bash /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/scripts/run_bulk_lammps_kokkos.sh in.equil_400K_01 /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/phase6d_runs/pilot/poly_df7c069ad0b2d467/400K 3",
+            "complete": true,
+            "end_time_utc": "2026-10-10T15:35:04+00:00",
+            "gpu": 3,
+            "input_sha256": "32cdee34d4861e7131a2b91cb9ff20aaa501264001b76bdc9335e34f1d8d546e",
+            "returncode": 0,
+            "stage_name": "in.equil_400K_01",
+            "start_time_utc": "2026-10-10T15:27:59+00:00",
+            "wall_time_seconds": 425.1989300251007
+          },
+          {
+            "checkpoint": "phase6d_runs/pilot/poly_df7c069ad0b2d467/400K/production_400K.restart",
+            "checkpoint_sha256": "2dc0be13b4dbbe4ab6d6c9f81cb130ca9fcb17b7f391e562d5f6c2d932fb3add",
+            "command": "bash /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/scripts/run_bulk_lammps_kokkos.sh in.production_400K_200ps /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/phase6d_runs/pilot/poly_df7c069ad0b2d467/400K 3",
+            "complete": true,
+            "end_time_utc": "2026-10-10T15:49:10+00:00",
+            "gpu": 3,
+            "input_sha256": "9f4f74d24e18c63b321cb6438279bb58e48a03e2d0733533ef48c8410563f8bc",
+            "returncode": 0,
+            "stage_name": "in.production_400K_200ps",
+            "start_time_utc": "2026-10-10T15:35:04+00:00",
+            "wall_time_seconds": 846.1337811946869
+          }
+        ],
+        "500": [
+          {
+            "checkpoint": "phase6d_runs/pilot/poly_df7c069ad0b2d467/500K/equil_500K_01.restart",
+            "checkpoint_sha256": "984a3c1b9f56efb2694a4044baa93d05b768e475f039a75d1fe1ea6ac73c66bd",
+            "command": "bash /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/scripts/run_bulk_lammps_kokkos.sh in.equil_500K_01 /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/phase6d_runs/pilot/poly_df7c069ad0b2d467/500K 3",
+            "complete": true,
+            "end_time_utc": "2026-10-10T15:13:23+00:00",
+            "gpu": 3,
+            "input_sha256": "a6144c49f28e55bcd19ab781301dae5ad810af1315052d49ab573a86e79e9359",
+            "returncode": 0,
+            "stage_name": "in.equil_500K_01",
+            "start_time_utc": "2026-10-10T15:06:03+00:00",
+            "wall_time_seconds": 439.63769698143005
+          },
+          {
+            "checkpoint": "phase6d_runs/pilot/poly_df7c069ad0b2d467/500K/production_500K.restart",
+            "checkpoint_sha256": "7d0d7eb549b57d0f8ddb995565e324db7bc0ff53f847860339e1d5825116d829",
+            "command": "bash /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/scripts/run_bulk_lammps_kokkos.sh in.production_500K_200ps /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/phase6d_runs/pilot/poly_df7c069ad0b2d467/500K 3",
+            "complete": true,
+            "end_time_utc": "2026-10-10T15:27:58+00:00",
+            "gpu": 3,
+            "input_sha256": "622b9fa22b238280a431f52725789faff72ced60cfbfc350cab0eff593bc5477",
+            "returncode": 0,
+            "stage_name": "in.production_500K_200ps",
+            "start_time_utc": "2026-10-10T15:13:23+00:00",
+            "wall_time_seconds": 875.7748403549194
+          }
+        ],
+        "600": [
+          {
+            "checkpoint": "phase6d_runs/pilot/poly_df7c069ad0b2d467/600K/npt_01.restart",
+            "checkpoint_sha256": "89049b32ade940843673f4fe1defcf4698b072ebdbfeede59ef0a6d4621d97f6",
+            "command": "bash /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/scripts/run_bulk_lammps_kokkos.sh in.min_nvt_npt01 /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/phase6d_runs/pilot/poly_df7c069ad0b2d467/600K 3",
+            "complete": true,
+            "end_time_utc": "2026-10-10T13:20:57+00:00",
+            "gpu": 3,
+            "input_sha256": "407c8412ac432d671a45fe5fd3ff0b4870976a1c934c0ae9fa4dcc902dfa950b",
+            "returncode": 0,
+            "stage_name": "in.min_nvt_npt01",
+            "start_time_utc": "2026-10-10T13:13:26+00:00",
+            "wall_time_seconds": 450.27504420280457
+          },
+          {
+            "checkpoint": "phase6d_runs/pilot/poly_df7c069ad0b2d467/600K/npt_02.restart",
+            "checkpoint_sha256": "89951b0a6d90407ca21a75b4ff634917967239f727ea3b3d85d8e65132268619",
+            "command": "bash /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/scripts/run_bulk_lammps_kokkos.sh in.npt02 /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/phase6d_runs/pilot/poly_df7c069ad0b2d467/600K 3",
+            "complete": true,
+            "end_time_utc": "2026-10-10T13:28:12+00:00",
+            "gpu": 3,
+            "input_sha256": "dcaf59e0130afc3e300ff02345dd8023b8f12d54cd2517916f7d3744c6c8aad7",
+            "returncode": 0,
+            "stage_name": "in.npt02",
+            "start_time_utc": "2026-10-10T13:20:57+00:00",
+            "wall_time_seconds": 435.34972310066223
+          },
+          {
+            "checkpoint": "phase6d_runs/pilot/poly_df7c069ad0b2d467/600K/npt_03.restart",
+            "checkpoint_sha256": "24a04c0042c85b35c01c612234eb30c24a8e5dd9849a3fabe8cff1ec173eb5f8",
+            "command": "bash /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/scripts/run_bulk_lammps_kokkos.sh in.npt03 /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/phase6d_runs/pilot/poly_df7c069ad0b2d467/600K 3",
+            "complete": true,
+            "end_time_utc": "2026-10-10T13:35:26+00:00",
+            "gpu": 3,
+            "input_sha256": "6727afa1ad1830a9ae57e34be55a44913449220682b90462202524d4214af8f0",
+            "returncode": 0,
+            "stage_name": "in.npt03",
+            "start_time_utc": "2026-10-10T13:28:12+00:00",
+            "wall_time_seconds": 433.60477328300476
+          },
+          {
+            "checkpoint": "phase6d_runs/pilot/poly_df7c069ad0b2d467/600K/production_600K.restart",
+            "checkpoint_sha256": "876661db12f6b1afccdc3f2b260af8a10ea4d60d6f94dac7a15c03d1d411043e",
+            "command": "bash /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/scripts/run_bulk_lammps_kokkos.sh in.production_600K_200ps /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/phase6d_runs/pilot/poly_df7c069ad0b2d467/600K 3",
+            "complete": true,
+            "end_time_utc": "2026-10-10T13:49:45+00:00",
+            "gpu": 3,
+            "input_sha256": "f2b00b6c4cd43797eb98dae759342c27502eb04e9f1889c5f0faa54ca793bc4f",
+            "returncode": 0,
+            "stage_name": "in.production_600K_200ps",
+            "start_time_utc": "2026-10-10T13:35:26+00:00",
+            "wall_time_seconds": 859.5378997325897
+          }
+        ]
+      },
+      "status": "COMPLETE_QC_PASS",
+      "temperature_wall_time_seconds": {
+        "300": 1241.8586387634277,
+        "400": 1271.3327112197876,
+        "500": 1315.4125373363495,
+        "600": 2178.7674403190613
+      },
+      "temperatures": {
+        "300": {
+          "checkpoint": "phase6d_runs/pilot/poly_df7c069ad0b2d467/300K/production_300K.restart",
+          "checkpoint_sha256": "102a0112f5647b03181664e5872329f4612e9a85bf0ebaeef486ed467727df1a",
+          "density": 1.1597756676616908,
+          "equilibration_time_ps": 100,
+          "input_sha256": "79706ca03d22625e5db7fcd71610cb3b93e9af77524170be96cd310944f0cac8",
+          "production_time_ps": 200,
+          "status": "COMPLETE_QC_PASS",
+          "temperature_mean": 300.15806457711477,
+          "topology": {
+            "atom_count": 8848,
+            "molecule_count": 4
+          },
+          "valid_frame_count": 20,
+          "volume": 97565.16058706467,
+          "wall_time_seconds": 827.561327457428
+        },
+        "400": {
+          "checkpoint": "phase6d_runs/pilot/poly_df7c069ad0b2d467/400K/production_400K.restart",
+          "checkpoint_sha256": "2dc0be13b4dbbe4ab6d6c9f81cb130ca9fcb17b7f391e562d5f6c2d932fb3add",
+          "density": 1.11226022039801,
+          "equilibration_time_ps": 100,
+          "input_sha256": "9f4f74d24e18c63b321cb6438279bb58e48a03e2d0733533ef48c8410563f8bc",
+          "production_time_ps": 200,
+          "status": "COMPLETE_QC_PASS",
+          "temperature_mean": 399.74337860696517,
+          "topology": {
+            "atom_count": 8848,
+            "molecule_count": 4
+          },
+          "valid_frame_count": 20,
+          "volume": 101734.31990049747,
+          "wall_time_seconds": 846.1337811946869
+        },
+        "500": {
+          "checkpoint": "phase6d_runs/pilot/poly_df7c069ad0b2d467/500K/production_500K.restart",
+          "checkpoint_sha256": "7d0d7eb549b57d0f8ddb995565e324db7bc0ff53f847860339e1d5825116d829",
+          "density": 1.0613482626865678,
+          "equilibration_time_ps": 100,
+          "input_sha256": "622b9fa22b238280a431f52725789faff72ced60cfbfc350cab0eff593bc5477",
+          "production_time_ps": 200,
+          "status": "COMPLETE_QC_PASS",
+          "temperature_mean": 499.79709218905487,
+          "topology": {
+            "atom_count": 8848,
+            "molecule_count": 4
+          },
+          "valid_frame_count": 20,
+          "volume": 106618.44373134333,
+          "wall_time_seconds": 875.7748403549194
+        },
+        "600": {
+          "checkpoint": "phase6d_runs/pilot/poly_df7c069ad0b2d467/600K/production_600K.restart",
+          "checkpoint_sha256": "876661db12f6b1afccdc3f2b260af8a10ea4d60d6f94dac7a15c03d1d411043e",
+          "density": 0.9922979839800993,
+          "equilibration_time_ps": 300,
+          "input_sha256": "f2b00b6c4cd43797eb98dae759342c27502eb04e9f1889c5f0faa54ca793bc4f",
+          "production_time_ps": 200,
+          "status": "COMPLETE_QC_PASS",
+          "temperature_mean": 599.7251984577114,
+          "topology": {
+            "atom_count": 8848,
+            "molecule_count": 4
+          },
+          "valid_frame_count": 20,
+          "volume": 114041.28233830846,
+          "wall_time_seconds": 859.5378997325897
+        }
+      }
+    }
+  ],
+  "checkpoint_resume": {
+    "command": "bash /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/scripts/run_bulk_lammps_kokkos.sh resume_test.in /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/phase6d_runs/pilot/poly_98bc13bed4455c1f/600K/resume_test 0",
+    "ended_at_utc": "2026-10-10T16:15:37+00:00",
+    "gpu_index": 0,
+    "input_sha256": "c453a71c8e5a917f6c6619c29e2b8a0c2f99faee650bff0f61591f88e2e90922",
+    "polymer_id": "poly_98bc13bed4455c1f",
+    "resumed_checkpoint": "phase6d_runs/pilot/poly_98bc13bed4455c1f/600K/resume_test/resume_test.restart",
+    "resumed_checkpoint_sha256": "5f7afc502eb8931009728d78c80291de057f551fdcf2a907cdf3dc40f6e9a9a4",
+    "returncode": 0,
+    "schema_version": "phase6d.checkpoint_resume.v1",
+    "source_checkpoint": "phase6d_runs/pilot/poly_98bc13bed4455c1f/600K/production_600K.restart",
+    "source_checkpoint_sha256": "c27151d104e5e891ddc2f6c83b5538253ccf2be6a6f104e069e6badfa8a8a565",
+    "started_at_utc": "2026-10-10T16:15:31+00:00",
+    "status": "PASS",
+    "temperature_K": 600,
+    "wall_time_seconds": 6.589720964431763
+  },
+  "created_at_utc": "2026-10-10T16:10:18+00:00",
+  "descriptor_coverage": 1.0,
+  "descriptor_rows": 16,
+  "descriptor_table": "phase6d_artifacts/phase6d_pilot_descriptors.v1.csv",
+  "estimated_full_expansion_storage_GiB": 11.499856799840927,
+  "estimated_full_expansion_wall_time_hours_four_gpus": 49.390925732188755,
+  "estimated_remaining_wall_time_hours_four_gpus": 47.84745930305785,
+  "failure_categories": {
+    "initial_missing_structure_path": 16
+  },
+  "gpu_assignments_verified": true,
+  "gpu_utilization_summary": {
+    "cuda": "12.8",
+    "driver": "550.144.03",
+    "final_query_memory_used_MiB": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "final_query_utilization_percent": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "models": "NVIDIA H800",
+    "observed_memory_used_MiB_range": [
+      668,
+      704
+    ],
+    "observed_utilization_percent_range": [
+      37,
+      43
+    ]
+  },
+  "operational_setup_attempts": [
+    {
+      "failure": "LAMMPS exit 1",
+      "polymer_id": "poly_98bc13bed4455c1f",
+      "receipt": "phase6d_runs/pilot/poly_98bc13bed4455c1f/600K/interrupted_stages/1791637400855546202/in.min_nvt_npt01.stage.json",
+      "returncode": 1
+    },
+    {
+      "failure": "LAMMPS exit 1",
+      "polymer_id": "poly_98bc13bed4455c1f",
+      "receipt": "phase6d_runs/pilot/poly_98bc13bed4455c1f/600K/interrupted_stages/1791637296066848614/in.min_nvt_npt01.stage.json",
+      "returncode": 1
+    },
+    {
+      "failure": "[Errno 2] No such file or directory: '/inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/phase6d_runs/pilot/poly_98bc13bed4455c1f/600K/log.min_nvt_npt01.lammps'",
+      "polymer_id": "poly_98bc13bed4455c1f",
+      "receipt": "phase6d_runs/pilot/poly_98bc13bed4455c1f/600K/interrupted_stages/1791637811636389678/in.min_nvt_npt01.stage.json",
+      "returncode": 0
+    },
+    {
+      "failure": "LAMMPS exit 1",
+      "polymer_id": "poly_98bc13bed4455c1f",
+      "receipt": "phase6d_runs/pilot/poly_98bc13bed4455c1f/600K/interrupted_stages/1791637298070957445/in.min_nvt_npt01.stage.json",
+      "returncode": 1
+    },
+    {
+      "failure": "LAMMPS exit 1",
+      "polymer_id": "poly_db696efd35d8326b",
+      "receipt": "phase6d_runs/pilot/poly_db696efd35d8326b/600K/interrupted_stages/1791637295995119052/in.min_nvt_npt01.stage.json",
+      "returncode": 1
+    },
+    {
+      "failure": "LAMMPS exit 1",
+      "polymer_id": "poly_db696efd35d8326b",
+      "receipt": "phase6d_runs/pilot/poly_db696efd35d8326b/600K/interrupted_stages/1791637298143848087/in.min_nvt_npt01.stage.json",
+      "returncode": 1
+    },
+    {
+      "failure": "[Errno 2] No such file or directory: '/inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/phase6d_runs/pilot/poly_db696efd35d8326b/600K/log.min_nvt_npt01.lammps'",
+      "polymer_id": "poly_db696efd35d8326b",
+      "receipt": "phase6d_runs/pilot/poly_db696efd35d8326b/600K/interrupted_stages/1791637800631510507/in.min_nvt_npt01.stage.json",
+      "returncode": 0
+    },
+    {
+      "failure": "LAMMPS exit 1",
+      "polymer_id": "poly_db696efd35d8326b",
+      "receipt": "phase6d_runs/pilot/poly_db696efd35d8326b/600K/interrupted_stages/1791637400862070466/in.min_nvt_npt01.stage.json",
+      "returncode": 1
+    },
+    {
+      "failure": "LAMMPS exit 1",
+      "polymer_id": "poly_a5cce35c85e525e3",
+      "receipt": "phase6d_runs/pilot/poly_a5cce35c85e525e3/600K/interrupted_stages/1791637295913777238/in.min_nvt_npt01.stage.json",
+      "returncode": 1
+    },
+    {
+      "failure": "[Errno 2] No such file or directory: '/inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/phase6d_runs/pilot/poly_a5cce35c85e525e3/600K/log.min_nvt_npt01.lammps'",
+      "polymer_id": "poly_a5cce35c85e525e3",
+      "receipt": "phase6d_runs/pilot/poly_a5cce35c85e525e3/600K/interrupted_stages/1791637826694962400/in.min_nvt_npt01.stage.json",
+      "returncode": 0
+    },
+    {
+      "failure": "LAMMPS exit 1",
+      "polymer_id": "poly_a5cce35c85e525e3",
+      "receipt": "phase6d_runs/pilot/poly_a5cce35c85e525e3/600K/interrupted_stages/1791637297998018849/in.min_nvt_npt01.stage.json",
+      "returncode": 1
+    },
+    {
+      "failure": "LAMMPS exit 1",
+      "polymer_id": "poly_a5cce35c85e525e3",
+      "receipt": "phase6d_runs/pilot/poly_a5cce35c85e525e3/600K/interrupted_stages/1791637400863437267/in.min_nvt_npt01.stage.json",
+      "returncode": 1
+    },
+    {
+      "failure": "[Errno 2] No such file or directory: '/inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/phase6d_runs/pilot/poly_df7c069ad0b2d467/600K/log.min_nvt_npt01.lammps'",
+      "polymer_id": "poly_df7c069ad0b2d467",
+      "receipt": "phase6d_runs/pilot/poly_df7c069ad0b2d467/600K/interrupted_stages/1791637858657028218/in.min_nvt_npt01.stage.json",
+      "returncode": 0
+    },
+    {
+      "failure": "LAMMPS exit 1",
+      "polymer_id": "poly_df7c069ad0b2d467",
+      "receipt": "phase6d_runs/pilot/poly_df7c069ad0b2d467/600K/interrupted_stages/1791637297568810829/in.min_nvt_npt01.stage.json",
+      "returncode": 1
+    },
+    {
+      "failure": "LAMMPS exit 1",
+      "polymer_id": "poly_df7c069ad0b2d467",
+      "receipt": "phase6d_runs/pilot/poly_df7c069ad0b2d467/600K/interrupted_stages/1791637400868856564/in.min_nvt_npt01.stage.json",
+      "returncode": 1
+    },
+    {
+      "failure": "LAMMPS exit 1",
+      "polymer_id": "poly_df7c069ad0b2d467",
+      "receipt": "phase6d_runs/pilot/poly_df7c069ad0b2d467/600K/interrupted_stages/1791637295646568090/in.min_nvt_npt01.stage.json",
+      "returncode": 1
+    }
+  ],
+  "pilot_code_commit": "80e8fe744823ad8e463eeef71968a81593fbe5dc",
+  "pilot_selection_sha256": "b3d6c54b68b75f70825e43677ea4ec9d21a2b1c796647c87366b9867d0e9665b",
+  "pilot_status": "PASS",
+  "pilot_storage_bytes": 385871163,
+  "pilot_storage_bytes_per_polymer_mean": 96467790.75,
+  "pilot_wall_time_seconds_mean": 5556.479144871235,
+  "pilot_wall_time_seconds_per_polymer": [
+    5412.856623411179,
+    5236.188340187073,
+    5569.500288248062,
+    6007.371327638626
+  ],
+  "remaining_candidates": 124,
+  "retry_count": 0,
+  "schema_version": "phase6d.pilot_results.v1",
+  "simulation_launched": true
+}
