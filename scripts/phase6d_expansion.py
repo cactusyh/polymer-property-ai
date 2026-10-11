@@ -28,6 +28,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 ART = ROOT / "phase6d_artifacts"
+READY_QUEUE = ART / "phase6d_ready_queue.v2.csv"
+READY_QUEUE_MANIFEST = ART / "phase6d_ready_queue_manifest.v2.json"
 REPORTS = ROOT / "reports"
 COHORT = DATA / "processed/bulk_md_tg_final_cohort_150_split.csv"
 UNIVERSE = DATA / "processed/bulk_md_tg_build_preflight_structural_universe.csv"
@@ -672,6 +674,28 @@ def queue_summary(input_root: Path, selected: list[dict[str, str]], rows: list[d
     }
 
 
+def validated_ready_tasks(gpus: list[str]) -> tuple[list[dict[str, str]], dict]:
+    if not READY_QUEUE.is_file() or not READY_QUEUE_MANIFEST.is_file():
+        raise SystemExit("ready queue v2 is missing; run Phase 6D.2 dry-run first")
+    manifest = json.loads(READY_QUEUE_MANIFEST.read_text(encoding="utf-8"))
+    if manifest.get("status") != "PASS":
+        raise SystemExit("ready queue manifest is not PASS")
+    if sha256_file(READY_QUEUE) != manifest.get("ready_queue_sha256"):
+        raise SystemExit("ready queue hash changed")
+    tasks = read_csv(READY_QUEUE)
+    if len(tasks) != 412 or len({row["polymer_id"] for row in tasks}) != 103:
+        raise SystemExit(f"unexpected ready queue size: {len({row['polymer_id'] for row in tasks})} candidates / {len(tasks)} tasks")
+    if any(row.get("gpu_id") not in set(gpus) for row in tasks):
+        raise SystemExit("ready queue contains an unavailable GPU assignment")
+    pairs = [(row["polymer_id"], row["temperature_K"]) for row in tasks]
+    if len(pairs) != len(set(pairs)) or len({row["output_path"] for row in tasks}) != len(tasks):
+        raise SystemExit("ready queue contains duplicate pairs or output paths")
+    pilot_ids = {candidate["polymer_id"] for candidate in json.loads((ART / "phase6d_pilot_results.v1.json").read_text())["candidates"]}
+    if pilot_ids & {row["polymer_id"] for row in tasks}:
+        raise SystemExit("ready queue contains a completed pilot candidate")
+    return tasks, manifest
+
+
 def run_scheduler(args: argparse.Namespace) -> None:
     """Run a validated command template with one process per GPU.
 
@@ -688,15 +712,8 @@ def run_scheduler(args: argparse.Namespace) -> None:
         raise SystemExit("scheduler blocked: pilot must pass before production")
     if "your_input.in" in args.command or "{input}" not in args.command:
         raise SystemExit("command must use a concrete {input} path and no literal placeholder")
-    selected = read_csv(ART / "expansion_selected_candidates.v1.csv")
     rows = read_csv(ART / "bulk_md_expansion_registry.v1.csv")
-    pilot_ids = {candidate["polymer_id"] for candidate in json.loads((ART / "phase6d_pilot_results.v1.json").read_text())["candidates"]}
-    summary = queue_summary(args.input_root, selected, rows, pilot_ids, args.gpus, args.retries)
-    if summary["temperature_task_count"] != 496 or summary["remaining_polymer_count"] != 124:
-        raise SystemExit(f"unexpected remaining queue size: {summary['remaining_polymer_count']} polymers / {summary['temperature_task_count']} tasks")
-    write_json(ART / "phase6d_remaining_queue.v1.json", summary)
-    if summary["missing_inputs"]:
-        raise SystemExit(f"scheduler blocked: {summary['missing_input_count']} input.in files are missing; queue summary written")
+    ready_tasks, ready_manifest = validated_ready_tasks(args.gpus)
     queue_path = ART / "queue_state.v1.json"
     lock_path = ART / "scheduler.lock"
     lock_handle = lock_path.open("w")
@@ -705,13 +722,18 @@ def run_scheduler(args: argparse.Namespace) -> None:
     except BlockingIOError as exc:
         lock_handle.close()
         raise SystemExit("another Phase 6D scheduler is already running") from exc
-    queue = {"state": "RUNNING", "created_at_utc": utc_now(), "jobs": [], "max_retries": args.retries, "gpu_count": len(args.gpus), "queue_manifest_sha256": summary["queue_manifest_sha256"], "manifest_sha256": summary["manifest_sha256"]}
+    if queue_path.exists():
+        previous = json.loads(queue_path.read_text(encoding="utf-8"))
+        if previous.get("state") == "RUNNING":
+            raise SystemExit("another Phase 6D queue state is RUNNING")
+    queue = {"state": "RUNNING", "created_at_utc": utc_now(), "jobs": [], "max_retries": args.retries, "gpu_count": len(args.gpus), "queue_manifest_sha256": ready_manifest["ready_queue_sha256"], "manifest_sha256": ready_manifest["manifest_sha256"], "expected_task_count": len(ready_tasks)}
     registry_by_pair = {(row["polymer_id"], row["temperature_K"]): row for row in rows}
-    tasks = [(candidate, temperature, args.gpus[index % len(args.gpus)]) for index, (candidate, temperature) in enumerate(remaining_queue(selected, rows, pilot_ids))]
+    selected_by_id = {row["polymer_id"]: row for row in read_csv(ART / "expansion_selected_candidates.v1.csv")}
+    tasks = [(selected_by_id[row["polymer_id"]], int(row["temperature_K"]), row["gpu_id"], row) for row in ready_tasks]
 
-    def execute(task: tuple[dict, int, str]) -> dict:
-        candidate, temperature, gpu = task
-        input_path = args.input_root / candidate["polymer_id"] / f"{temperature}K" / "input.in"
+    def execute(task: tuple[dict, int, str, dict]) -> dict:
+        candidate, temperature, gpu, ready = task
+        input_path = ROOT / ready["input_path"]
         if not input_path.is_file():
             return {"candidate": candidate, "temperature": temperature, "gpu": gpu, "error": f"missing concrete input: {input_path}"}
         job_dir = input_path.parent
@@ -774,11 +796,10 @@ def run_scheduler(args: argparse.Namespace) -> None:
                                      "environment_fingerprint": last["environment_fingerprint"],
                                      "provenance": str(result["job_dir"].relative_to(ROOT))})
                 write_csv(ART / "bulk_md_expansion_registry.v1.csv", rows, REGISTRY_FIELDS)
-                if result["result"]:
-                    raise SystemExit(f"job failed after {last['attempt']} attempts for {candidate['polymer_id']} at {temperature} K")
                 if pending:
                     futures[executor.submit(execute, pending.pop(0))] = True
-    queue["state"] = "COMPLETE"; write_json(queue_path, queue)
+    queue["state"] = "COMPLETE_WITH_FAILURES" if any(job.get("returncode") for job in queue["jobs"]) else "COMPLETE"
+    queue["completed_at_utc"] = utc_now(); write_json(queue_path, queue)
 
 
 def main() -> None:
@@ -797,6 +818,7 @@ def main() -> None:
     run.add_argument("--gpus", nargs="+", required=True)
     run.add_argument("--retries", type=int, default=2)
     run.add_argument("--timeout-seconds", type=int, default=0)
+    run.add_argument("--ready-queue", type=Path, default=READY_QUEUE)
     prepare = sub.add_parser("prepare-queue")
     prepare.add_argument("--input-root", type=Path, required=True)
     prepare.add_argument("--gpus", nargs="+", required=True)
