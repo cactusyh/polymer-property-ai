@@ -710,7 +710,7 @@ def run_scheduler(args: argparse.Namespace) -> None:
     pilot = json.loads((ART / "expansion_pilot_results.v1.json").read_text())
     if pilot.get("pilot_status") != "PASS":
         raise SystemExit("scheduler blocked: pilot must pass before production")
-    if "your_input.in" in args.command or "{input}" not in args.command:
+    if "your_input.in" in args.launch_command or "{input}" not in args.launch_command:
         raise SystemExit("command must use a concrete {input} path and no literal placeholder")
     rows = read_csv(ART / "bulk_md_expansion_registry.v1.csv")
     ready_tasks, ready_manifest = validated_ready_tasks(args.gpus)
@@ -738,7 +738,7 @@ def run_scheduler(args: argparse.Namespace) -> None:
             return {"candidate": candidate, "temperature": temperature, "gpu": gpu, "error": f"missing concrete input: {input_path}"}
         job_dir = input_path.parent
         stdout_path, stderr_path = job_dir / "stdout.log", job_dir / "stderr.log"
-        command = args.command.format(input=str(input_path), polymer_id=candidate["polymer_id"])
+        command = args.launch_command.format(input=str(input_path), polymer_id=candidate["polymer_id"])
         env = os.environ.copy(); env["CUDA_VISIBLE_DEVICES"] = gpu
         attempts: list[dict] = []
         result = 1
@@ -804,7 +804,7 @@ def run_scheduler(args: argparse.Namespace) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    sub = parser.add_subparsers(dest="command", required=True)
+    sub = parser.add_subparsers(dest="action", required=True)
     sub.add_parser("audit")
     select = sub.add_parser("select"); select.add_argument("--pool-size", type=int, default=128)
     sub.add_parser("validate")
@@ -813,7 +813,7 @@ def main() -> None:
     sub.add_parser("extract")
     sub.add_parser("integrity")
     run = sub.add_parser("run")
-    run.add_argument("--command", required=True, help="command template containing {input} and {polymer_id}")
+    run.add_argument("--command", dest="launch_command", required=True, help="command template containing {input} and {polymer_id}")
     run.add_argument("--input-root", type=Path, required=True)
     run.add_argument("--gpus", nargs="+", required=True)
     run.add_argument("--retries", type=int, default=2)
@@ -824,15 +824,15 @@ def main() -> None:
     prepare.add_argument("--gpus", nargs="+", required=True)
     prepare.add_argument("--retries", type=int, default=2)
     args = parser.parse_args()
-    if args.command == "audit": audit_workflow()
-    elif args.command == "select": select_candidates(args.pool_size)
-    elif args.command == "validate": validate_manifest(); print("PASS")
-    elif args.command == "pilot": pilot_artifact()
-    elif args.command == "registry": make_registry()
-    elif args.command == "extract": extract_descriptors()
-    elif args.command == "integrity": integrity_audit()
-    elif args.command == "run": run_scheduler(args)
-    elif args.command == "prepare-queue":
+    if args.action == "audit": audit_workflow()
+    elif args.action == "select": select_candidates(args.pool_size)
+    elif args.action == "validate": validate_manifest(); print("PASS")
+    elif args.action == "pilot": pilot_artifact()
+    elif args.action == "registry": make_registry()
+    elif args.action == "extract": extract_descriptors()
+    elif args.action == "integrity": integrity_audit()
+    elif args.action == "run": run_scheduler(args)
+    elif args.action == "prepare-queue":
         validate_manifest()
         selected = read_csv(ART / "expansion_selected_candidates.v1.csv")
         rows = read_csv(ART / "bulk_md_expansion_registry.v1.csv")
