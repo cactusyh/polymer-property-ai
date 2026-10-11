@@ -1,0 +1,37 @@
+{
+  "schema_version": "phase6d.environment.v1",
+  "recorded_at_utc": "2026-10-11T00:00:00+00:00",
+  "validated_environment": "mace-lammps",
+  "lammps": {
+    "executable": "/inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/lammps/lammps/build-mliap/lmp",
+    "which_lmp_passed": true,
+    "help_passed": true,
+    "kokkos_launch": "lmp -k on g 1 -sf kk -pk kokkos newton on neigh half -in input.in"
+  },
+  "python": {
+    "torch_version": "2.5.1+cu121",
+    "cuda_available": true,
+    "torch_cuda_version": "12.1"
+  },
+  "gpu_inventory": {
+    "model": "NVIDIA H800",
+    "count": 4,
+    "memory_mib": 81559,
+    "driver": "550.144.03",
+    "cuda_reported_by_nvidia_smi": "12.8"
+  },
+  "pip_check": {
+    "validated_mace_lammps": {
+      "status": "PASS",
+      "output": "No broken requirements found."
+    },
+    "base_environment": {
+      "status": "WARN",
+      "warnings": [
+        "torch 2.5.1 requires fsspec, which is not installed.",
+        "torch 2.5.1 requires sympy==1.13.1; installed sympy is 1.14.0."
+      ],
+      "action": "Recorded only; no package changes made."
+    }
+  }
+}
