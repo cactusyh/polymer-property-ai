@@ -39,7 +39,7 @@ def write_json(path: Path, value: object) -> None:
 def write_csv(path: Path, rows: list[dict[str, str]]) -> None:
     temporary = path.with_suffix(path.suffix + ".tmp")
     with temporary.open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=FIELDS)
+        writer = csv.DictWriter(handle, fieldnames=FIELDS, lineterminator="\n")
         writer.writeheader(); writer.writerows(rows)
     temporary.replace(path)
 
