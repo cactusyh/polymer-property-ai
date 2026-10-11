@@ -627,6 +627,51 @@ def environment_fingerprint(gpu: str) -> str:
     return sha256_bytes(json.dumps(values, sort_keys=True).encode())
 
 
+def remaining_queue(selected: list[dict[str, str]], rows: list[dict[str, str]], pilot_ids: set[str]) -> list[tuple[dict[str, str], int]]:
+    """Return only uncompleted, non-pilot candidate-temperature tasks."""
+    completed = {
+        (row["polymer_id"], row["temperature_K"])
+        for row in rows
+        if row.get("simulation_status") == "COMPLETE_QC_PASS"
+        and row.get("qc_status") == "COMPLETE_QC_PASS"
+    }
+    return [
+        (candidate, temperature)
+        for candidate in selected
+        if candidate["polymer_id"] not in pilot_ids
+        for temperature in TEMPERATURES
+        if (candidate["polymer_id"], str(temperature)) not in completed
+    ]
+
+
+def queue_summary(input_root: Path, selected: list[dict[str, str]], rows: list[dict[str, str]], pilot_ids: set[str], gpus: list[str], retries: int) -> dict:
+    tasks = remaining_queue(selected, rows, pilot_ids)
+    missing = [str(input_root / candidate["polymer_id"] / f"{temperature}K" / "input.in") for candidate, temperature in tasks if not (input_root / candidate["polymer_id"] / f"{temperature}K" / "input.in").is_file()]
+    manifest_hash = sha256_file(ART / "expansion_candidate_manifest.v1.json")
+    task_records = [{"polymer_id": candidate["polymer_id"], "temperature_K": temperature} for candidate, temperature in tasks]
+    queue_hash = sha256_bytes(json.dumps({"manifest_sha256": manifest_hash, "tasks": task_records}, sort_keys=True).encode())
+    return {
+        "schema_version": "phase6d.remaining_queue.v1",
+        "created_at_utc": utc_now(),
+        "state": "READY" if not missing else "BLOCKED_INPUTS",
+        "manifest_sha256": manifest_hash,
+        "queue_manifest_sha256": queue_hash,
+        "remaining_polymer_count": len({candidate["polymer_id"] for candidate, _ in tasks}),
+        "temperature_task_count": len(tasks),
+        "pilot_excluded_count": len(pilot_ids),
+        "gpu_assignment_policy": "round_robin_one_process_per_gpu",
+        "gpus": gpus,
+        "max_concurrent_gpu_processes": len(gpus),
+        "retry_policy": {"max_retries": retries, "physical_parameters_changed": False},
+        "checkpoint_policy": "checkpoint_metadata_per_attempt_and_resume_from_latest_valid_checkpoint",
+        "estimated_remaining_wall_time_hours_four_gpus": 47.84745930305785,
+        "estimated_full_expansion_storage_GiB": 11.50000536441803,
+        "input_root": str(input_root),
+        "missing_input_count": len(missing),
+        "missing_inputs": missing,
+    }
+
+
 def run_scheduler(args: argparse.Namespace) -> None:
     """Run a validated command template with one process per GPU.
 
@@ -644,6 +689,14 @@ def run_scheduler(args: argparse.Namespace) -> None:
     if "your_input.in" in args.command or "{input}" not in args.command:
         raise SystemExit("command must use a concrete {input} path and no literal placeholder")
     selected = read_csv(ART / "expansion_selected_candidates.v1.csv")
+    rows = read_csv(ART / "bulk_md_expansion_registry.v1.csv")
+    pilot_ids = {candidate["polymer_id"] for candidate in json.loads((ART / "phase6d_pilot_results.v1.json").read_text())["candidates"]}
+    summary = queue_summary(args.input_root, selected, rows, pilot_ids, args.gpus, args.retries)
+    if summary["temperature_task_count"] != 496 or summary["remaining_polymer_count"] != 124:
+        raise SystemExit(f"unexpected remaining queue size: {summary['remaining_polymer_count']} polymers / {summary['temperature_task_count']} tasks")
+    write_json(ART / "phase6d_remaining_queue.v1.json", summary)
+    if summary["missing_inputs"]:
+        raise SystemExit(f"scheduler blocked: {summary['missing_input_count']} input.in files are missing; queue summary written")
     queue_path = ART / "queue_state.v1.json"
     lock_path = ART / "scheduler.lock"
     lock_handle = lock_path.open("w")
@@ -652,10 +705,9 @@ def run_scheduler(args: argparse.Namespace) -> None:
     except BlockingIOError as exc:
         lock_handle.close()
         raise SystemExit("another Phase 6D scheduler is already running") from exc
-    rows = read_csv(ART / "bulk_md_expansion_registry.v1.csv")
-    queue = {"state": "RUNNING", "created_at_utc": utc_now(), "jobs": [], "max_retries": args.retries, "gpu_count": len(args.gpus)}
+    queue = {"state": "RUNNING", "created_at_utc": utc_now(), "jobs": [], "max_retries": args.retries, "gpu_count": len(args.gpus), "queue_manifest_sha256": summary["queue_manifest_sha256"], "manifest_sha256": summary["manifest_sha256"]}
     registry_by_pair = {(row["polymer_id"], row["temperature_K"]): row for row in rows}
-    tasks = [(candidate, temperature, args.gpus[index % len(args.gpus)]) for index, (candidate, temperature) in enumerate((c, t) for c in selected for t in TEMPERATURES)]
+    tasks = [(candidate, temperature, args.gpus[index % len(args.gpus)]) for index, (candidate, temperature) in enumerate(remaining_queue(selected, rows, pilot_ids))]
 
     def execute(task: tuple[dict, int, str]) -> dict:
         candidate, temperature, gpu = task
@@ -745,6 +797,10 @@ def main() -> None:
     run.add_argument("--gpus", nargs="+", required=True)
     run.add_argument("--retries", type=int, default=2)
     run.add_argument("--timeout-seconds", type=int, default=0)
+    prepare = sub.add_parser("prepare-queue")
+    prepare.add_argument("--input-root", type=Path, required=True)
+    prepare.add_argument("--gpus", nargs="+", required=True)
+    prepare.add_argument("--retries", type=int, default=2)
     args = parser.parse_args()
     if args.command == "audit": audit_workflow()
     elif args.command == "select": select_candidates(args.pool_size)
@@ -754,6 +810,16 @@ def main() -> None:
     elif args.command == "extract": extract_descriptors()
     elif args.command == "integrity": integrity_audit()
     elif args.command == "run": run_scheduler(args)
+    elif args.command == "prepare-queue":
+        validate_manifest()
+        selected = read_csv(ART / "expansion_selected_candidates.v1.csv")
+        rows = read_csv(ART / "bulk_md_expansion_registry.v1.csv")
+        pilot_ids = {candidate["polymer_id"] for candidate in json.loads((ART / "phase6d_pilot_results.v1.json").read_text())["candidates"]}
+        summary = queue_summary(args.input_root, selected, rows, pilot_ids, args.gpus, args.retries)
+        if summary["temperature_task_count"] != 496 or summary["remaining_polymer_count"] != 124:
+            raise SystemExit(f"unexpected remaining queue size: {summary['remaining_polymer_count']} polymers / {summary['temperature_task_count']} tasks")
+        write_json(ART / "phase6d_remaining_queue.v1.json", summary)
+        print(json.dumps(summary, indent=2))
 
 
 if __name__ == "__main__":

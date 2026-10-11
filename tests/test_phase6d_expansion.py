@@ -42,6 +42,13 @@ class Phase6DExpansionTests(unittest.TestCase):
         self.assertEqual(len({candidate["chemical_cluster"] for candidate in selection["candidates"]}), 4)
         self.assertTrue(all(candidate["status"] == "COMPLETE_QC_PASS" for candidate in result["candidates"]))
 
+    def test_remaining_queue_excludes_pilot_and_has_expected_size(self):
+        queue = json.loads((self.artifacts / "phase6d_remaining_queue.v1.json").read_text())
+        self.assertEqual(queue["remaining_polymer_count"], 124)
+        self.assertEqual(queue["temperature_task_count"], 496)
+        self.assertEqual(queue["pilot_excluded_count"], 4)
+        self.assertEqual(queue["state"], "BLOCKED_INPUTS")
+
 
 if __name__ == "__main__":
     unittest.main()
