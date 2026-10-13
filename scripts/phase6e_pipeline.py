@@ -93,6 +93,19 @@ def parse_thermo(path: Path) -> list[dict[str, float]]:
     return blocks[-1] if blocks else []
 
 
+def structure_atom_count(path: Path) -> int:
+    if not path.exists():
+        return 0
+    for line in path.read_text(errors="replace").splitlines():
+        parts = line.split()
+        if len(parts) >= 2 and parts[1].lower() == "atoms":
+            try:
+                return int(parts[0])
+            except ValueError:
+                return 0
+    return 0
+
+
 def grouped_folds(ids: list[str], groups: list[str], n_splits: int = 5) -> dict[str, int]:
     """Deterministically assign whole chemical groups to balanced folds."""
     sizes = {}
@@ -164,6 +177,8 @@ def extract_bulk() -> list[dict]:
     out = []
     for pid in complete:
         rec = {"polymer_id": pid, "descriptor_modality": "physical_bulk_md", "protocol": "Phase6D lj/cut GAFF2_mod repair workflow; real units; 1 fs; NPT 300/400/500/600 K; 200 ps production", "physical_descriptor_status": "PASS", "qc_descriptor_status": "AVAILABLE", "geometry_status": "UNAVAILABLE_NO_ATOM_MAPPING", "source_hashes": {}}
+        atom_count = structure_atom_count(ROOT / "phase6d_runs/expansion" / pid / "structure.data")
+        rec["atom_count"] = str(atom_count)
         for t in TEMPS:
             r = by_pair.get((pid, str(t)), {})
             rec[f"density_{t}K"] = r.get("density", ""); rec[f"volume_{t}K_A3"] = r.get("volume", ""); rec[f"density_uncertainty_{t}K"] = ""; rec[f"valid_frames_{t}K"] = r.get("valid_frame_count", "")
@@ -174,7 +189,7 @@ def extract_bulk() -> list[dict]:
             if rows:
                 dens = np.array([x.get("Density", np.nan) for x in rows]); vol = np.array([x.get("Volume", np.nan) for x in rows]); pe = np.array([x.get("PotEng", np.nan) for x in rows])
                 rec[f"density_uncertainty_{t}K"] = str(float(np.nanstd(dens, ddof=1))) if len(dens) > 1 else ""
-                rec[f"pe_per_atom_{t}K_kcal_mol"] = str(float(np.nanmean(pe) / max(1, int(r.get("valid_frame_count") or 1))))
+                rec[f"pe_per_atom_{t}K_kcal_mol"] = str(float(np.nanmean(pe) / max(1, atom_count)))
                 rec["source_hashes"][str(log.relative_to(ROOT))] = sha(log)
             else: rec[f"pe_per_atom_{t}K_kcal_mol"] = ""
         dens = {t: finite(rec.get(f"density_{t}K", "")) for t in TEMPS}; vol = {t: finite(rec.get(f"volume_{t}K_A3", "")) for t in TEMPS}
