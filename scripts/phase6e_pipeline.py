@@ -267,8 +267,24 @@ def benchmark(rows: list[dict], fields: list[str]) -> None:
             base, _ = run_cv(Xs, eligible); pair = ok & np.isfinite(base)
             summary[-1]["paired_delta"] = json.dumps(bootstrap_delta(y[pair],base[pair],pred[pair],[groups[i] for i in np.where(pair)[0]])) if pair.any() else ""
     # A training-fold-only MD-shuffling control tests whether physical bulk values carry signal.
-    shuffled = Xbulk.copy(); shuffled_ok = bulk_ok.copy(); pred,chosen=run_cv(np.c_[Xs,shuffled[rng.permutation(len(rows))]],shuffled_ok); ok=np.isfinite(pred); base,_=run_cv(Xs,shuffled_ok); pair=ok & np.isfinite(base)
-    summary.append({"model":"structure_plus_shuffled_bulk_md","observed_or_predicted_md":"within_snapshot_shuffled_control","seed":13,"eligible_cohort":int(shuffled_ok.sum()),**metrics(y[ok],pred[ok]),"inner_choices":json.dumps(chosen),"paired_delta":json.dumps(bootstrap_delta(y[pair],base[pair],pred[pair],[groups[i] for i in np.where(pair)[0]]))})
+    def run_shuffled_bulk():
+        pred=np.full(len(rows),np.nan); chosen=[]
+        for fold in range(5):
+            tr=np.array([i for i,p in enumerate(ids) if folds[p]!=fold and bulk_ok[i]]); va=np.array([i for i,p in enumerate(ids) if folds[p]==fold and bulk_ok[i]])
+            inner=grouped_folds([ids[i] for i in tr], [groups[i] for i in tr], 3); best=(float("inf"),1.0)
+            for alpha in [0.1,1.0,10.0,100.0]:
+                errs=[]
+                for inn in range(3):
+                    it=np.array([j for j,i in enumerate(tr) if inner[ids[i]]!=inn]); iv=np.array([j for j,i in enumerate(tr) if inner[ids[i]]==inn]);
+                    if not len(iv): continue
+                    perm=tr[it].copy(); rng.shuffle(perm); model=ridge_fit(np.c_[Xs[tr[it]],Xbulk[perm]], y[tr[it]], alpha)
+                    errs.append(np.mean((ridge_predict(model,np.c_[Xs[tr[iv]],Xbulk[tr[iv]]])-y[tr[iv]])**2))
+                score=float(np.mean(errs)) if errs else float("inf")
+                if score<best[0]: best=(score,alpha)
+            perm=tr.copy(); rng.shuffle(perm); model=ridge_fit(np.c_[Xs[tr],Xbulk[perm]],y[tr],best[1]); pred[va]=ridge_predict(model,np.c_[Xs[va],Xbulk[va]]); chosen.append({"outer_fold":fold,"alpha":best[1],"inner_mse":best[0]})
+        return pred,chosen
+    pred,chosen=run_shuffled_bulk(); ok=np.isfinite(pred); base,_=run_cv(Xs,bulk_ok); pair=ok & np.isfinite(base)
+    summary.append({"model":"structure_plus_shuffled_bulk_md","observed_or_predicted_md":"within_training_fold_shuffled_control","seed":13,"eligible_cohort":int(bulk_ok.sum()),**metrics(y[ok],pred[ok]),"inner_choices":json.dumps(chosen),"paired_delta":json.dumps(bootstrap_delta(y[pair],base[pair],pred[pair],[groups[i] for i in np.where(pair)[0]]))})
     for i in np.where(ok)[0]: pred_rows.append({"polymer_id":ids[i],"model":"structure_plus_shuffled_bulk_md","outer_fold":folds[ids[i]],"y_true":y[i],"y_pred":pred[i]})
     # predicted-MD fusion: cross-fitted auxiliary ridge models trained only inside each outer fold.
     pred_aux=np.full_like(Xbulk,np.nan); pred_sc=np.full_like(Xsc,np.nan)
