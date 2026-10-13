@@ -2,8 +2,8 @@
 
 {
   "schema_version": "phase6e.phase6d_audit.v1",
-  "created_at_utc": "2026-10-13T12:53:42+00:00",
-  "source_commit": "f9f09eaaef37d76da229fb1bfab62443dc55fc8d",
+  "created_at_utc": "2026-10-13T14:20:10+00:00",
+  "source_commit": "e2f81c1034f9fe661b724ed8c2e012ed1bb57b5d",
   "historical_source_commit": "f9f09eaaef37d76da229fb1bfab62443dc55fc8d",
   "findings": {
     "PASS": [
