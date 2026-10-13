@@ -301,9 +301,14 @@ def finish() -> None:
     write_json(ART/"phase6e_run_manifest.v1.json",{"created_at_utc":now(),"source_commit":subprocess.check_output(["git","rev-parse","HEAD"],cwd=ROOT,text=True).strip(),"snapshot_sha256":sha(ART/"frozen_modeling_snapshot.v1.csv"),"benchmark_config_sha256":sha(ART/"benchmark_config.v1.json"),"locked_holdout_included":False,"training_environment":"md_tg_ml","model_training_gpu":"none"})
 
 
+def update_manifest() -> None:
+    write_json(ART/"phase6e_run_manifest.v1.json",{"created_at_utc":now(),"source_commit":subprocess.check_output(["git","rev-parse","HEAD"],cwd=ROOT,text=True).strip(),"snapshot_sha256":sha(ART/"frozen_modeling_snapshot.v1.csv"),"benchmark_config_sha256":sha(ART/"benchmark_config.v1.json"),"locked_holdout_included":False,"training_environment":"md_tg_ml","model_training_gpu":"none"})
+
+
 if __name__ == "__main__":
-    p=argparse.ArgumentParser(); p.add_argument("--all",action="store_true"); p.add_argument("--audit",action="store_true"); p.add_argument("--extract",action="store_true"); p.add_argument("--benchmark",action="store_true"); a=p.parse_args()
-    if a.all or not any((a.audit,a.extract,a.benchmark)): finish()
+    p=argparse.ArgumentParser(); p.add_argument("--all",action="store_true"); p.add_argument("--audit",action="store_true"); p.add_argument("--extract",action="store_true"); p.add_argument("--benchmark",action="store_true"); p.add_argument("--manifest",action="store_true"); a=p.parse_args()
+    if a.all or not any((a.audit,a.extract,a.benchmark,a.manifest)): finish()
     elif a.audit: audit()
     elif a.extract: extract_bulk()
+    elif a.manifest: update_manifest()
     else: audit(); rows,_=merge_snapshot(extract_bulk()); benchmark(rows,[])
