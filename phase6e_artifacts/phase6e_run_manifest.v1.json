@@ -1,9 +1,9 @@
 {
   "benchmark_config_sha256": "e08083acf38703ff05e2dbc6a977b642b04145ff1fdf56020d86f61108ca5226",
-  "created_at_utc": "2026-10-13T14:20:11+00:00",
+  "created_at_utc": "2026-10-13T14:47:30+00:00",
   "locked_holdout_included": false,
   "model_training_gpu": "none",
   "snapshot_sha256": "004930fb6f3eef9d402176b44aba3f3e21a7e7f21ee3c649269cf83e2e350e11",
-  "source_commit": "e2f81c1034f9fe661b724ed8c2e012ed1bb57b5d",
+  "source_commit": "57c80f994ee2be90c5a284a4d75ffa4ec62f9378",
   "training_environment": "md_tg_ml"
 }

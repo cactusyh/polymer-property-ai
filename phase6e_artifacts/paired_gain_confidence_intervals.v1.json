@@ -80,10 +80,10 @@
     "unit": "chemical_group"
   },
   "structure_plus_shuffled_bulk_md": {
-    "ci95_high": 1.4914044574310057,
-    "ci95_low": -1.1193874121118739,
-    "delta_rmse_mean": 0.2225206203521309,
-    "delta_rmse_median": 0.25617712766126033,
+    "ci95_high": 0.8892488347786452,
+    "ci95_low": 0.012117952698265102,
+    "delta_rmse_mean": 0.44968197836960383,
+    "delta_rmse_median": 0.44721523693581844,
     "resamples": 1000,
     "unit": "chemical_group"
   },
