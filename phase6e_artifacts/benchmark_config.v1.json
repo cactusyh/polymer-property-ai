@@ -1,0 +1,31 @@
+{
+  "alphas": [
+    0.1,
+    1,
+    10,
+    100
+  ],
+  "bootstrap": "1000 chemical-group resamples",
+  "group_unit": "chemical_cluster_id",
+  "inner_folds": 3,
+  "locked_holdout": "excluded",
+  "models": [
+    "structure",
+    "single_chain_md",
+    "bulk_md_physical",
+    "bulk_md_physical_300K",
+    "structure_plus_single_chain_md",
+    "structure_plus_bulk_md",
+    "structure_plus_both_md",
+    "bulk_md_qc_only",
+    "bulk_md_physical_plus_qc",
+    "structure_plus_predicted_single_chain_md",
+    "structure_plus_predicted_bulk_md",
+    "structure_plus_predicted_both_md"
+  ],
+  "outer_folds": 5,
+  "preprocessing": "median imputation, zero-variance guard, standardization fitted within training fold",
+  "primary_comparison": "structure versus structure_plus_bulk_md_physical",
+  "schema_version": "phase6e.benchmark_config.v1",
+  "seed": 13
+}

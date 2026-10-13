@@ -1,0 +1,9 @@
+{
+  "bulk_physical_coverage": 224,
+  "failed_phase6d_candidate": "poly_26bba0dd4267199e",
+  "future_confirmation": "independent polymers with identity and Tg measured after this snapshot; no evaluation here",
+  "missing_single_chain_rows": 40,
+  "models": 13,
+  "single_chain_physical_coverage": 184,
+  "snapshot_rows": 224
+}

@@ -1,0 +1,24 @@
+{
+  "excluded": [
+    "MSD diffusion coefficient",
+    "torsion populations",
+    "Rg/Re",
+    "glass-transition breakpoint"
+  ],
+  "operational": [
+    "valid_frames",
+    "density_uncertainty",
+    "source_hashes",
+    "checkpoint_presence",
+    "qc_status"
+  ],
+  "physical_primary": [
+    "density_300K",
+    "density_400K",
+    "density_500K",
+    "density_600K",
+    "density_slope_per_K",
+    "relative_volume_expansion_300_to_600",
+    "potential_energy_per_atom"
+  ]
+}

@@ -1,0 +1,4 @@
+cohort,assigned,completed,protocol
+phase6b_development,120,118,existing final registry; 100/200 ps blocks with historical GAFF workflow
+phase6b_locked_holdout,30,,existing final registry; 100/200 ps blocks with historical GAFF workflow
+phase6d_selected,128,,GAFF2_mod/lammps lj/cut repair workflow; 1 fs; NVT20+NPT100 equilibration; NPT200 production

@@ -1,0 +1,17 @@
+{
+  "physical": {
+    "density": "mass density, g/cm3, mean over recorded production thermo rows",
+    "density_slope_per_K": "OLS density versus temperature",
+    "geometry": "unavailable: Phase6D trajectories contain no chemically validated atom-to-chain mapping",
+    "potential_energy_per_atom": "mean PotEng divided by atom count, kcal/mol/atom",
+    "relative_volume_expansion": "(V600-V300)/V300",
+    "volume": "simulation box volume, Angstrom^3"
+  },
+  "qc": {
+    "density_uncertainty": "sample SD across recorded production thermo values",
+    "source_hashes": "SHA256 of descriptor source files",
+    "valid_frames": "production trajectory timestep count"
+  },
+  "schema_version": "phase6e.physical_descriptor_schema.v1",
+  "window": "200 ps production stage only; no glass transition breakpoint is fit"
+}

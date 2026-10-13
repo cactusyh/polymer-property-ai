@@ -1,0 +1,98 @@
+{
+  "bulk_md_physical": {
+    "ci95_high": 9.40855535551942,
+    "ci95_low": -7.606056504479676,
+    "delta_rmse_mean": 1.116940436525889,
+    "delta_rmse_median": 1.1123453765525966,
+    "resamples": 1000,
+    "unit": "chemical_group"
+  },
+  "bulk_md_physical_300K": {
+    "ci95_high": 18.2150846189679,
+    "ci95_low": -1.1409251052384228,
+    "delta_rmse_mean": 8.448013473633102,
+    "delta_rmse_median": 8.324385293333478,
+    "resamples": 1000,
+    "unit": "chemical_group"
+  },
+  "bulk_md_physical_plus_qc": {
+    "ci95_high": 7.32933155397881,
+    "ci95_low": -8.668370761798206,
+    "delta_rmse_mean": -0.7925547891984038,
+    "delta_rmse_median": -0.7344179005773555,
+    "resamples": 1000,
+    "unit": "chemical_group"
+  },
+  "bulk_md_qc_only": {
+    "ci95_high": 15.86288362211813,
+    "ci95_low": -2.468791358125492,
+    "delta_rmse_mean": 6.379359033836134,
+    "delta_rmse_median": 6.297850235288166,
+    "resamples": 1000,
+    "unit": "chemical_group"
+  },
+  "single_chain_md": {
+    "ci95_high": 16.97407768499159,
+    "ci95_low": -5.425570230601481,
+    "delta_rmse_mean": 5.840560286553831,
+    "delta_rmse_median": 6.008413889435857,
+    "resamples": 1000,
+    "unit": "chemical_group"
+  },
+  "structure_plus_both_md": {
+    "ci95_high": 0.8846854030153489,
+    "ci95_low": -2.3555491882047135,
+    "delta_rmse_mean": -0.7784224249927723,
+    "delta_rmse_median": -0.7492903329374911,
+    "resamples": 1000,
+    "unit": "chemical_group"
+  },
+  "structure_plus_bulk_md": {
+    "ci95_high": 1.374998542296721,
+    "ci95_low": -0.4954231016128894,
+    "delta_rmse_mean": 0.423330567232679,
+    "delta_rmse_median": 0.39505484369557564,
+    "resamples": 1000,
+    "unit": "chemical_group"
+  },
+  "structure_plus_predicted_both_md": {
+    "ci95_high": 1.2061374319861162,
+    "ci95_low": -2.072345015391085,
+    "delta_rmse_mean": -0.4795101795089546,
+    "delta_rmse_median": -0.5017711854947748,
+    "resamples": 1000,
+    "unit": "chemical_group"
+  },
+  "structure_plus_predicted_bulk_md": {
+    "ci95_high": 0.48547908793648764,
+    "ci95_low": -0.9831979441592906,
+    "delta_rmse_mean": -0.23080927089425493,
+    "delta_rmse_median": -0.2231604457568892,
+    "resamples": 1000,
+    "unit": "chemical_group"
+  },
+  "structure_plus_predicted_single_chain_md": {
+    "ci95_high": 1.380266582339637,
+    "ci95_low": -1.712205490866181,
+    "delta_rmse_mean": -0.12577843534301275,
+    "delta_rmse_median": -0.11771748987359842,
+    "resamples": 1000,
+    "unit": "chemical_group"
+  },
+  "structure_plus_shuffled_bulk_md": {
+    "ci95_high": 1.4914044574310057,
+    "ci95_low": -1.1193874121118739,
+    "delta_rmse_mean": 0.2225206203521309,
+    "delta_rmse_median": 0.25617712766126033,
+    "resamples": 1000,
+    "unit": "chemical_group"
+  },
+  "structure_plus_single_chain_md": {
+    "ci95_high": 0.27224862575611436,
+    "ci95_low": -2.738290009289127,
+    "delta_rmse_mean": -1.242109915982935,
+    "delta_rmse_median": -1.2353735676511945,
+    "resamples": 1000,
+    "unit": "chemical_group"
+  }
+}
