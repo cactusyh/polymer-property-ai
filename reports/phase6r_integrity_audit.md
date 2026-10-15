@@ -1,0 +1,10 @@
+# Phase 6R integrity audit
+
+{
+  "schema_version": "phase6r.integrity_audit.v1",
+  "status": "BLOCKED_THROUGHPUT",
+  "locked_holdout_target_values_read": false,
+  "locked_holdout_artifacts_modified": false,
+  "bulk_md_simulation_launched": false,
+  "full_training_executed": false
+}
