@@ -1,0 +1,11 @@
+# Phase 6Q integrity audit
+
+{
+  "schema_version": "phase6q.integrity_audit.v1",
+  "status": "BLOCKED_TRAINING",
+  "locked_holdout_target_values_read": false,
+  "locked_holdout_artifacts_modified": false,
+  "bulk_md_simulation_launched": false,
+  "full_corpus_completed": false,
+  "cpu_bound_observation": true
+}
