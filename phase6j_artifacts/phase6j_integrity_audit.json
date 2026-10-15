@@ -1,0 +1,11 @@
+{
+  "b_mlm_status": "BLOCKED_UNVERIFIED",
+  "base_commit": "1edb3910ca87572c54959f7e18a310a578cbba26",
+  "branch": "codex/phase-6j-verified-bmlm-tg-transfer",
+  "bulk_md_simulation_launched": false,
+  "decision": "DO_NOT_LAUNCH_NEW_BULK_MD",
+  "environment_status": "BLOCKED_INCONSISTENT_ENVIRONMENT",
+  "locked_holdout_artifacts_modified": false,
+  "locked_holdout_target_values_read": false,
+  "schema_version": "phase6j.integrity_audit.v1"
+}
