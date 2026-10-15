@@ -1,0 +1,11 @@
+{
+  "b_mlm_status": "BLOCKED_TRAINING",
+  "base_commit": "95245b0449c3209df16821327b5d022bc9e4e7e9",
+  "branch": "codex/phase-6k-run-verified-bmlm-tg",
+  "bulk_md_simulation_launched": false,
+  "environment_status": "PASS",
+  "final_status": "BLOCKED_TRAINING",
+  "locked_holdout_artifacts_modified": false,
+  "locked_holdout_target_values_read": false,
+  "schema_version": "phase6k.integrity_audit.v1"
+}
