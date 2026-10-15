@@ -1,0 +1,180 @@
+{
+  "coverage": {
+    "Re_over_Rg": 5554,
+    "log_Rg": 5554,
+    "log_torsion_transition_rate": 5553,
+    "relative_shape_anisotropy": 5554
+  },
+  "diagnostics": [
+    {
+      "MAE": 0.3175437634629305,
+      "N": 1100,
+      "R2": 0.49702402786438893,
+      "RMSE": 0.4050053347692575,
+      "Spearman": 0.7206772297107082,
+      "coverage": 1100,
+      "diagnostic": "OOF",
+      "evaluation_rows_used_for_fit": false,
+      "fold_count": 1,
+      "protocol": "random",
+      "target": "log_Rg",
+      "train_rows": 4454
+    },
+    {
+      "MAE": 0.4437151391935077,
+      "N": 1100,
+      "R2": -0.05307067573457913,
+      "RMSE": 0.5577959233856894,
+      "Spearman": 0.16960204550131483,
+      "coverage": 1100,
+      "diagnostic": "OOF",
+      "evaluation_rows_used_for_fit": false,
+      "fold_count": 1,
+      "protocol": "random",
+      "target": "Re_over_Rg",
+      "train_rows": 4454
+    },
+    {
+      "MAE": 0.17629353596848937,
+      "N": 1100,
+      "R2": 0.06277615185386975,
+      "RMSE": 0.21108660721465544,
+      "Spearman": 0.3129380527662345,
+      "coverage": 1100,
+      "diagnostic": "OOF",
+      "evaluation_rows_used_for_fit": false,
+      "fold_count": 1,
+      "protocol": "random",
+      "target": "relative_shape_anisotropy",
+      "train_rows": 4454
+    },
+    {
+      "MAE": 0.11872772603153273,
+      "N": 1100,
+      "R2": 0.7453978700354221,
+      "RMSE": 0.1587685994091343,
+      "Spearman": 0.8762405799133269,
+      "coverage": 1100,
+      "diagnostic": "OOF",
+      "evaluation_rows_used_for_fit": false,
+      "fold_count": 1,
+      "protocol": "random",
+      "target": "log_torsion_transition_rate",
+      "train_rows": 4453
+    },
+    {
+      "MAE": 0.3534906949995239,
+      "N": 1134,
+      "R2": 0.40795856674008424,
+      "RMSE": 0.44793397451143885,
+      "Spearman": 0.6765388307238527,
+      "coverage": 1134,
+      "diagnostic": "OOF",
+      "evaluation_rows_used_for_fit": false,
+      "fold_count": 1,
+      "protocol": "ood",
+      "target": "log_Rg",
+      "train_rows": 4420
+    },
+    {
+      "MAE": 0.4385860327524581,
+      "N": 1134,
+      "R2": -0.10332718360801274,
+      "RMSE": 0.5504648910487967,
+      "Spearman": 0.13433640890978044,
+      "coverage": 1134,
+      "diagnostic": "OOF",
+      "evaluation_rows_used_for_fit": false,
+      "fold_count": 1,
+      "protocol": "ood",
+      "target": "Re_over_Rg",
+      "train_rows": 4420
+    },
+    {
+      "MAE": 0.18958099667886097,
+      "N": 1134,
+      "R2": -0.0083495702737022,
+      "RMSE": 0.22545147603649732,
+      "Spearman": 0.2608673697078812,
+      "coverage": 1134,
+      "diagnostic": "OOF",
+      "evaluation_rows_used_for_fit": false,
+      "fold_count": 1,
+      "protocol": "ood",
+      "target": "relative_shape_anisotropy",
+      "train_rows": 4420
+    },
+    {
+      "MAE": 0.13025325502492793,
+      "N": 1134,
+      "R2": 0.680450507378377,
+      "RMSE": 0.17351739786798556,
+      "Spearman": 0.8285875983835864,
+      "coverage": 1134,
+      "diagnostic": "OOF",
+      "evaluation_rows_used_for_fit": false,
+      "fold_count": 1,
+      "protocol": "ood",
+      "target": "log_torsion_transition_rate",
+      "train_rows": 4419
+    }
+  ],
+  "in_sample_diagnostics": "not used",
+  "matched_model_comparison": {
+    "direct": {
+      "MAE": 68.0606146096879,
+      "N": 184,
+      "R2": 0.25965523609152175,
+      "RMSE": 89.43109535025303,
+      "Spearman": 0.5308894068694496,
+      "coverage": 184,
+      "paired_delta": {
+        "ci95_high": -10.699885159460583,
+        "ci95_low": -21.48893441368938,
+        "delta_rmse_mean": -16.077210228896504,
+        "delta_rmse_median": -16.126128134860046,
+        "resamples": 1000,
+        "seed": 13,
+        "unit": "chemical_group"
+      }
+    },
+    "residual": {
+      "MAE": 80.65662601421461,
+      "N": 184,
+      "R2": -0.023860491552252894,
+      "RMSE": 105.17001548555643,
+      "Spearman": 0.4226291152164281,
+      "coverage": 184,
+      "paired_delta": {
+        "ci95_high": 0.27375745574391247,
+        "ci95_low": -0.9434457547471016,
+        "delta_rmse_mean": -0.331332239837349,
+        "delta_rmse_median": -0.3120560742289342,
+        "resamples": 1000,
+        "seed": 13,
+        "unit": "chemical_group"
+      }
+    },
+    "structure": {
+      "MAE": 81.12192191135499,
+      "N": 184,
+      "R2": -0.03031503438791372,
+      "RMSE": 105.50099704331193,
+      "Spearman": 0.42053514669337905,
+      "coverage": 184
+    }
+  },
+  "normalization": "fit on training rows only",
+  "schema_version": "phase6h.single_chain_oof_diagnostics.v1",
+  "target_masks": "finite per target; no cross-target imputation",
+  "targets": [
+    "log_Rg",
+    "Re_over_Rg",
+    "relative_shape_anisotropy",
+    "log_torsion_transition_rate"
+  ],
+  "unavailable_targets": [
+    "contact_fraction",
+    "torsion_entropy"
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "bulk_md_launch": false,
+  "bulk_n": 224,
+  "implementation": "Phase 6H recomputed fold-local predictions with corrected Ridge; no prior predictions are silently reused.",
+  "metrics": {
+    "direct": {
+      "MAE": 69.92411973332466,
+      "N": 224,
+      "R2": 0.2543556289263166,
+      "RMSE": 91.40833428997901,
+      "Spearman": 0.5424727738629085,
+      "coverage": 224,
+      "paired_delta": {
+        "ci95_high": -8.961213922039544,
+        "ci95_low": -16.31123490696615,
+        "delta_rmse_mean": -12.495368014661123,
+        "delta_rmse_median": -12.482926608146897,
+        "resamples": 1000,
+        "seed": 13,
+        "unit": "chemical_group"
+      }
+    },
+    "residual": {
+      "MAE": 79.91228363242685,
+      "N": 224,
+      "R2": 0.03845943084352288,
+      "RMSE": 103.80152391531158,
+      "Spearman": 0.4659918855434551,
+      "coverage": 224,
+      "paired_delta": {
+        "ci95_high": 0.23951495086536168,
+        "ci95_low": -0.4997721825069167,
+        "delta_rmse_mean": -0.12088590119794088,
+        "delta_rmse_median": -0.12214634290337756,
+        "resamples": 1000,
+        "seed": 13,
+        "unit": "chemical_group"
+      }
+    },
+    "structure": {
+      "MAE": 80.11566935392268,
+      "N": 224,
+      "R2": 0.03635765100369237,
+      "RMSE": 103.91490907399634,
+      "Spearman": 0.46032778133675,
+      "coverage": 224
+    }
+  },
+  "schema_version": "phase6h.bulk_residual_fusion.v1",
+  "source_hashes": {
+    "folds": "5d5ff6f4645a9492fb2eb649a7a40f939d24d273ecc9c7a7a35bce83c23d2550",
+    "snapshot": "004930fb6f3eef9d402176b44aba3f3e21a7e7f21ee3c649269cf83e2e350e11"
+  }
+}

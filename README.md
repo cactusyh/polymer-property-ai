@@ -134,3 +134,11 @@ python scripts/finetune_tg.py --config configs/finetune_tg_random.yaml --seeds 1
 python scripts/finetune_tg.py --config configs/finetune_tg_ood.yaml --seeds 13,17,23,29,31
 python scripts/evaluate_tg.py
 ```
+# Phase 6H
+
+Phase 6H uses the frozen development descriptors and existing single-chain MD
+tables. It corrects the Morgan/Ridge target intercept, fits MD diagnostics
+out-of-fold, and excludes historical LOCKED_HOLDOUT identities. No new MD
+simulations are launched. The clean-transfer B_MLM checkpoint is used only
+when its corpus, exclusion, training, and checkpoint provenance are complete;
+otherwise it remains `BLOCKED_UNVERIFIED`.

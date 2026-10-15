@@ -1,7 +1,7 @@
 # Phase 6G single-chain MD auxiliary diagnostics
 
 {
-  "schema_version": "phase6g.single_chain_md_pretraining.v1",
+  "schema_version": "phase6h.single_chain_md_pretraining.v2",
   "target_order": [
     "log_Rg",
     "Re_over_Rg",
@@ -20,43 +20,11 @@
   },
   "auxiliary_training": {
     "no_auxiliary_loss": "NOT_RUN",
-    "auxiliary_masked_loss": "DIAGNOSTIC_ONLY",
+    "auxiliary_masked_loss": "OOF_DIAGNOSTIC",
     "task_weighted_auxiliary": "NOT_RUN",
-    "observed_late_fusion": "Phase 6F matched Ridge retained",
-    "predicted_cross_fitted": "Phase 6F cross-fitted control retained"
+    "observed_late_fusion": "Phase 6H matched OOF diagnostics",
+    "predicted_cross_fitted": "not fabricated"
   },
-  "target_diagnostics": [
-    {
-      "target": "log_Rg",
-      "coverage": 5554,
-      "masked_loss": "target-specific finite mask",
-      "QC_policy": "quality_flag retained; no imputation across targets",
-      "diagnostic_RMSE": 3.1625062400291384,
-      "normalization": "training-only policy; diagnostic fit uses target finite mask"
-    },
-    {
-      "target": "Re_over_Rg",
-      "coverage": 5554,
-      "masked_loss": "target-specific finite mask",
-      "QC_policy": "quality_flag retained; no imputation across targets",
-      "diagnostic_RMSE": 2.296425478938043,
-      "normalization": "training-only policy; diagnostic fit uses target finite mask"
-    },
-    {
-      "target": "relative_shape_anisotropy",
-      "coverage": 5554,
-      "masked_loss": "target-specific finite mask",
-      "QC_policy": "quality_flag retained; no imputation across targets",
-      "diagnostic_RMSE": 0.48272334080925505,
-      "normalization": "training-only policy; diagnostic fit uses target finite mask"
-    },
-    {
-      "target": "log_torsion_transition_rate",
-      "coverage": 5553,
-      "masked_loss": "target-specific finite mask",
-      "QC_policy": "quality_flag retained; no imputation across targets",
-      "diagnostic_RMSE": 1.2505772194366038,
-      "normalization": "training-only policy; diagnostic fit uses target finite mask"
-    }
-  ]
+  "target_diagnostics": [],
+  "in_sample_diagnostics": "not used"
 }

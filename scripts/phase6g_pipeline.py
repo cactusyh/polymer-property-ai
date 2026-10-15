@@ -69,15 +69,26 @@ def fp_array(smiles, nbits=512):
     return out
 
 
+RIDGE_IMPLEMENTATION_VERSION = "phase6h_intercept_v1"
+
+
 def ridge_fit(x, y, alpha=10.0):
+    """Fold-local Ridge with median imputation, X scaling, and y intercept."""
     x = np.asarray(x, float); y = np.asarray(y, float); med = np.nanmedian(x, axis=0); med[~np.isfinite(med)] = 0
     z = np.where(np.isfinite(x), x, med); mu = z.mean(0); sd = z.std(0); sd[sd < 1e-12] = 1
-    coef = np.linalg.solve(((z - mu) / sd).T @ ((z - mu) / sd) + alpha * np.eye(z.shape[1]), ((z - mu) / sd).T @ y)
-    return coef, mu, sd, med
+    zn = (z - mu) / sd; y_mean = float(np.mean(y)); yc = y - y_mean
+    coef = np.linalg.solve(zn.T @ zn + alpha * np.eye(zn.shape[1]), zn.T @ yc)
+    return {"coef": coef, "x_mean": mu, "x_scale": sd, "x_median": med, "y_intercept": y_mean,
+            "implementation_version": RIDGE_IMPLEMENTATION_VERSION}
 
 
 def ridge_predict(model, x):
-    coef, mu, sd, med = model; x = np.asarray(x, float); z = np.where(np.isfinite(x), x, med); return ((z - mu) / sd) @ coef
+    if isinstance(model, dict):
+        x = np.asarray(x, float); z = np.where(np.isfinite(x), x, model["x_median"])
+        return ((z - model["x_mean"]) / model["x_scale"]) @ model["coef"] + model["y_intercept"]
+    coef, mu, sd, med = model
+    x = np.asarray(x, float); z = np.where(np.isfinite(x), x, med)
+    return ((z - mu) / sd) @ coef
 
 
 def locked_ids():
@@ -133,12 +144,16 @@ def md_auxiliary():
     md = pd.read_csv(ROOT / "data/processed/md_physics_targets.csv"); tg = pd.read_parquet(ROOT / "data/processed/tg_registry.parquet", columns=["polymer_id", "canonical_psmiles", "valid"]); tg = tg[tg.valid].merge(md, on="polymer_id", how="inner", suffixes=("_tg", "_md")); tg["canonical_psmiles"] = tg["canonical_psmiles_tg"]
     targets = ["log_Rg", "Re_over_Rg", "relative_shape_anisotropy", "contact_fraction", "torsion_entropy", "log_torsion_transition_rate"]
     coverage = {t: int(pd.to_numeric(tg.get(t), errors="coerce").notna().sum()) if t in tg else 0 for t in targets}; rows = []
+    x = np.stack([fp_array(s) for s in tg["canonical_psmiles"]])
     for t in targets:
         if t not in tg: continue
-        vals = pd.to_numeric(tg[t], errors="coerce"); ok = vals.notna() & tg.canonical_psmiles.notna();
-        if ok.sum() < 20: continue
-        x = np.stack([fp_array(s) for s in tg.loc[ok, "canonical_psmiles"]]); y = vals[ok].to_numpy(float); model = ridge_fit(x, y, 100.0); pred = ridge_predict(model, x); rows.append({"target": t, "coverage": int(ok.sum()), "masked_loss": "target-specific finite mask", "QC_policy": "quality_flag retained; no imputation across targets", "diagnostic_RMSE": float(np.sqrt(np.mean((pred-y)**2))), "normalization": "training-only policy; diagnostic fit uses target finite mask"})
-    data = {"schema_version": "phase6g.single_chain_md_pretraining.v1", "target_order": targets, "coverage": coverage, "auxiliary_training": {"no_auxiliary_loss": "NOT_RUN", "auxiliary_masked_loss": "DIAGNOSTIC_ONLY", "task_weighted_auxiliary": "NOT_RUN", "observed_late_fusion": "Phase 6F matched Ridge retained", "predicted_cross_fitted": "Phase 6F cross-fitted control retained"}, "target_diagnostics": rows}
+        vals = pd.to_numeric(tg[t], errors="coerce").to_numpy(float)
+        for protocol in ("random", "ood"):
+            split = tg[f"{protocol}_split"] if f"{protocol}_split" in tg else pd.Series(["train"] * len(tg))
+            train = split.eq("train").to_numpy() & np.isfinite(vals); eval_mask = ~split.eq("train").to_numpy() & np.isfinite(vals)
+            pred = np.full(len(tg), np.nan)
+            if train.sum() > 20 and eval_mask.any(): pred[eval_mask] = ridge_predict(ridge_fit(x[train], vals[train], 100.0), x[eval_mask]); m = metrics(vals[eval_mask], pred[eval_mask]); rows.append({"target": t, "protocol": protocol, "diagnostic": "OOF", "coverage": int(eval_mask.sum()), "fold_count": 1, "masked_loss": "target-specific finite mask", "QC_policy": "quality_flag retained; no imputation across targets", "evaluation_rows_used_for_fit": False, **m})
+    data = {"schema_version": "phase6h.single_chain_md_pretraining.v2", "target_order": targets, "coverage": coverage, "auxiliary_training": {"no_auxiliary_loss": "NOT_RUN", "auxiliary_masked_loss": "OOF_DIAGNOSTIC", "task_weighted_auxiliary": "NOT_RUN", "observed_late_fusion": "Phase 6H matched OOF diagnostics", "predicted_cross_fitted": "not fabricated"}, "target_diagnostics": rows, "in_sample_diagnostics": "not used"}
     write_json(ART / "single_chain_md_pretraining.json", data); (REPORTS / "phase6g_single_chain_md_pretraining.md").write_text("# Phase 6G single-chain MD auxiliary diagnostics\n\n" + json.dumps(data, indent=2) + "\n", encoding="utf-8")
 
 
