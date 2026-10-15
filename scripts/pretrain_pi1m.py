@@ -69,7 +69,7 @@ def main():
         if any(state.get(k) != v for k, v in expected.items()): raise RuntimeError("resume metadata is incompatible with current corpus/config/commit")
         model.load_state_dict(state["model"]); head.load_state_dict(state["head"]); opt.load_state_dict(state["optimizer"]); scaler.load_state_dict(state.get("scaler", {})); step, start_epoch = state["step"], state["epoch"]
     generator = torch.Generator(); generator.manual_seed(int(cfg["seed"])); resume_batch = 0
-    ds = SmilesDS(train_path, vocab, mc["max_sequence_length"], args.limit); dl = DataLoader(ds, batch_size=cfg["training"].get("batch_size", 16), shuffle=True, generator=generator, pin_memory=device.type == "cuda", num_workers=2 if device.type == "cuda" else 0); rows = []; model.train(); head.train(); limit = args.max_steps or 0
+    ds = SmilesDS(train_path, vocab, mc["max_sequence_length"], args.limit); dl = DataLoader(ds, batch_size=cfg["training"].get("batch_size", 16), shuffle=not args.smoke, generator=generator, pin_memory=device.type == "cuda", num_workers=0 if args.smoke else (2 if device.type == "cuda" else 0)); rows = []; model.train(); head.train(); limit = args.max_steps or 0
     if args.resume: restore_rng(state["rng_state"], generator); resume_batch = state.get("batch_index", -1) + 1
     for ep in range(start_epoch, cfg["training"]["epochs"]):
         for batch_index, (ids, mask) in enumerate(dl):

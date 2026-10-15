@@ -1,0 +1,9 @@
+{
+  "status": "BLOCKED_TRAINING",
+  "full_training_executed": false,
+  "checkpoint_scope": "SMOKE",
+  "executed_training_commit": "f66e5ccf77d2c07b495b3f8d170ee18cc5996613",
+  "artifact_generation_commit": "f66e5ccf77d2c07b495b3f8d170ee18cc5996613",
+  "corpus_sha256": "fbc44e2c343570c5c6e07f5de76fa781956bb1d795b9a981f330c88774ec70e2",
+  "final_checkpoint_sha256": null
+}
