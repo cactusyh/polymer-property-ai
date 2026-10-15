@@ -1,0 +1,22 @@
+{
+  "environment_name": ".venv-phase6a",
+  "pip_check_exit_code": 0,
+  "pip_check_output": "No broken requirements found.",
+  "python": "Python 3.11.16",
+  "schema_version": "phase6k.environment_manifest.v1",
+  "status": "PASS",
+  "torch_probe": [
+    "2.5.1",
+    "True",
+    "12.1",
+    "NVIDIA H800"
+  ],
+  "training_launcher_cuda_behavior": "pretrain_pi1m.py does not move model/data to CUDA; observed CPU-bound run",
+  "versions": {
+    "fsspec": "unavailable_in_base_process",
+    "pyarrow": "25.0.0",
+    "rdkit": "2026.03.6",
+    "sympy": "1.14.0",
+    "torch": "2.5.1"
+  }
+}
