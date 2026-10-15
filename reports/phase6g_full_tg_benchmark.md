@@ -1,0 +1,9 @@
+# Phase 6G full Tg structure benchmark
+The full valid Tg registry contains 7140 records after excluding historical LOCKED_HOLDOUT identities.
+- MORGAN_RIDGE random validation: RMSE 154.494 MAE 145.732 N=702.
+- MORGAN_RIDGE random test: RMSE 152.847 MAE 146.126 N=699.
+- MORGAN_RIDGE ood validation: RMSE 147.119 MAE 134.907 N=713.
+- MORGAN_RIDGE ood test: RMSE 147.458 MAE 137.799 N=886.
+- PSMILES_RANDOM_INITIALIZED  : NOT_RUN.
+- B_MLM_CLEAN_TRANSFER  : BLOCKED_UNVERIFIED_CHECKPOINT.
+- PRODUCTION_PRETRAINED  : REPORTED_SEPARATELY_NOT_RUN.

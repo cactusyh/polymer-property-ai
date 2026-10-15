@@ -1,0 +1,60 @@
+{
+  "auxiliary_training": {
+    "auxiliary_masked_loss": "DIAGNOSTIC_ONLY",
+    "no_auxiliary_loss": "NOT_RUN",
+    "observed_late_fusion": "Phase 6F matched Ridge retained",
+    "predicted_cross_fitted": "Phase 6F cross-fitted control retained",
+    "task_weighted_auxiliary": "NOT_RUN"
+  },
+  "coverage": {
+    "Re_over_Rg": 5554,
+    "contact_fraction": 0,
+    "log_Rg": 5554,
+    "log_torsion_transition_rate": 5553,
+    "relative_shape_anisotropy": 5554,
+    "torsion_entropy": 0
+  },
+  "schema_version": "phase6g.single_chain_md_pretraining.v1",
+  "target_diagnostics": [
+    {
+      "QC_policy": "quality_flag retained; no imputation across targets",
+      "coverage": 5554,
+      "diagnostic_RMSE": 3.1625062400291384,
+      "masked_loss": "target-specific finite mask",
+      "normalization": "training-only policy; diagnostic fit uses target finite mask",
+      "target": "log_Rg"
+    },
+    {
+      "QC_policy": "quality_flag retained; no imputation across targets",
+      "coverage": 5554,
+      "diagnostic_RMSE": 2.296425478938043,
+      "masked_loss": "target-specific finite mask",
+      "normalization": "training-only policy; diagnostic fit uses target finite mask",
+      "target": "Re_over_Rg"
+    },
+    {
+      "QC_policy": "quality_flag retained; no imputation across targets",
+      "coverage": 5554,
+      "diagnostic_RMSE": 0.48272334080925505,
+      "masked_loss": "target-specific finite mask",
+      "normalization": "training-only policy; diagnostic fit uses target finite mask",
+      "target": "relative_shape_anisotropy"
+    },
+    {
+      "QC_policy": "quality_flag retained; no imputation across targets",
+      "coverage": 5553,
+      "diagnostic_RMSE": 1.2505772194366038,
+      "masked_loss": "target-specific finite mask",
+      "normalization": "training-only policy; diagnostic fit uses target finite mask",
+      "target": "log_torsion_transition_rate"
+    }
+  ],
+  "target_order": [
+    "log_Rg",
+    "Re_over_Rg",
+    "relative_shape_anisotropy",
+    "contact_fraction",
+    "torsion_entropy",
+    "log_torsion_transition_rate"
+  ]
+}

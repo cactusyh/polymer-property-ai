@@ -1,0 +1,61 @@
+{
+  "findings": {
+    "BLOCKER": [
+      "Phase 6F correctly recorded the missing verified B_MLM checkpoint; Phase 6G must not use the existing unproven checkpoint."
+    ],
+    "PASS": [
+      "Phase 6F source artifacts and snapshot hashes are readable.",
+      "Bulk intersection is 224 polymers; single-chain and three-modality intersections are 184 polymers.",
+      "Stored grouped outer-fold assignments contain five folds and residual targets use OOF structure predictions.",
+      "Phase 6F paired bootstrap is deterministic and uses chemical groups.",
+      "LOCKED_HOLDOUT overlap is empty in the Phase 6F snapshot."
+    ],
+    "WARNING": [
+      "Phase 6F descriptor information table labels mutual information and permutation diagnostics as unavailable or descriptive; they are not treated as confirmatory evidence.",
+      "Phase 6F uses the frozen Morgan structure encoder rather than a verified neural backbone."
+    ]
+  },
+  "locked_holdout_overlap": [],
+  "locked_holdout_used": false,
+  "matched_counts": {
+    "bulk_md_intersection": 224,
+    "full_tg_benchmark": 224,
+    "single_chain_md_intersection": 184,
+    "three_modality_intersection": 184
+  },
+  "residual_models": {
+    "both": {
+      "ci95_high": 0.4817558646200282,
+      "ci95_low": -1.7400008350611924,
+      "delta_rmse_mean": -0.6171473495732831,
+      "delta_rmse_median": -0.6176707470729639,
+      "resamples": 1000,
+      "seed": 13,
+      "unit": "chemical_group"
+    },
+    "bulk": {
+      "ci95_high": 1.051339306371593,
+      "ci95_low": -0.1980060771901918,
+      "delta_rmse_mean": 0.41383576937116795,
+      "delta_rmse_median": 0.41835531879063126,
+      "resamples": 1000,
+      "seed": 13,
+      "unit": "chemical_group"
+    },
+    "chain": {
+      "ci95_high": 1.2711466181092306,
+      "ci95_low": -0.820508470894579,
+      "delta_rmse_mean": 0.22390148608697574,
+      "delta_rmse_median": 0.20900908019726216,
+      "resamples": 1000,
+      "seed": 13,
+      "unit": "chemical_group"
+    }
+  },
+  "schema_version": "phase6g.phase6f_reproduction_audit.v1",
+  "source_hashes": {
+    "folds": "5d5ff6f4645a9492fb2eb649a7a40f939d24d273ecc9c7a7a35bce83c23d2550",
+    "oof": "b66e7581a5c56205f5bb9e652cd1389db9fee8f2727d348b73ba0aa900745002",
+    "snapshot": "004930fb6f3eef9d402176b44aba3f3e21a7e7f21ee3c649269cf83e2e350e11"
+  }
+}
