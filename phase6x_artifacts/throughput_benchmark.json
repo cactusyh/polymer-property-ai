@@ -1,0 +1,13 @@
+{
+  "schema_version": "phase6x.throughput_benchmark.v1",
+  "status": "PASS",
+  "benchmark_execution_commit": "59f793ffea4a01ce658aae33cdeb0d88783edd90",
+  "source_phase6v_commit": "8171ed65a1e5b07ff6ab291b0f5c81f5ecf29b86",
+  "cache_sha256": "23d228a681d045716d33a693d3157251d6498b05897b8da5252e2973066d716e",
+  "tokenization_calls": 0,
+  "steps": 4,
+  "checkpoint_interval": 2,
+  "gpu": "NVIDIA H800",
+  "device": "cuda",
+  "notes": "Production deterministic sampler benchmark; full training not launched."
+}

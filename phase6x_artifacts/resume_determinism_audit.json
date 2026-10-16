@@ -1,0 +1,50 @@
+{
+  "schema_version": "phase6x.resume_determinism_audit.v1",
+  "status": "BLOCKED_RESUME_DETERMINISM",
+  "source_phase6v_commit": "8171ed65a1e5b07ff6ab291b0f5c81f5ecf29b86",
+  "benchmark_execution_commit": "59f793ffea4a01ce658aae33cdeb0d88783edd90",
+  "artifact_generation_commit": "59f793ffea4a01ce658aae33cdeb0d88783edd90",
+  "training_execution_commit": null,
+  "cache_sha256": "23d228a681d045716d33a693d3157251d6498b05897b8da5252e2973066d716e",
+  "corpus_sha256": "fbc44e2c343570c5c6e07f5de76fa781956bb1d795b9a981f330c88774ec70e2",
+  "steps": [
+    {
+      "step": 1,
+      "equal": true,
+      "differences": {}
+    },
+    {
+      "step": 2,
+      "equal": true,
+      "differences": {}
+    },
+    {
+      "step": 3,
+      "equal": false,
+      "differences": {
+        "rng_hash": {
+          "uninterrupted": "5ea5f203ef447bcee78381e59a4b5b29d67f17455c9263ded711886f72e0a684",
+          "resumed": "386af876b88254209d428d5375281ee21dc68e67cbcdbfd5f7dea14a84dd2970"
+        }
+      }
+    },
+    {
+      "step": 4,
+      "equal": false,
+      "differences": {
+        "rng_hash": {
+          "uninterrupted": "7dc4df18c15d1ba1e567819dbcd9592b16e418cdddb427be4d0d5731698c5d8d",
+          "resumed": "6570b864ce873275e1f74e7a1cff02388cd35624d53d5417d8fec49c6baa0255"
+        }
+      }
+    }
+  ],
+  "first_divergent_step": 3,
+  "first_divergent_state": [
+    "rng_hash"
+  ],
+  "experiments": {
+    "uninterrupted": "/tmp/phase6x_a",
+    "two_step_plus_resume": "/tmp/phase6x_b"
+  }
+}

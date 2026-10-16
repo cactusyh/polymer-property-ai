@@ -214,6 +214,22 @@ def cache_sha(path):
     return h.hexdigest()
 
 
+def object_hash(value):
+    h = hashlib.sha256()
+    if isinstance(value, torch.Tensor):
+        h.update(value.detach().cpu().contiguous().numpy().tobytes())
+    elif isinstance(value, dict):
+        for key in sorted(value, key=str):
+            h.update(str(key).encode())
+            h.update(object_hash(value[key]).encode())
+    elif isinstance(value, (list, tuple)):
+        for item in value:
+            h.update(object_hash(item).encode())
+    else:
+        h.update(repr(value).encode())
+    return h.hexdigest()
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--config", default="configs/pretrain_pi1m.yaml")
@@ -227,6 +243,13 @@ def main():
     ap.add_argument("--resume", action="store_true")
     ap.add_argument("--checkpoint-interval", type=int, default=100)
     args = ap.parse_args()
+    audit_dir = (
+        Path(os.environ["PHASE6X_AUDIT_DIR"])
+        if os.environ.get("PHASE6X_AUDIT_DIR")
+        else None
+    )
+    if audit_dir:
+        audit_dir.mkdir(parents=True, exist_ok=True)
     if not args.smoke and not args.token_cache:
         raise RuntimeError("--token-cache is mandatory for full training")
     with open(args.config, encoding="utf-8") as config_file:
@@ -369,6 +392,35 @@ def main():
             scaler.step(opt)
             scaler.update()
             step += 1
+            if audit_dir:
+                audit = {
+                    "step": step,
+                    "epoch": ep,
+                    "batch_index": batch_index,
+                    "batch_row_identity_hash": object_hash(batch_rows),
+                    "permutation_sha256": sampler.sha256 if sampler else None,
+                    "masked_positions_hash": object_hash(labels != -100),
+                    "masked_input_hash": object_hash(ids_m),
+                    "label_hash": object_hash(labels),
+                    "loss": float(loss.detach().cpu()),
+                    "accuracy": float(
+                        (logits.argmax(-1)[labels != -100] == labels[labels != -100])
+                        .float()
+                        .mean()
+                    )
+                    if (labels != -100).any()
+                    else 0.0,
+                    "model_hash": object_hash(model.state_dict()),
+                    "head_hash": object_hash(head.state_dict()),
+                    "optimizer_hash": object_hash(opt.state_dict()),
+                    "scaler_hash": object_hash(scaler.state_dict()),
+                    "rng_hash": object_hash(rng_state(generator)),
+                    "logits_hash": object_hash(logits),
+                    "prediction_hash": object_hash(logits.argmax(-1)),
+                }
+                (audit_dir / f"step_{step:04d}.json").write_text(
+                    json.dumps(audit, sort_keys=True) + "\n"
+                )
             masked = labels != -100
             acc = (
                 float((logits.argmax(-1)[masked] == labels[masked]).float().mean())
