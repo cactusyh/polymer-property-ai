@@ -336,6 +336,7 @@ def main():
         step, start_epoch = state["step"], state["epoch"]
     generator = torch.Generator()
     generator.manual_seed(int(cfg["seed"]))
+    loader_generator = torch.Generator().manual_seed(int(cfg["seed"]) + 100003)
     resume_batch = 0
     ds = (
         TokenCacheDS(cache, train_path, mc["max_sequence_length"], args.limit)
@@ -354,14 +355,17 @@ def main():
         if sampler:
             sampler.epoch = ep
             sampler.__init__(len(ds), int(cfg["seed"]), ep)
+        loader_generator = torch.Generator().manual_seed(int(cfg["seed"]) + 100003 + ep)
         dl = DataLoader(
             ds,
             batch_size=cfg["training"].get("batch_size", 16),
             shuffle=(not args.smoke and sampler is None),
             sampler=sampler,
-            generator=generator,
+            generator=loader_generator,
             pin_memory=device.type == "cuda",
-            num_workers=0 if args.smoke else (2 if device.type == "cuda" else 0),
+            num_workers=0
+            if (args.smoke or sampler is not None)
+            else (2 if device.type == "cuda" else 0),
         )
         for batch_index, batch in enumerate(dl):
             ids, mask = batch[:2]
@@ -393,6 +397,7 @@ def main():
             scaler.update()
             step += 1
             if audit_dir:
+                state_rng = rng_state(loader_generator)
                 audit = {
                     "step": step,
                     "epoch": ep,
@@ -414,7 +419,12 @@ def main():
                     "head_hash": object_hash(head.state_dict()),
                     "optimizer_hash": object_hash(opt.state_dict()),
                     "scaler_hash": object_hash(scaler.state_dict()),
-                    "rng_hash": object_hash(rng_state(generator)),
+                    "rng_hash": object_hash(state_rng),
+                    "python_rng_hash": object_hash(state_rng["python"]),
+                    "numpy_rng_hash": object_hash(state_rng["numpy"]),
+                    "torch_rng_hash": object_hash(state_rng["torch"]),
+                    "cuda_rng_hash": object_hash(state_rng["cuda"]),
+                    "dataloader_generator_rng_hash": object_hash(state_rng["loader"]),
                     "logits_hash": object_hash(logits),
                     "prediction_hash": object_hash(logits.argmax(-1)),
                 }
@@ -471,7 +481,7 @@ def main():
                 "training_commit": commit,
                 "cache_sha256": cache_hash,
                 "vocabulary_sha256": vocab_sha,
-                "rng_state": rng_state(generator),
+                "rng_state": rng_state(loader_generator),
                 "cache_manifest": cache_manifest,
                 "checkpoint_interval": args.checkpoint_interval,
                 "sampler_seed": int(cfg["seed"]),
@@ -500,7 +510,7 @@ def main():
             "training_commit": commit,
             "cache_sha256": cache_hash,
             "vocabulary_sha256": vocab_sha,
-            "rng_state": rng_state(generator),
+            "rng_state": rng_state(loader_generator),
             "cache_manifest": cache_manifest,
             "checkpoint_interval": args.checkpoint_interval,
             "sampler_seed": int(cfg["seed"]),
