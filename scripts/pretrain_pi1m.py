@@ -342,9 +342,16 @@ def main():
     model.train()
     head.train()
     limit = args.max_steps or 0
+    accumulation_steps = int(cfg["training"].get("gradient_accumulation_steps", 1))
+    microbatch_index = 0
+    rows_processed = 0
     if args.resume:
         restore_rng(state["rng_state"])
         resume_batch = state.get("batch_index", -1) + 1
+        microbatch_index = int(
+            state.get("microbatch_index", state.get("batch_index", -1) + 1)
+        )
+        rows_processed = int(state.get("rows_processed", 0))
     for ep in range(start_epoch, cfg["training"]["epochs"]):
         if sampler:
             sampler.epoch = ep
@@ -361,6 +368,8 @@ def main():
             if (args.smoke or sampler is not None)
             else (2 if device.type == "cuda" else 0),
         )
+        opt.zero_grad(set_to_none=True)
+        accumulation_position = 0
         for batch_index, batch in enumerate(dl):
             ids, mask = batch[:2]
             batch_rows = batch[2] if len(batch) > 2 else None
@@ -369,31 +378,43 @@ def main():
             if limit and step >= limit:
                 break
             step_start = time.perf_counter()
+            microbatch_index += 1
+            rows_processed += int(ids.shape[0])
             ids, mask = (
                 ids.to(device, non_blocking=True),
                 mask.to(device, non_blocking=True),
             )
             ids_m, labels = mask_batch(ids, vocab, cfg["training"]["mask_probability"])
-            opt.zero_grad(set_to_none=True)
             with torch.cuda.amp.autocast(enabled=device.type == "cuda"):
                 x, _ = model(ids_m, mask)
                 logits = head(x)
                 loss = nn.functional.cross_entropy(
                     logits.view(-1, len(vocab)), labels.view(-1), ignore_index=-100
                 )
-            scaler.scale(loss).backward()
-            scaler.unscale_(opt)
-            nn.utils.clip_grad_norm_(
-                list(model.parameters()) + list(head.parameters()),
-                cfg["training"].get("max_grad_norm", 1.0),
+            (scaler.scale(loss / accumulation_steps)).backward()
+            accumulation_position += 1
+            update_boundary = (
+                accumulation_position == accumulation_steps
+                or batch_index == len(dl) - 1
             )
-            scaler.step(opt)
-            scaler.update()
-            step += 1
+            if update_boundary:
+                scaler.unscale_(opt)
+                nn.utils.clip_grad_norm_(
+                    list(model.parameters()) + list(head.parameters()),
+                    cfg["training"].get("max_grad_norm", 1.0),
+                )
+                scaler.step(opt)
+                scaler.update()
+                opt.zero_grad(set_to_none=True)
+                step += 1
+                accumulation_position = 0
             if audit_dir:
                 state_rng = rng_state()
                 audit = {
                     "step": step,
+                    "microbatch_index": microbatch_index,
+                    "accumulation_position": accumulation_position,
+                    "rows_processed": rows_processed,
                     "epoch": ep,
                     "batch_index": batch_index,
                     "batch_row_identity_hash": object_hash(batch_rows),
@@ -449,7 +470,10 @@ def main():
                     ).hexdigest(),
                     "input_cuda": bool(ids.is_cuda),
                     "loss_cuda": bool(loss.is_cuda),
-                    "grad_cuda": bool(next(model.parameters()).grad.is_cuda),
+                    "grad_cuda": bool(
+                        next(model.parameters()).grad is not None
+                        and next(model.parameters()).grad.is_cuda
+                    ),
                     "device": str(device),
                     "gpu": torch.cuda.get_device_name(0)
                     if device.type == "cuda"
@@ -471,6 +495,10 @@ def main():
                 "step": step,
                 "epoch": ep,
                 "batch_index": batch_index,
+                "microbatch_index": microbatch_index,
+                "rows_processed": rows_processed,
+                "accumulation_position": accumulation_position,
+                "gradient_accumulation_steps": accumulation_steps,
                 "device": str(device),
                 "corpus_sha256": corpus_sha,
                 "config_sha256": config_sha,
@@ -484,7 +512,9 @@ def main():
                 "sampler_epoch": ep,
                 "permutation_sha256": sampler.sha256 if sampler else None,
             }
-            if args.smoke or step % max(1, args.checkpoint_interval) == 0:
+            if update_boundary and (
+                args.smoke or step % max(1, args.checkpoint_interval) == 0
+            ):
                 atomic_save(checkpoint, resume_path)
         if limit and step >= limit:
             break
@@ -500,6 +530,10 @@ def main():
             "step": step,
             "epoch": final_epoch,
             "batch_index": final_batch,
+            "microbatch_index": microbatch_index,
+            "rows_processed": rows_processed,
+            "accumulation_position": accumulation_position,
+            "gradient_accumulation_steps": accumulation_steps,
             "device": str(device),
             "corpus_sha256": corpus_sha,
             "config_sha256": config_sha,
