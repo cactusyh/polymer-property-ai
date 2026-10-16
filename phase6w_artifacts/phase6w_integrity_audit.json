@@ -1,0 +1,10 @@
+{
+  "schema_version": "phase6w.integrity_audit.v1",
+  "status": "BLOCKED_RESUME_DETERMINISM",
+  "full_training_executed": false,
+  "locked_holdout_target_values_read": false,
+  "locked_holdout_artifacts_modified": false,
+  "bulk_md_simulation_launched": false,
+  "artifact_generation_commit": "8171ed65a1e5b07ff6ab291b0f5c81f5ecf29b86",
+  "source_phase6v_commit": "8171ed65a1e5b07ff6ab291b0f5c81f5ecf29b86"
+}

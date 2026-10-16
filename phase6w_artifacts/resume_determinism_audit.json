@@ -1,0 +1,10 @@
+{
+  "schema_version": "phase6w.resume_determinism_audit.v1",
+  "status": "BLOCKED_RESUME_DETERMINISM",
+  "executed": true,
+  "uninterrupted_steps": 4,
+  "resumed_steps": 4,
+  "row_identity_comparison": "not_complete",
+  "parameter_comparison": "not_complete",
+  "reason": "Production interrupt/resume smoke completed, but full tensor/RNG/logit comparison has not been independently serialized."
+}

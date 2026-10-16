@@ -20,7 +20,7 @@ import pandas as pd
 import torch
 import yaml
 from torch import nn
-from torch.utils.data import DataLoader, Dataset
+from torch.utils.data import DataLoader, Dataset, Sampler
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
@@ -113,9 +113,29 @@ class TokenCacheDS(Dataset):
 
     def __getitem__(self, i):
         row = int(self.indices[i])
-        return torch.as_tensor(
-            np.asarray(self.ids[row], dtype=np.int64)
-        ), torch.as_tensor(np.asarray(self.ids[row] != 0, dtype=np.bool_))
+        return (
+            torch.as_tensor(np.asarray(self.ids[row], dtype=np.int64)),
+            torch.as_tensor(np.asarray(self.ids[row] != 0, dtype=np.bool_)),
+            row,
+        )
+
+
+class EpochPermutationSampler(Sampler):
+    """Reproducible sample order derived only from seed and epoch."""
+
+    def __init__(self, n, seed, epoch=0):
+        self.n, self.seed, self.epoch = n, int(seed), int(epoch)
+        g = torch.Generator().manual_seed(self.seed + self.epoch)
+        self.permutation = torch.randperm(n, generator=g).tolist()
+        self.sha256 = hashlib.sha256(
+            np.asarray(self.permutation, dtype=np.int64).tobytes()
+        ).hexdigest()
+
+    def __iter__(self):
+        return iter(self.permutation)
+
+    def __len__(self):
+        return self.n
 
 
 def mask_batch(ids, vocab, p=0.15):
@@ -299,14 +319,7 @@ def main():
         if cache
         else SmilesDS(train_path, vocab, mc["max_sequence_length"], args.limit)
     )
-    dl = DataLoader(
-        ds,
-        batch_size=cfg["training"].get("batch_size", 16),
-        shuffle=not args.smoke,
-        generator=generator,
-        pin_memory=device.type == "cuda",
-        num_workers=0 if args.smoke else (2 if device.type == "cuda" else 0),
-    )
+    sampler = EpochPermutationSampler(len(ds), int(cfg["seed"])) if cache else None
     rows = []
     model.train()
     head.train()
@@ -315,7 +328,21 @@ def main():
         restore_rng(state["rng_state"], generator)
         resume_batch = state.get("batch_index", -1) + 1
     for ep in range(start_epoch, cfg["training"]["epochs"]):
-        for batch_index, (ids, mask) in enumerate(dl):
+        if sampler:
+            sampler.epoch = ep
+            sampler.__init__(len(ds), int(cfg["seed"]), ep)
+        dl = DataLoader(
+            ds,
+            batch_size=cfg["training"].get("batch_size", 16),
+            shuffle=(not args.smoke and sampler is None),
+            sampler=sampler,
+            generator=generator,
+            pin_memory=device.type == "cuda",
+            num_workers=0 if args.smoke else (2 if device.type == "cuda" else 0),
+        )
+        for batch_index, batch in enumerate(dl):
+            ids, mask = batch[:2]
+            batch_rows = batch[2] if len(batch) > 2 else None
             if ep == start_epoch and batch_index < resume_batch:
                 continue
             if limit and step >= limit:
@@ -357,6 +384,11 @@ def main():
                     "masked_token_accuracy": acc,
                     "step_seconds": time.perf_counter() - step_start,
                     "tokenization_calls": 0 if cache else len(ids),
+                    "batch_row_identity_hash": hashlib.sha256(
+                        np.asarray(
+                            batch_rows if batch_rows is not None else [], dtype=np.int64
+                        ).tobytes()
+                    ).hexdigest(),
                     "input_cuda": bool(ids.is_cuda),
                     "loss_cuda": bool(loss.is_cuda),
                     "grad_cuda": bool(next(model.parameters()).grad.is_cuda),
@@ -390,6 +422,9 @@ def main():
                 "rng_state": rng_state(generator),
                 "cache_manifest": cache_manifest,
                 "checkpoint_interval": args.checkpoint_interval,
+                "sampler_seed": int(cfg["seed"]),
+                "sampler_epoch": ep,
+                "permutation_sha256": sampler.sha256 if sampler else None,
             }
             if args.smoke or step % max(1, args.checkpoint_interval) == 0:
                 atomic_save(checkpoint, resume_path)
@@ -416,6 +451,9 @@ def main():
             "rng_state": rng_state(generator),
             "cache_manifest": cache_manifest,
             "checkpoint_interval": args.checkpoint_interval,
+            "sampler_seed": int(cfg["seed"]),
+            "sampler_epoch": final_epoch,
+            "permutation_sha256": sampler.sha256 if sampler else None,
         },
         out / "best.pt",
     )
@@ -432,6 +470,9 @@ def main():
                 "final_epoch": final_epoch,
                 "final_batch_index": final_batch,
                 "global_step": step,
+                "sampler_seed": int(cfg["seed"]),
+                "sampler_epoch": final_epoch,
+                "permutation_sha256": sampler.sha256 if sampler else None,
             },
             indent=2,
         )
