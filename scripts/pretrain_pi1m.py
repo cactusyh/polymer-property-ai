@@ -183,7 +183,13 @@ def file_sha(path):
 
 def cache_sha(path):
     h = hashlib.sha256()
-    for name in ("token_ids.npy", "lengths.npy", "vocab.json"):
+    for name in (
+        "token_ids.npy",
+        "lengths.npy",
+        "vocab.json",
+        "train_indices.npy",
+        "row_identity_sha256.txt",
+    ):
         h.update((Path(path) / name).read_bytes())
     return h.hexdigest()
 
@@ -199,7 +205,10 @@ def main():
     ap.add_argument("--device", choices=["auto", "cuda", "cpu"], default="auto")
     ap.add_argument("--smoke", action="store_true")
     ap.add_argument("--resume", action="store_true")
+    ap.add_argument("--checkpoint-interval", type=int, default=100)
     args = ap.parse_args()
+    if not args.smoke and not args.token_cache:
+        raise RuntimeError("--token-cache is mandatory for full training")
     with open(args.config, encoding="utf-8") as config_file:
         cfg = yaml.safe_load(config_file)
     train_path = Path(args.train_path or cfg["train_path"])
@@ -235,15 +244,16 @@ def main():
         ["git", "rev-parse", "HEAD"], cwd=ROOT, text=True
     ).strip()
     cache_hash = cache_sha(cache) if cache else None
+    cache_manifest = (
+        json.loads((cache / "cache_manifest.json").read_text()) if cache else None
+    )
+    if cache and cache_hash != cache_manifest["combined_cache_sha256"]:
+        raise RuntimeError("token cache combined hash mismatch")
+    if cache and cache_manifest["corpus_sha256"] != corpus_sha:
+        raise RuntimeError("token cache source corpus hash mismatch")
     vocab_sha = (
         file_sha(cache / "vocab.json") if cache else file_sha(out / "vocab.json")
     )
-    if (
-        cache
-        and cache_hash
-        != "c1af57a902fdbf065008473eb9e759a2d6b55dc852965fac125d3d52cbb76f68"
-    ):
-        raise RuntimeError("token cache hash mismatch")
     if (
         cache
         and vocab_sha
@@ -269,6 +279,8 @@ def main():
             "corpus_sha256": corpus_sha,
             "config_sha256": config_sha,
             "training_commit": commit,
+            "cache_sha256": cache_hash,
+            "vocabulary_sha256": vocab_sha,
         }
         if any(state.get(k) != v for k, v in expected.items()):
             raise RuntimeError(
@@ -359,27 +371,28 @@ def main():
                     ),
                 }
             )
-            atomic_save(
-                {
-                    "model": model.state_dict(),
-                    "head": head.state_dict(),
-                    "optimizer": opt.state_dict(),
-                    "scaler": scaler.state_dict(),
-                    "config": mc,
-                    "vocab": vocab,
-                    "step": step,
-                    "epoch": ep,
-                    "batch_index": batch_index,
-                    "device": str(device),
-                    "corpus_sha256": corpus_sha,
-                    "config_sha256": config_sha,
-                    "training_commit": commit,
-                    "cache_sha256": cache_hash,
-                    "vocabulary_sha256": vocab_sha,
-                    "rng_state": rng_state(generator),
-                },
-                resume_path,
-            )
+            checkpoint = {
+                "model": model.state_dict(),
+                "head": head.state_dict(),
+                "optimizer": opt.state_dict(),
+                "scaler": scaler.state_dict(),
+                "config": mc,
+                "vocab": vocab,
+                "step": step,
+                "epoch": ep,
+                "batch_index": batch_index,
+                "device": str(device),
+                "corpus_sha256": corpus_sha,
+                "config_sha256": config_sha,
+                "training_commit": commit,
+                "cache_sha256": cache_hash,
+                "vocabulary_sha256": vocab_sha,
+                "rng_state": rng_state(generator),
+                "cache_manifest": cache_manifest,
+                "checkpoint_interval": args.checkpoint_interval,
+            }
+            if args.smoke or step % max(1, args.checkpoint_interval) == 0:
+                atomic_save(checkpoint, resume_path)
         if limit and step >= limit:
             break
     final_epoch = ep if rows else start_epoch
@@ -401,6 +414,8 @@ def main():
             "cache_sha256": cache_hash,
             "vocabulary_sha256": vocab_sha,
             "rng_state": rng_state(generator),
+            "cache_manifest": cache_manifest,
+            "checkpoint_interval": args.checkpoint_interval,
         },
         out / "best.pt",
     )

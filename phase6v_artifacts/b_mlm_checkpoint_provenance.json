@@ -1,0 +1,10 @@
+{
+  "schema_version": "phase6v.b_mlm_checkpoint_provenance.v1",
+  "status": "BLOCKED_TRAINING",
+  "full_training_executed": false,
+  "checkpoint_scope": "NONE",
+  "training_execution_commit": null,
+  "artifact_generation_commit": "3664290292dc065f7f7b4112e61e1f9609b5b5ea",
+  "source_phase6u_commit": "3664290292dc065f7f7b4112e61e1f9609b5b5ea",
+  "checkpoint_sha256": null
+}

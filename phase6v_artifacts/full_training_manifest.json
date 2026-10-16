@@ -1,0 +1,13 @@
+{
+  "schema_version": "phase6v.full_training_manifest.v1",
+  "status": "BLOCKED_TRAINING",
+  "full_training_executed": false,
+  "rows_processed": 0,
+  "global_step": 0,
+  "training_execution_commit": null,
+  "artifact_generation_commit": "3664290292dc065f7f7b4112e61e1f9609b5b5ea",
+  "source_phase6u_commit": "3664290292dc065f7f7b4112e61e1f9609b5b5ea",
+  "corpus_rows": 988561,
+  "train_rows": 968879,
+  "excluded_non_train_rows": 19682
+}
