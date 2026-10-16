@@ -10,6 +10,8 @@
   "configuration_sha256": "8080a5d7d2abc1b22cae7563f02c2c9d0161573ef92c07278c9fa6e184ea3ae0",
   "status": "BLOCKED_TRAINING",
   "checkpoint_path": "/inspire/ssd/project/sais-suiren-foundation-model-prediction/checkpoints/phase6ac_full_bmlm/last.pt",
-  "checkpoint_sha256": "7f7b7dd9a19359237c7d25b792a5b422b1a8316e8e590616457bd0623bbf9432",
-  "full_training_executed": false
+  "checkpoint_sha256": "7d0e37151b63212e0b8247c990eef1de5835ed2aa21d21a83afd7c9e056cacbe",
+  "full_training_executed": false,
+  "rows_processed": 251200,
+  "global_step": 15700
 }
