@@ -161,17 +161,17 @@ def atomic_save(value, path):
             tmp.unlink()
 
 
-def rng_state(generator):
+def rng_state():
     return {
         "python": random.getstate(),
         "numpy": np.random.get_state(),
         "torch": torch.get_rng_state(),
         "cuda": torch.cuda.get_rng_state_all() if torch.cuda.is_available() else [],
-        "loader": generator.get_state(),
+        "dataloader_worker_state": None,
     }
 
 
-def restore_rng(state, generator):
+def restore_rng(state):
     random.setstate(state["python"])
     np.random.set_state(state["numpy"])
     cpu_state = (
@@ -187,12 +187,6 @@ def restore_rng(state, generator):
                 for x in state["cuda"]
             ]
         )
-    loader_state = (
-        state["loader"]
-        if isinstance(state["loader"], torch.Tensor)
-        else torch.tensor(state["loader"], dtype=torch.uint8)
-    )
-    generator.set_state(loader_state)
 
 
 def file_sha(path):
@@ -349,7 +343,7 @@ def main():
     head.train()
     limit = args.max_steps or 0
     if args.resume:
-        restore_rng(state["rng_state"], generator)
+        restore_rng(state["rng_state"])
         resume_batch = state.get("batch_index", -1) + 1
     for ep in range(start_epoch, cfg["training"]["epochs"]):
         if sampler:
@@ -397,7 +391,7 @@ def main():
             scaler.update()
             step += 1
             if audit_dir:
-                state_rng = rng_state(loader_generator)
+                state_rng = rng_state()
                 audit = {
                     "step": step,
                     "epoch": ep,
@@ -424,7 +418,9 @@ def main():
                     "numpy_rng_hash": object_hash(state_rng["numpy"]),
                     "torch_rng_hash": object_hash(state_rng["torch"]),
                     "cuda_rng_hash": object_hash(state_rng["cuda"]),
-                    "dataloader_generator_rng_hash": object_hash(state_rng["loader"]),
+                    "dataloader_generator_rng_hash": object_hash(
+                        state_rng["dataloader_worker_state"]
+                    ),
                     "logits_hash": object_hash(logits),
                     "prediction_hash": object_hash(logits.argmax(-1)),
                 }
@@ -481,7 +477,7 @@ def main():
                 "training_commit": commit,
                 "cache_sha256": cache_hash,
                 "vocabulary_sha256": vocab_sha,
-                "rng_state": rng_state(loader_generator),
+                "rng_state": rng_state(),
                 "cache_manifest": cache_manifest,
                 "checkpoint_interval": args.checkpoint_interval,
                 "sampler_seed": int(cfg["seed"]),
@@ -510,7 +506,7 @@ def main():
             "training_commit": commit,
             "cache_sha256": cache_hash,
             "vocabulary_sha256": vocab_sha,
-            "rng_state": rng_state(loader_generator),
+            "rng_state": rng_state(),
             "cache_manifest": cache_manifest,
             "checkpoint_interval": args.checkpoint_interval,
             "sampler_seed": int(cfg["seed"]),
