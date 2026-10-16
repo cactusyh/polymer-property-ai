@@ -1,0 +1,13 @@
+{
+  "schema_version": "phase6ab",
+  "source_commit_requested": "ccfb7815ba3a0890ae21053362493b7b5ad4a171",
+  "source_commit_used": "ccfb7815ba3a0890ae21053362493b7b5ad4a171",
+  "artifact_generation_commit": "ccfb7815ba3a0890ae21053362493b7b5ad4a171",
+  "training_execution_commit": "ccfb7815ba3a0890ae21053362493b7b5ad4a171",
+  "corpus_sha256": "fbc44e2c343570c5c6e07f5de76fa781956bb1d795b9a981f330c88774ec70e2",
+  "cache_sha256": "23d228a681d045716d33a693d3157251d6498b05897b8da5252e2973066d716e",
+  "vocabulary_sha256": "c8e878d8339041a098e6507ec5fa2a0ce8e9633c2f2771582cfb929eff4e5869",
+  "configuration_sha256": "8080a5d7d2abc1b22cae7563f02c2c9d0161573ef92c07278c9fa6e184ea3ae0",
+  "status": "BLOCKED_TRAINING",
+  "reason": "Full command interrupted before checkpoint interval; no benchmark artifact claimed."
+}
