@@ -33,6 +33,9 @@ def test_full_training_and_tg_metrics_are_fail_closed():
     assert training["status"] == "BLOCKED_TRAINING"
     assert integrity["locked_holdout_target_values_read"] is False
     assert integrity["locked_holdout_artifacts_modified"] is False
+    audit = json.loads((ROOT / "phase6t_artifacts/resume_determinism_audit.json").read_text())
+    assert audit["status"] == "BLOCKED_TRAINING"
+    assert audit["executed"] is False
 
 
 def test_pipeline_does_not_launch_forbidden_simulations():
