@@ -1,0 +1,6 @@
+{
+  "schema_version": "phase6x.environment_manifest.v1",
+  "artifact_generation_commit": "59f793ffea4a01ce658aae33cdeb0d88783edd90",
+  "interpreter": ".venv-phase6a/bin/python",
+  "pip_check": "No broken requirements found."
+}

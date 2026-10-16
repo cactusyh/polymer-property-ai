@@ -1,0 +1,1298 @@
+[
+  {
+    "encoder": "morgan",
+    "inference_mode": "structure_only",
+    "auxiliary_md_loss": false,
+    "fusion": "gated",
+    "split": "random",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "morgan",
+    "inference_mode": "structure_only",
+    "auxiliary_md_loss": false,
+    "fusion": "gated",
+    "split": "random",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "morgan",
+    "inference_mode": "structure_only",
+    "auxiliary_md_loss": false,
+    "fusion": "gated",
+    "split": "ood",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "morgan",
+    "inference_mode": "structure_only",
+    "auxiliary_md_loss": false,
+    "fusion": "gated",
+    "split": "ood",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "morgan",
+    "inference_mode": "structure_only",
+    "auxiliary_md_loss": false,
+    "fusion": "concat",
+    "split": "random",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "morgan",
+    "inference_mode": "structure_only",
+    "auxiliary_md_loss": false,
+    "fusion": "concat",
+    "split": "random",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "morgan",
+    "inference_mode": "structure_only",
+    "auxiliary_md_loss": false,
+    "fusion": "concat",
+    "split": "ood",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "morgan",
+    "inference_mode": "structure_only",
+    "auxiliary_md_loss": false,
+    "fusion": "concat",
+    "split": "ood",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "morgan",
+    "inference_mode": "structure_only",
+    "auxiliary_md_loss": true,
+    "fusion": "gated",
+    "split": "random",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "morgan",
+    "inference_mode": "structure_only",
+    "auxiliary_md_loss": true,
+    "fusion": "gated",
+    "split": "random",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "morgan",
+    "inference_mode": "structure_only",
+    "auxiliary_md_loss": true,
+    "fusion": "gated",
+    "split": "ood",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "morgan",
+    "inference_mode": "structure_only",
+    "auxiliary_md_loss": true,
+    "fusion": "gated",
+    "split": "ood",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "morgan",
+    "inference_mode": "structure_only",
+    "auxiliary_md_loss": true,
+    "fusion": "concat",
+    "split": "random",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "morgan",
+    "inference_mode": "structure_only",
+    "auxiliary_md_loss": true,
+    "fusion": "concat",
+    "split": "random",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "morgan",
+    "inference_mode": "structure_only",
+    "auxiliary_md_loss": true,
+    "fusion": "concat",
+    "split": "ood",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "morgan",
+    "inference_mode": "structure_only",
+    "auxiliary_md_loss": true,
+    "fusion": "concat",
+    "split": "ood",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "morgan",
+    "inference_mode": "chain_md_observed",
+    "auxiliary_md_loss": false,
+    "fusion": "gated",
+    "split": "random",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "morgan",
+    "inference_mode": "chain_md_observed",
+    "auxiliary_md_loss": false,
+    "fusion": "gated",
+    "split": "random",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "morgan",
+    "inference_mode": "chain_md_observed",
+    "auxiliary_md_loss": false,
+    "fusion": "gated",
+    "split": "ood",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "morgan",
+    "inference_mode": "chain_md_observed",
+    "auxiliary_md_loss": false,
+    "fusion": "gated",
+    "split": "ood",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "morgan",
+    "inference_mode": "chain_md_observed",
+    "auxiliary_md_loss": false,
+    "fusion": "concat",
+    "split": "random",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "morgan",
+    "inference_mode": "chain_md_observed",
+    "auxiliary_md_loss": false,
+    "fusion": "concat",
+    "split": "random",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "morgan",
+    "inference_mode": "chain_md_observed",
+    "auxiliary_md_loss": false,
+    "fusion": "concat",
+    "split": "ood",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "morgan",
+    "inference_mode": "chain_md_observed",
+    "auxiliary_md_loss": false,
+    "fusion": "concat",
+    "split": "ood",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "morgan",
+    "inference_mode": "chain_md_observed",
+    "auxiliary_md_loss": true,
+    "fusion": "gated",
+    "split": "random",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "morgan",
+    "inference_mode": "chain_md_observed",
+    "auxiliary_md_loss": true,
+    "fusion": "gated",
+    "split": "random",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "morgan",
+    "inference_mode": "chain_md_observed",
+    "auxiliary_md_loss": true,
+    "fusion": "gated",
+    "split": "ood",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "morgan",
+    "inference_mode": "chain_md_observed",
+    "auxiliary_md_loss": true,
+    "fusion": "gated",
+    "split": "ood",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "morgan",
+    "inference_mode": "chain_md_observed",
+    "auxiliary_md_loss": true,
+    "fusion": "concat",
+    "split": "random",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "morgan",
+    "inference_mode": "chain_md_observed",
+    "auxiliary_md_loss": true,
+    "fusion": "concat",
+    "split": "random",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "morgan",
+    "inference_mode": "chain_md_observed",
+    "auxiliary_md_loss": true,
+    "fusion": "concat",
+    "split": "ood",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "morgan",
+    "inference_mode": "chain_md_observed",
+    "auxiliary_md_loss": true,
+    "fusion": "concat",
+    "split": "ood",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "morgan",
+    "inference_mode": "chain_md_predicted",
+    "auxiliary_md_loss": false,
+    "fusion": "gated",
+    "split": "random",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "morgan",
+    "inference_mode": "chain_md_predicted",
+    "auxiliary_md_loss": false,
+    "fusion": "gated",
+    "split": "random",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "morgan",
+    "inference_mode": "chain_md_predicted",
+    "auxiliary_md_loss": false,
+    "fusion": "gated",
+    "split": "ood",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "morgan",
+    "inference_mode": "chain_md_predicted",
+    "auxiliary_md_loss": false,
+    "fusion": "gated",
+    "split": "ood",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "morgan",
+    "inference_mode": "chain_md_predicted",
+    "auxiliary_md_loss": false,
+    "fusion": "concat",
+    "split": "random",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "morgan",
+    "inference_mode": "chain_md_predicted",
+    "auxiliary_md_loss": false,
+    "fusion": "concat",
+    "split": "random",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "morgan",
+    "inference_mode": "chain_md_predicted",
+    "auxiliary_md_loss": false,
+    "fusion": "concat",
+    "split": "ood",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "morgan",
+    "inference_mode": "chain_md_predicted",
+    "auxiliary_md_loss": false,
+    "fusion": "concat",
+    "split": "ood",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "morgan",
+    "inference_mode": "chain_md_predicted",
+    "auxiliary_md_loss": true,
+    "fusion": "gated",
+    "split": "random",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "morgan",
+    "inference_mode": "chain_md_predicted",
+    "auxiliary_md_loss": true,
+    "fusion": "gated",
+    "split": "random",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "morgan",
+    "inference_mode": "chain_md_predicted",
+    "auxiliary_md_loss": true,
+    "fusion": "gated",
+    "split": "ood",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "morgan",
+    "inference_mode": "chain_md_predicted",
+    "auxiliary_md_loss": true,
+    "fusion": "gated",
+    "split": "ood",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "morgan",
+    "inference_mode": "chain_md_predicted",
+    "auxiliary_md_loss": true,
+    "fusion": "concat",
+    "split": "random",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "morgan",
+    "inference_mode": "chain_md_predicted",
+    "auxiliary_md_loss": true,
+    "fusion": "concat",
+    "split": "random",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "morgan",
+    "inference_mode": "chain_md_predicted",
+    "auxiliary_md_loss": true,
+    "fusion": "concat",
+    "split": "ood",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "morgan",
+    "inference_mode": "chain_md_predicted",
+    "auxiliary_md_loss": true,
+    "fusion": "concat",
+    "split": "ood",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "random_psmiles",
+    "inference_mode": "structure_only",
+    "auxiliary_md_loss": false,
+    "fusion": "gated",
+    "split": "random",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "random_psmiles",
+    "inference_mode": "structure_only",
+    "auxiliary_md_loss": false,
+    "fusion": "gated",
+    "split": "random",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "random_psmiles",
+    "inference_mode": "structure_only",
+    "auxiliary_md_loss": false,
+    "fusion": "gated",
+    "split": "ood",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "random_psmiles",
+    "inference_mode": "structure_only",
+    "auxiliary_md_loss": false,
+    "fusion": "gated",
+    "split": "ood",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "random_psmiles",
+    "inference_mode": "structure_only",
+    "auxiliary_md_loss": false,
+    "fusion": "concat",
+    "split": "random",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "random_psmiles",
+    "inference_mode": "structure_only",
+    "auxiliary_md_loss": false,
+    "fusion": "concat",
+    "split": "random",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "random_psmiles",
+    "inference_mode": "structure_only",
+    "auxiliary_md_loss": false,
+    "fusion": "concat",
+    "split": "ood",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "random_psmiles",
+    "inference_mode": "structure_only",
+    "auxiliary_md_loss": false,
+    "fusion": "concat",
+    "split": "ood",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "random_psmiles",
+    "inference_mode": "structure_only",
+    "auxiliary_md_loss": true,
+    "fusion": "gated",
+    "split": "random",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "random_psmiles",
+    "inference_mode": "structure_only",
+    "auxiliary_md_loss": true,
+    "fusion": "gated",
+    "split": "random",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "random_psmiles",
+    "inference_mode": "structure_only",
+    "auxiliary_md_loss": true,
+    "fusion": "gated",
+    "split": "ood",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "random_psmiles",
+    "inference_mode": "structure_only",
+    "auxiliary_md_loss": true,
+    "fusion": "gated",
+    "split": "ood",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "random_psmiles",
+    "inference_mode": "structure_only",
+    "auxiliary_md_loss": true,
+    "fusion": "concat",
+    "split": "random",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "random_psmiles",
+    "inference_mode": "structure_only",
+    "auxiliary_md_loss": true,
+    "fusion": "concat",
+    "split": "random",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "random_psmiles",
+    "inference_mode": "structure_only",
+    "auxiliary_md_loss": true,
+    "fusion": "concat",
+    "split": "ood",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "random_psmiles",
+    "inference_mode": "structure_only",
+    "auxiliary_md_loss": true,
+    "fusion": "concat",
+    "split": "ood",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "random_psmiles",
+    "inference_mode": "chain_md_observed",
+    "auxiliary_md_loss": false,
+    "fusion": "gated",
+    "split": "random",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "random_psmiles",
+    "inference_mode": "chain_md_observed",
+    "auxiliary_md_loss": false,
+    "fusion": "gated",
+    "split": "random",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "random_psmiles",
+    "inference_mode": "chain_md_observed",
+    "auxiliary_md_loss": false,
+    "fusion": "gated",
+    "split": "ood",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "random_psmiles",
+    "inference_mode": "chain_md_observed",
+    "auxiliary_md_loss": false,
+    "fusion": "gated",
+    "split": "ood",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "random_psmiles",
+    "inference_mode": "chain_md_observed",
+    "auxiliary_md_loss": false,
+    "fusion": "concat",
+    "split": "random",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "random_psmiles",
+    "inference_mode": "chain_md_observed",
+    "auxiliary_md_loss": false,
+    "fusion": "concat",
+    "split": "random",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "random_psmiles",
+    "inference_mode": "chain_md_observed",
+    "auxiliary_md_loss": false,
+    "fusion": "concat",
+    "split": "ood",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "random_psmiles",
+    "inference_mode": "chain_md_observed",
+    "auxiliary_md_loss": false,
+    "fusion": "concat",
+    "split": "ood",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "random_psmiles",
+    "inference_mode": "chain_md_observed",
+    "auxiliary_md_loss": true,
+    "fusion": "gated",
+    "split": "random",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "random_psmiles",
+    "inference_mode": "chain_md_observed",
+    "auxiliary_md_loss": true,
+    "fusion": "gated",
+    "split": "random",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "random_psmiles",
+    "inference_mode": "chain_md_observed",
+    "auxiliary_md_loss": true,
+    "fusion": "gated",
+    "split": "ood",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "random_psmiles",
+    "inference_mode": "chain_md_observed",
+    "auxiliary_md_loss": true,
+    "fusion": "gated",
+    "split": "ood",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "random_psmiles",
+    "inference_mode": "chain_md_observed",
+    "auxiliary_md_loss": true,
+    "fusion": "concat",
+    "split": "random",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "random_psmiles",
+    "inference_mode": "chain_md_observed",
+    "auxiliary_md_loss": true,
+    "fusion": "concat",
+    "split": "random",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "random_psmiles",
+    "inference_mode": "chain_md_observed",
+    "auxiliary_md_loss": true,
+    "fusion": "concat",
+    "split": "ood",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "random_psmiles",
+    "inference_mode": "chain_md_observed",
+    "auxiliary_md_loss": true,
+    "fusion": "concat",
+    "split": "ood",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "random_psmiles",
+    "inference_mode": "chain_md_predicted",
+    "auxiliary_md_loss": false,
+    "fusion": "gated",
+    "split": "random",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "random_psmiles",
+    "inference_mode": "chain_md_predicted",
+    "auxiliary_md_loss": false,
+    "fusion": "gated",
+    "split": "random",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "random_psmiles",
+    "inference_mode": "chain_md_predicted",
+    "auxiliary_md_loss": false,
+    "fusion": "gated",
+    "split": "ood",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "random_psmiles",
+    "inference_mode": "chain_md_predicted",
+    "auxiliary_md_loss": false,
+    "fusion": "gated",
+    "split": "ood",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "random_psmiles",
+    "inference_mode": "chain_md_predicted",
+    "auxiliary_md_loss": false,
+    "fusion": "concat",
+    "split": "random",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "random_psmiles",
+    "inference_mode": "chain_md_predicted",
+    "auxiliary_md_loss": false,
+    "fusion": "concat",
+    "split": "random",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "random_psmiles",
+    "inference_mode": "chain_md_predicted",
+    "auxiliary_md_loss": false,
+    "fusion": "concat",
+    "split": "ood",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "random_psmiles",
+    "inference_mode": "chain_md_predicted",
+    "auxiliary_md_loss": false,
+    "fusion": "concat",
+    "split": "ood",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "random_psmiles",
+    "inference_mode": "chain_md_predicted",
+    "auxiliary_md_loss": true,
+    "fusion": "gated",
+    "split": "random",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "random_psmiles",
+    "inference_mode": "chain_md_predicted",
+    "auxiliary_md_loss": true,
+    "fusion": "gated",
+    "split": "random",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "random_psmiles",
+    "inference_mode": "chain_md_predicted",
+    "auxiliary_md_loss": true,
+    "fusion": "gated",
+    "split": "ood",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "random_psmiles",
+    "inference_mode": "chain_md_predicted",
+    "auxiliary_md_loss": true,
+    "fusion": "gated",
+    "split": "ood",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "random_psmiles",
+    "inference_mode": "chain_md_predicted",
+    "auxiliary_md_loss": true,
+    "fusion": "concat",
+    "split": "random",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "random_psmiles",
+    "inference_mode": "chain_md_predicted",
+    "auxiliary_md_loss": true,
+    "fusion": "concat",
+    "split": "random",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "random_psmiles",
+    "inference_mode": "chain_md_predicted",
+    "auxiliary_md_loss": true,
+    "fusion": "concat",
+    "split": "ood",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "random_psmiles",
+    "inference_mode": "chain_md_predicted",
+    "auxiliary_md_loss": true,
+    "fusion": "concat",
+    "split": "ood",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "pi1m_mlm",
+    "inference_mode": "structure_only",
+    "auxiliary_md_loss": false,
+    "fusion": "gated",
+    "split": "random",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "pi1m_mlm",
+    "inference_mode": "structure_only",
+    "auxiliary_md_loss": false,
+    "fusion": "gated",
+    "split": "random",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "pi1m_mlm",
+    "inference_mode": "structure_only",
+    "auxiliary_md_loss": false,
+    "fusion": "gated",
+    "split": "ood",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "pi1m_mlm",
+    "inference_mode": "structure_only",
+    "auxiliary_md_loss": false,
+    "fusion": "gated",
+    "split": "ood",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "pi1m_mlm",
+    "inference_mode": "structure_only",
+    "auxiliary_md_loss": false,
+    "fusion": "concat",
+    "split": "random",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "pi1m_mlm",
+    "inference_mode": "structure_only",
+    "auxiliary_md_loss": false,
+    "fusion": "concat",
+    "split": "random",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "pi1m_mlm",
+    "inference_mode": "structure_only",
+    "auxiliary_md_loss": false,
+    "fusion": "concat",
+    "split": "ood",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "pi1m_mlm",
+    "inference_mode": "structure_only",
+    "auxiliary_md_loss": false,
+    "fusion": "concat",
+    "split": "ood",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "pi1m_mlm",
+    "inference_mode": "structure_only",
+    "auxiliary_md_loss": true,
+    "fusion": "gated",
+    "split": "random",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "pi1m_mlm",
+    "inference_mode": "structure_only",
+    "auxiliary_md_loss": true,
+    "fusion": "gated",
+    "split": "random",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "pi1m_mlm",
+    "inference_mode": "structure_only",
+    "auxiliary_md_loss": true,
+    "fusion": "gated",
+    "split": "ood",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "pi1m_mlm",
+    "inference_mode": "structure_only",
+    "auxiliary_md_loss": true,
+    "fusion": "gated",
+    "split": "ood",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "pi1m_mlm",
+    "inference_mode": "structure_only",
+    "auxiliary_md_loss": true,
+    "fusion": "concat",
+    "split": "random",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "pi1m_mlm",
+    "inference_mode": "structure_only",
+    "auxiliary_md_loss": true,
+    "fusion": "concat",
+    "split": "random",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "pi1m_mlm",
+    "inference_mode": "structure_only",
+    "auxiliary_md_loss": true,
+    "fusion": "concat",
+    "split": "ood",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "pi1m_mlm",
+    "inference_mode": "structure_only",
+    "auxiliary_md_loss": true,
+    "fusion": "concat",
+    "split": "ood",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "pi1m_mlm",
+    "inference_mode": "chain_md_observed",
+    "auxiliary_md_loss": false,
+    "fusion": "gated",
+    "split": "random",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "pi1m_mlm",
+    "inference_mode": "chain_md_observed",
+    "auxiliary_md_loss": false,
+    "fusion": "gated",
+    "split": "random",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "pi1m_mlm",
+    "inference_mode": "chain_md_observed",
+    "auxiliary_md_loss": false,
+    "fusion": "gated",
+    "split": "ood",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "pi1m_mlm",
+    "inference_mode": "chain_md_observed",
+    "auxiliary_md_loss": false,
+    "fusion": "gated",
+    "split": "ood",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "pi1m_mlm",
+    "inference_mode": "chain_md_observed",
+    "auxiliary_md_loss": false,
+    "fusion": "concat",
+    "split": "random",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "pi1m_mlm",
+    "inference_mode": "chain_md_observed",
+    "auxiliary_md_loss": false,
+    "fusion": "concat",
+    "split": "random",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "pi1m_mlm",
+    "inference_mode": "chain_md_observed",
+    "auxiliary_md_loss": false,
+    "fusion": "concat",
+    "split": "ood",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "pi1m_mlm",
+    "inference_mode": "chain_md_observed",
+    "auxiliary_md_loss": false,
+    "fusion": "concat",
+    "split": "ood",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "pi1m_mlm",
+    "inference_mode": "chain_md_observed",
+    "auxiliary_md_loss": true,
+    "fusion": "gated",
+    "split": "random",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "pi1m_mlm",
+    "inference_mode": "chain_md_observed",
+    "auxiliary_md_loss": true,
+    "fusion": "gated",
+    "split": "random",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "pi1m_mlm",
+    "inference_mode": "chain_md_observed",
+    "auxiliary_md_loss": true,
+    "fusion": "gated",
+    "split": "ood",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "pi1m_mlm",
+    "inference_mode": "chain_md_observed",
+    "auxiliary_md_loss": true,
+    "fusion": "gated",
+    "split": "ood",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "pi1m_mlm",
+    "inference_mode": "chain_md_observed",
+    "auxiliary_md_loss": true,
+    "fusion": "concat",
+    "split": "random",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "pi1m_mlm",
+    "inference_mode": "chain_md_observed",
+    "auxiliary_md_loss": true,
+    "fusion": "concat",
+    "split": "random",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "pi1m_mlm",
+    "inference_mode": "chain_md_observed",
+    "auxiliary_md_loss": true,
+    "fusion": "concat",
+    "split": "ood",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "pi1m_mlm",
+    "inference_mode": "chain_md_observed",
+    "auxiliary_md_loss": true,
+    "fusion": "concat",
+    "split": "ood",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "pi1m_mlm",
+    "inference_mode": "chain_md_predicted",
+    "auxiliary_md_loss": false,
+    "fusion": "gated",
+    "split": "random",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "pi1m_mlm",
+    "inference_mode": "chain_md_predicted",
+    "auxiliary_md_loss": false,
+    "fusion": "gated",
+    "split": "random",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "pi1m_mlm",
+    "inference_mode": "chain_md_predicted",
+    "auxiliary_md_loss": false,
+    "fusion": "gated",
+    "split": "ood",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "pi1m_mlm",
+    "inference_mode": "chain_md_predicted",
+    "auxiliary_md_loss": false,
+    "fusion": "gated",
+    "split": "ood",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "pi1m_mlm",
+    "inference_mode": "chain_md_predicted",
+    "auxiliary_md_loss": false,
+    "fusion": "concat",
+    "split": "random",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "pi1m_mlm",
+    "inference_mode": "chain_md_predicted",
+    "auxiliary_md_loss": false,
+    "fusion": "concat",
+    "split": "random",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "pi1m_mlm",
+    "inference_mode": "chain_md_predicted",
+    "auxiliary_md_loss": false,
+    "fusion": "concat",
+    "split": "ood",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "pi1m_mlm",
+    "inference_mode": "chain_md_predicted",
+    "auxiliary_md_loss": false,
+    "fusion": "concat",
+    "split": "ood",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "pi1m_mlm",
+    "inference_mode": "chain_md_predicted",
+    "auxiliary_md_loss": true,
+    "fusion": "gated",
+    "split": "random",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "pi1m_mlm",
+    "inference_mode": "chain_md_predicted",
+    "auxiliary_md_loss": true,
+    "fusion": "gated",
+    "split": "random",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "pi1m_mlm",
+    "inference_mode": "chain_md_predicted",
+    "auxiliary_md_loss": true,
+    "fusion": "gated",
+    "split": "ood",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "pi1m_mlm",
+    "inference_mode": "chain_md_predicted",
+    "auxiliary_md_loss": true,
+    "fusion": "gated",
+    "split": "ood",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "pi1m_mlm",
+    "inference_mode": "chain_md_predicted",
+    "auxiliary_md_loss": true,
+    "fusion": "concat",
+    "split": "random",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "pi1m_mlm",
+    "inference_mode": "chain_md_predicted",
+    "auxiliary_md_loss": true,
+    "fusion": "concat",
+    "split": "random",
+    "pretraining_policy": "production",
+    "seed": 13
+  },
+  {
+    "encoder": "pi1m_mlm",
+    "inference_mode": "chain_md_predicted",
+    "auxiliary_md_loss": true,
+    "fusion": "concat",
+    "split": "ood",
+    "pretraining_policy": "clean-transfer",
+    "seed": 13
+  },
+  {
+    "encoder": "pi1m_mlm",
+    "inference_mode": "chain_md_predicted",
+    "auxiliary_md_loss": true,
+    "fusion": "concat",
+    "split": "ood",
+    "pretraining_policy": "production",
+    "seed": 13
+  }
+]

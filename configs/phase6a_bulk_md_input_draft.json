@@ -1,0 +1,13 @@
+{
+  "schema_version": "6b-input-draft-1",
+  "temperatures_K": [300, 400, 500, 600],
+  "feature_order": [
+    "density_mean", "density_fluctuation", "volume_mean", "volume_fluctuation",
+    "potential_energy_mean", "potential_energy_fluctuation", "chain_shape_mean",
+    "chain_shape_fluctuation", "msd_10ps", "msd_50ps", "msd_100ps",
+    "torsion_autocorr_10ps", "torsion_autocorr_50ps", "torsion_autocorr_100ps"
+  ],
+  "masks": ["per_temperature_feature_availability", "qc_pass", "difference_availability"],
+  "derived_differences_K": [[400, 300], [500, 400], [600, 500]],
+  "phase_6a_rule": "Do not read locked holdout records or fit feature selection"
+}

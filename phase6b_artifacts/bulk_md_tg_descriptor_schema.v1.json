@@ -1,0 +1,698 @@
+{
+  "base_descriptors": [
+    {
+      "descriptor_name": "plateau_density",
+      "family": "thermodynamic_volumetric",
+      "frame_range": "validated 200 ps production; registry aggregate",
+      "kind": "temperature_value",
+      "meaning": "plateau mean density",
+      "qc_required": "status == *_COMPLETE",
+      "source_file": "data/processed/bulk_md_tg_final_150_multitemp_registry.csv",
+      "units": "unresolved_registry_units"
+    },
+    {
+      "descriptor_name": "production_density",
+      "family": "thermodynamic_volumetric",
+      "frame_range": "validated 200 ps production; registry aggregate",
+      "kind": "temperature_value",
+      "meaning": "200 ps production mean density",
+      "qc_required": "status == *_COMPLETE",
+      "source_file": "data/processed/bulk_md_tg_final_150_multitemp_registry.csv",
+      "units": "unresolved_registry_units"
+    },
+    {
+      "descriptor_name": "temperature_mean",
+      "family": "thermodynamic",
+      "frame_range": "validated 200 ps production; registry aggregate",
+      "kind": "temperature_value",
+      "meaning": "production mean temperature",
+      "qc_required": "status == *_COMPLETE",
+      "source_file": "data/processed/bulk_md_tg_final_150_multitemp_registry.csv",
+      "units": "K"
+    },
+    {
+      "descriptor_name": "equilibration_time_ps",
+      "family": "thermodynamic",
+      "frame_range": "validated 200 ps production; registry aggregate",
+      "kind": "temperature_value",
+      "meaning": "plateau equilibration duration",
+      "qc_required": "status == *_COMPLETE",
+      "source_file": "data/processed/bulk_md_tg_final_150_multitemp_registry.csv",
+      "units": "ps"
+    },
+    {
+      "descriptor_name": "density_slope_per_100ps",
+      "family": "thermodynamic_volumetric",
+      "frame_range": "validated 200 ps production; registry aggregate",
+      "kind": "temperature_value",
+      "meaning": "density drift",
+      "qc_required": "status == *_COMPLETE",
+      "source_file": "data/processed/bulk_md_tg_final_150_multitemp_registry.csv",
+      "units": "unresolved_registry_units_per_100ps"
+    },
+    {
+      "descriptor_name": "volume_slope_per_100ps",
+      "family": "thermodynamic_volumetric",
+      "frame_range": "validated 200 ps production; registry aggregate",
+      "kind": "temperature_value",
+      "meaning": "volume drift",
+      "qc_required": "status == *_COMPLETE",
+      "source_file": "data/processed/bulk_md_tg_final_150_multitemp_registry.csv",
+      "units": "unresolved_registry_units_per_100ps"
+    },
+    {
+      "descriptor_name": "potential_energy_drift_per_100ps",
+      "family": "energetics",
+      "frame_range": "validated 200 ps production; registry aggregate",
+      "kind": "temperature_value",
+      "meaning": "potential-energy drift",
+      "qc_required": "status == *_COMPLETE",
+      "source_file": "data/processed/bulk_md_tg_final_150_multitemp_registry.csv",
+      "units": "unresolved_registry_units_per_100ps"
+    },
+    {
+      "descriptor_name": "first_half_vs_second_half_density_difference",
+      "family": "thermodynamic_volumetric",
+      "frame_range": "validated 200 ps production; registry aggregate",
+      "kind": "temperature_value",
+      "meaning": "density half-trajectory difference",
+      "qc_required": "status == *_COMPLETE",
+      "source_file": "data/processed/bulk_md_tg_final_150_multitemp_registry.csv",
+      "units": "percent"
+    }
+  ],
+  "derived_descriptors": [
+    {
+      "descriptor_name": "plateau_density_300K",
+      "formula": "value(plateau_density,300K)",
+      "inputs": [
+        "plateau_density"
+      ]
+    },
+    {
+      "descriptor_name": "plateau_density_400K",
+      "formula": "value(plateau_density,400K)",
+      "inputs": [
+        "plateau_density"
+      ]
+    },
+    {
+      "descriptor_name": "plateau_density_500K",
+      "formula": "value(plateau_density,500K)",
+      "inputs": [
+        "plateau_density"
+      ]
+    },
+    {
+      "descriptor_name": "plateau_density_600K",
+      "formula": "value(plateau_density,600K)",
+      "inputs": [
+        "plateau_density"
+      ]
+    },
+    {
+      "descriptor_name": "plateau_density_400_minus_300K",
+      "formula": "value(plateau_density,400K)-value(plateau_density,300K)",
+      "inputs": [
+        "plateau_density"
+      ]
+    },
+    {
+      "descriptor_name": "plateau_density_500_minus_400K",
+      "formula": "value(plateau_density,500K)-value(plateau_density,400K)",
+      "inputs": [
+        "plateau_density"
+      ]
+    },
+    {
+      "descriptor_name": "plateau_density_600_minus_500K",
+      "formula": "value(plateau_density,600K)-value(plateau_density,500K)",
+      "inputs": [
+        "plateau_density"
+      ]
+    },
+    {
+      "descriptor_name": "plateau_density_600_minus_300K",
+      "formula": "value(plateau_density,600K)-value(plateau_density,300K)",
+      "inputs": [
+        "plateau_density"
+      ]
+    },
+    {
+      "descriptor_name": "plateau_density_slope_per_K",
+      "formula": "OLS slope(value, temperature_K)",
+      "inputs": [
+        "plateau_density",
+        "temperature_K"
+      ]
+    },
+    {
+      "descriptor_name": "plateau_density_linear_residual_rms",
+      "formula": "RMS(value - OLS(value~temperature_K))",
+      "inputs": [
+        "plateau_density",
+        "temperature_K"
+      ]
+    },
+    {
+      "descriptor_name": "production_density_300K",
+      "formula": "value(production_density,300K)",
+      "inputs": [
+        "production_density"
+      ]
+    },
+    {
+      "descriptor_name": "production_density_400K",
+      "formula": "value(production_density,400K)",
+      "inputs": [
+        "production_density"
+      ]
+    },
+    {
+      "descriptor_name": "production_density_500K",
+      "formula": "value(production_density,500K)",
+      "inputs": [
+        "production_density"
+      ]
+    },
+    {
+      "descriptor_name": "production_density_600K",
+      "formula": "value(production_density,600K)",
+      "inputs": [
+        "production_density"
+      ]
+    },
+    {
+      "descriptor_name": "production_density_400_minus_300K",
+      "formula": "value(production_density,400K)-value(production_density,300K)",
+      "inputs": [
+        "production_density"
+      ]
+    },
+    {
+      "descriptor_name": "production_density_500_minus_400K",
+      "formula": "value(production_density,500K)-value(production_density,400K)",
+      "inputs": [
+        "production_density"
+      ]
+    },
+    {
+      "descriptor_name": "production_density_600_minus_500K",
+      "formula": "value(production_density,600K)-value(production_density,500K)",
+      "inputs": [
+        "production_density"
+      ]
+    },
+    {
+      "descriptor_name": "production_density_600_minus_300K",
+      "formula": "value(production_density,600K)-value(production_density,300K)",
+      "inputs": [
+        "production_density"
+      ]
+    },
+    {
+      "descriptor_name": "production_density_slope_per_K",
+      "formula": "OLS slope(value, temperature_K)",
+      "inputs": [
+        "production_density",
+        "temperature_K"
+      ]
+    },
+    {
+      "descriptor_name": "production_density_linear_residual_rms",
+      "formula": "RMS(value - OLS(value~temperature_K))",
+      "inputs": [
+        "production_density",
+        "temperature_K"
+      ]
+    },
+    {
+      "descriptor_name": "temperature_mean_300K",
+      "formula": "value(temperature_mean,300K)",
+      "inputs": [
+        "temperature_mean"
+      ]
+    },
+    {
+      "descriptor_name": "temperature_mean_400K",
+      "formula": "value(temperature_mean,400K)",
+      "inputs": [
+        "temperature_mean"
+      ]
+    },
+    {
+      "descriptor_name": "temperature_mean_500K",
+      "formula": "value(temperature_mean,500K)",
+      "inputs": [
+        "temperature_mean"
+      ]
+    },
+    {
+      "descriptor_name": "temperature_mean_600K",
+      "formula": "value(temperature_mean,600K)",
+      "inputs": [
+        "temperature_mean"
+      ]
+    },
+    {
+      "descriptor_name": "temperature_mean_400_minus_300K",
+      "formula": "value(temperature_mean,400K)-value(temperature_mean,300K)",
+      "inputs": [
+        "temperature_mean"
+      ]
+    },
+    {
+      "descriptor_name": "temperature_mean_500_minus_400K",
+      "formula": "value(temperature_mean,500K)-value(temperature_mean,400K)",
+      "inputs": [
+        "temperature_mean"
+      ]
+    },
+    {
+      "descriptor_name": "temperature_mean_600_minus_500K",
+      "formula": "value(temperature_mean,600K)-value(temperature_mean,500K)",
+      "inputs": [
+        "temperature_mean"
+      ]
+    },
+    {
+      "descriptor_name": "temperature_mean_600_minus_300K",
+      "formula": "value(temperature_mean,600K)-value(temperature_mean,300K)",
+      "inputs": [
+        "temperature_mean"
+      ]
+    },
+    {
+      "descriptor_name": "temperature_mean_slope_per_K",
+      "formula": "OLS slope(value, temperature_K)",
+      "inputs": [
+        "temperature_mean",
+        "temperature_K"
+      ]
+    },
+    {
+      "descriptor_name": "temperature_mean_linear_residual_rms",
+      "formula": "RMS(value - OLS(value~temperature_K))",
+      "inputs": [
+        "temperature_mean",
+        "temperature_K"
+      ]
+    },
+    {
+      "descriptor_name": "equilibration_time_ps_300K",
+      "formula": "value(equilibration_time_ps,300K)",
+      "inputs": [
+        "equilibration_time_ps"
+      ]
+    },
+    {
+      "descriptor_name": "equilibration_time_ps_400K",
+      "formula": "value(equilibration_time_ps,400K)",
+      "inputs": [
+        "equilibration_time_ps"
+      ]
+    },
+    {
+      "descriptor_name": "equilibration_time_ps_500K",
+      "formula": "value(equilibration_time_ps,500K)",
+      "inputs": [
+        "equilibration_time_ps"
+      ]
+    },
+    {
+      "descriptor_name": "equilibration_time_ps_600K",
+      "formula": "value(equilibration_time_ps,600K)",
+      "inputs": [
+        "equilibration_time_ps"
+      ]
+    },
+    {
+      "descriptor_name": "equilibration_time_ps_400_minus_300K",
+      "formula": "value(equilibration_time_ps,400K)-value(equilibration_time_ps,300K)",
+      "inputs": [
+        "equilibration_time_ps"
+      ]
+    },
+    {
+      "descriptor_name": "equilibration_time_ps_500_minus_400K",
+      "formula": "value(equilibration_time_ps,500K)-value(equilibration_time_ps,400K)",
+      "inputs": [
+        "equilibration_time_ps"
+      ]
+    },
+    {
+      "descriptor_name": "equilibration_time_ps_600_minus_500K",
+      "formula": "value(equilibration_time_ps,600K)-value(equilibration_time_ps,500K)",
+      "inputs": [
+        "equilibration_time_ps"
+      ]
+    },
+    {
+      "descriptor_name": "equilibration_time_ps_600_minus_300K",
+      "formula": "value(equilibration_time_ps,600K)-value(equilibration_time_ps,300K)",
+      "inputs": [
+        "equilibration_time_ps"
+      ]
+    },
+    {
+      "descriptor_name": "equilibration_time_ps_slope_per_K",
+      "formula": "OLS slope(value, temperature_K)",
+      "inputs": [
+        "equilibration_time_ps",
+        "temperature_K"
+      ]
+    },
+    {
+      "descriptor_name": "equilibration_time_ps_linear_residual_rms",
+      "formula": "RMS(value - OLS(value~temperature_K))",
+      "inputs": [
+        "equilibration_time_ps",
+        "temperature_K"
+      ]
+    },
+    {
+      "descriptor_name": "density_slope_per_100ps_300K",
+      "formula": "value(density_slope_per_100ps,300K)",
+      "inputs": [
+        "density_slope_per_100ps"
+      ]
+    },
+    {
+      "descriptor_name": "density_slope_per_100ps_400K",
+      "formula": "value(density_slope_per_100ps,400K)",
+      "inputs": [
+        "density_slope_per_100ps"
+      ]
+    },
+    {
+      "descriptor_name": "density_slope_per_100ps_500K",
+      "formula": "value(density_slope_per_100ps,500K)",
+      "inputs": [
+        "density_slope_per_100ps"
+      ]
+    },
+    {
+      "descriptor_name": "density_slope_per_100ps_600K",
+      "formula": "value(density_slope_per_100ps,600K)",
+      "inputs": [
+        "density_slope_per_100ps"
+      ]
+    },
+    {
+      "descriptor_name": "density_slope_per_100ps_400_minus_300K",
+      "formula": "value(density_slope_per_100ps,400K)-value(density_slope_per_100ps,300K)",
+      "inputs": [
+        "density_slope_per_100ps"
+      ]
+    },
+    {
+      "descriptor_name": "density_slope_per_100ps_500_minus_400K",
+      "formula": "value(density_slope_per_100ps,500K)-value(density_slope_per_100ps,400K)",
+      "inputs": [
+        "density_slope_per_100ps"
+      ]
+    },
+    {
+      "descriptor_name": "density_slope_per_100ps_600_minus_500K",
+      "formula": "value(density_slope_per_100ps,600K)-value(density_slope_per_100ps,500K)",
+      "inputs": [
+        "density_slope_per_100ps"
+      ]
+    },
+    {
+      "descriptor_name": "density_slope_per_100ps_600_minus_300K",
+      "formula": "value(density_slope_per_100ps,600K)-value(density_slope_per_100ps,300K)",
+      "inputs": [
+        "density_slope_per_100ps"
+      ]
+    },
+    {
+      "descriptor_name": "density_slope_per_100ps_slope_per_K",
+      "formula": "OLS slope(value, temperature_K)",
+      "inputs": [
+        "density_slope_per_100ps",
+        "temperature_K"
+      ]
+    },
+    {
+      "descriptor_name": "density_slope_per_100ps_linear_residual_rms",
+      "formula": "RMS(value - OLS(value~temperature_K))",
+      "inputs": [
+        "density_slope_per_100ps",
+        "temperature_K"
+      ]
+    },
+    {
+      "descriptor_name": "volume_slope_per_100ps_300K",
+      "formula": "value(volume_slope_per_100ps,300K)",
+      "inputs": [
+        "volume_slope_per_100ps"
+      ]
+    },
+    {
+      "descriptor_name": "volume_slope_per_100ps_400K",
+      "formula": "value(volume_slope_per_100ps,400K)",
+      "inputs": [
+        "volume_slope_per_100ps"
+      ]
+    },
+    {
+      "descriptor_name": "volume_slope_per_100ps_500K",
+      "formula": "value(volume_slope_per_100ps,500K)",
+      "inputs": [
+        "volume_slope_per_100ps"
+      ]
+    },
+    {
+      "descriptor_name": "volume_slope_per_100ps_600K",
+      "formula": "value(volume_slope_per_100ps,600K)",
+      "inputs": [
+        "volume_slope_per_100ps"
+      ]
+    },
+    {
+      "descriptor_name": "volume_slope_per_100ps_400_minus_300K",
+      "formula": "value(volume_slope_per_100ps,400K)-value(volume_slope_per_100ps,300K)",
+      "inputs": [
+        "volume_slope_per_100ps"
+      ]
+    },
+    {
+      "descriptor_name": "volume_slope_per_100ps_500_minus_400K",
+      "formula": "value(volume_slope_per_100ps,500K)-value(volume_slope_per_100ps,400K)",
+      "inputs": [
+        "volume_slope_per_100ps"
+      ]
+    },
+    {
+      "descriptor_name": "volume_slope_per_100ps_600_minus_500K",
+      "formula": "value(volume_slope_per_100ps,600K)-value(volume_slope_per_100ps,500K)",
+      "inputs": [
+        "volume_slope_per_100ps"
+      ]
+    },
+    {
+      "descriptor_name": "volume_slope_per_100ps_600_minus_300K",
+      "formula": "value(volume_slope_per_100ps,600K)-value(volume_slope_per_100ps,300K)",
+      "inputs": [
+        "volume_slope_per_100ps"
+      ]
+    },
+    {
+      "descriptor_name": "volume_slope_per_100ps_slope_per_K",
+      "formula": "OLS slope(value, temperature_K)",
+      "inputs": [
+        "volume_slope_per_100ps",
+        "temperature_K"
+      ]
+    },
+    {
+      "descriptor_name": "volume_slope_per_100ps_linear_residual_rms",
+      "formula": "RMS(value - OLS(value~temperature_K))",
+      "inputs": [
+        "volume_slope_per_100ps",
+        "temperature_K"
+      ]
+    },
+    {
+      "descriptor_name": "potential_energy_drift_per_100ps_300K",
+      "formula": "value(potential_energy_drift_per_100ps,300K)",
+      "inputs": [
+        "potential_energy_drift_per_100ps"
+      ]
+    },
+    {
+      "descriptor_name": "potential_energy_drift_per_100ps_400K",
+      "formula": "value(potential_energy_drift_per_100ps,400K)",
+      "inputs": [
+        "potential_energy_drift_per_100ps"
+      ]
+    },
+    {
+      "descriptor_name": "potential_energy_drift_per_100ps_500K",
+      "formula": "value(potential_energy_drift_per_100ps,500K)",
+      "inputs": [
+        "potential_energy_drift_per_100ps"
+      ]
+    },
+    {
+      "descriptor_name": "potential_energy_drift_per_100ps_600K",
+      "formula": "value(potential_energy_drift_per_100ps,600K)",
+      "inputs": [
+        "potential_energy_drift_per_100ps"
+      ]
+    },
+    {
+      "descriptor_name": "potential_energy_drift_per_100ps_400_minus_300K",
+      "formula": "value(potential_energy_drift_per_100ps,400K)-value(potential_energy_drift_per_100ps,300K)",
+      "inputs": [
+        "potential_energy_drift_per_100ps"
+      ]
+    },
+    {
+      "descriptor_name": "potential_energy_drift_per_100ps_500_minus_400K",
+      "formula": "value(potential_energy_drift_per_100ps,500K)-value(potential_energy_drift_per_100ps,400K)",
+      "inputs": [
+        "potential_energy_drift_per_100ps"
+      ]
+    },
+    {
+      "descriptor_name": "potential_energy_drift_per_100ps_600_minus_500K",
+      "formula": "value(potential_energy_drift_per_100ps,600K)-value(potential_energy_drift_per_100ps,500K)",
+      "inputs": [
+        "potential_energy_drift_per_100ps"
+      ]
+    },
+    {
+      "descriptor_name": "potential_energy_drift_per_100ps_600_minus_300K",
+      "formula": "value(potential_energy_drift_per_100ps,600K)-value(potential_energy_drift_per_100ps,300K)",
+      "inputs": [
+        "potential_energy_drift_per_100ps"
+      ]
+    },
+    {
+      "descriptor_name": "potential_energy_drift_per_100ps_slope_per_K",
+      "formula": "OLS slope(value, temperature_K)",
+      "inputs": [
+        "potential_energy_drift_per_100ps",
+        "temperature_K"
+      ]
+    },
+    {
+      "descriptor_name": "potential_energy_drift_per_100ps_linear_residual_rms",
+      "formula": "RMS(value - OLS(value~temperature_K))",
+      "inputs": [
+        "potential_energy_drift_per_100ps",
+        "temperature_K"
+      ]
+    },
+    {
+      "descriptor_name": "first_half_vs_second_half_density_difference_300K",
+      "formula": "value(first_half_vs_second_half_density_difference,300K)",
+      "inputs": [
+        "first_half_vs_second_half_density_difference"
+      ]
+    },
+    {
+      "descriptor_name": "first_half_vs_second_half_density_difference_400K",
+      "formula": "value(first_half_vs_second_half_density_difference,400K)",
+      "inputs": [
+        "first_half_vs_second_half_density_difference"
+      ]
+    },
+    {
+      "descriptor_name": "first_half_vs_second_half_density_difference_500K",
+      "formula": "value(first_half_vs_second_half_density_difference,500K)",
+      "inputs": [
+        "first_half_vs_second_half_density_difference"
+      ]
+    },
+    {
+      "descriptor_name": "first_half_vs_second_half_density_difference_600K",
+      "formula": "value(first_half_vs_second_half_density_difference,600K)",
+      "inputs": [
+        "first_half_vs_second_half_density_difference"
+      ]
+    },
+    {
+      "descriptor_name": "first_half_vs_second_half_density_difference_400_minus_300K",
+      "formula": "value(first_half_vs_second_half_density_difference,400K)-value(first_half_vs_second_half_density_difference,300K)",
+      "inputs": [
+        "first_half_vs_second_half_density_difference"
+      ]
+    },
+    {
+      "descriptor_name": "first_half_vs_second_half_density_difference_500_minus_400K",
+      "formula": "value(first_half_vs_second_half_density_difference,500K)-value(first_half_vs_second_half_density_difference,400K)",
+      "inputs": [
+        "first_half_vs_second_half_density_difference"
+      ]
+    },
+    {
+      "descriptor_name": "first_half_vs_second_half_density_difference_600_minus_500K",
+      "formula": "value(first_half_vs_second_half_density_difference,600K)-value(first_half_vs_second_half_density_difference,500K)",
+      "inputs": [
+        "first_half_vs_second_half_density_difference"
+      ]
+    },
+    {
+      "descriptor_name": "first_half_vs_second_half_density_difference_600_minus_300K",
+      "formula": "value(first_half_vs_second_half_density_difference,600K)-value(first_half_vs_second_half_density_difference,300K)",
+      "inputs": [
+        "first_half_vs_second_half_density_difference"
+      ]
+    },
+    {
+      "descriptor_name": "first_half_vs_second_half_density_difference_slope_per_K",
+      "formula": "OLS slope(value, temperature_K)",
+      "inputs": [
+        "first_half_vs_second_half_density_difference",
+        "temperature_K"
+      ]
+    },
+    {
+      "descriptor_name": "first_half_vs_second_half_density_difference_linear_residual_rms",
+      "formula": "RMS(value - OLS(value~temperature_K))",
+      "inputs": [
+        "first_half_vs_second_half_density_difference",
+        "temperature_K"
+      ]
+    }
+  ],
+  "identity_policy": "polymer_id and canonical identity from Phase 6A explicit registry; no row/file order mapping",
+  "missingness_policy": "retain value and <feature>__missing mask; no imputation before development-only preprocessing",
+  "production_duration_ps": 200,
+  "retention_policy": "development-only: coverage >= 0.80, non-constant, non-redundant correlation < 0.98; unresolved-unit fields remain auditable",
+  "schema_name": "bulk_md_tg_descriptor_schema.v1",
+  "schema_sha256": "e8c58e5eabf9f72ddcf62edc23657ed79957a3e52818c8b009f799770c9a407b",
+  "temperatures_K": [
+    300,
+    400,
+    500,
+    600
+  ],
+  "unavailable_descriptors": [
+    "contact_fraction",
+    "end_to_end_mean",
+    "end_to_end_std",
+    "mobility_proxy",
+    "msd_100ps",
+    "msd_10ps",
+    "msd_50ps",
+    "potential_energy_mean",
+    "potential_energy_std",
+    "pressure_mean",
+    "pressure_std",
+    "radius_gyration_mean",
+    "radius_gyration_std",
+    "rotamer_population",
+    "shape_anisotropy",
+    "torsion_autocorrelation",
+    "torsion_entropy",
+    "torsion_transition_rate",
+    "total_energy_mean",
+    "total_energy_std",
+    "volume_mean",
+    "volume_std"
+  ]
+}

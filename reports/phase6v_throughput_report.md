@@ -1,0 +1,23 @@
+# Phase 6V throughput
+
+{
+  "schema_version": "phase6v.throughput_benchmark.v1",
+  "status": "PASS",
+  "benchmark_execution_commit": "3664290292dc065f7f7b4112e61e1f9609b5b5ea",
+  "command": "/inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/.venv-phase6a/bin/python scripts/pretrain_pi1m.py --config configs/pretrain_pi1m.yaml --train-path /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/phase6a_artifacts/pi1m_clean-transfer_random.parquet --token-cache /inspire/ssd/project/sais-suiren-foundation-model-prediction/checkpoints/phase6t_token_cache --output-dir /tmp/phase6v-bench-0d4qz_hk --device cuda --max-steps 4 --limit 64 --checkpoint-interval 2",
+  "checkpoint_interval": 2,
+  "steps": 4,
+  "median_step_seconds": 0.317144613713026,
+  "p95_step_seconds": 0.6043540727347134,
+  "examples_per_second": 49.006854787595685,
+  "tokenization_calls": 0,
+  "cuda": true,
+  "gpu": "NVIDIA H800",
+  "elapsed_seconds": 14.129162013530731,
+  "cache_read_time_seconds": null,
+  "checkpoint_time_seconds": null,
+  "cpu_utilization": "not sampled",
+  "gpu_utilization": "not sampled",
+  "cache_path": "/inspire/ssd/project/sais-suiren-foundation-model-prediction/checkpoints/phase6t_token_cache",
+  "combined_cache_sha256": "23d228a681d045716d33a693d3157251d6498b05897b8da5252e2973066d716e"
+}

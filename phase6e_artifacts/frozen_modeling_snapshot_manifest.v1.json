@@ -1,0 +1,19 @@
+{
+  "created_at_utc": "2026-10-13T14:35:51+00:00",
+  "development_rows": 118,
+  "expansion_rows": 102,
+  "locked_holdout_included": false,
+  "pilot_rows": 4,
+  "rows": 224,
+  "schema_version": "phase6e.frozen_modeling_snapshot.v1",
+  "snapshot_sha256": "004930fb6f3eef9d402176b44aba3f3e21a7e7f21ee3c649269cf83e2e350e11",
+  "source_hashes": {
+    "data/processed/bulk_md_tg_final_cohort_150_split.csv": "fc5e2add7d1f9de32ffca09002e335a242c015a8b12e688506ebab26618b7228",
+    "data/processed/md_physics_targets.csv": "a7ca7bd654b4f530d728300acbe7fe8456ca427274a76fdde63c9a06dc12a2d5",
+    "data/raw/properties/tg/tg.csv": "b12ad9604ed02ad3890bdd7ef80c0eaf83a035924b00096882bce480758c56b7",
+    "phase6b_artifacts/bulk_md_tg_descriptor_table.v1.csv": "4516fd4c1486b6a0c415ae24c9d130099299f582d4a2350169184ad8fae6892a",
+    "phase6d_artifacts/bulk_md_expansion_registry.v1.csv": "94b4514d6be39598cd2048a4da2daddb14a1422f8b7f411af7bd6dc0aeac5043",
+    "phase6d_artifacts/expansion_selected_candidates.v1.csv": "cf8ff9299a7c0e3d7f507f28db344a43d8dbf9a06fb5ed873e1e181a282cbfd1"
+  },
+  "unique_polymers": 224
+}

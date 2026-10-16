@@ -1,0 +1,8 @@
+{
+  "checkpoint_path": "phase6l_artifacts/smoke/best.pt",
+  "checkpoint_sha256": "20eafbcde88059c8e8afe6a839fefe3e99f9f9f8b67481bf82a6ff2db8a1b7fb",
+  "corpus_sha256": "fbc44e2c343570c5c6e07f5de76fa781956bb1d795b9a981f330c88774ec70e2",
+  "reload_passed": true,
+  "step": 2,
+  "training_commit": "cd1147bfffba1494d843c972da6facb480c03289"
+}

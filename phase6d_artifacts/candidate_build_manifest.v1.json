@@ -1,0 +1,22 @@
+{
+  "build_status_counts": {
+    "BUILD_PASS": 103,
+    "BUILD_TIMEOUT": 5,
+    "TOPOLOGY_FAILURE": 1,
+    "UNSUPPORTED": 15
+  },
+  "builder": "scripts/frozen_bulk_md_tg_production_builder.py",
+  "candidate_count": 124,
+  "code_commit": "e9bceef72d85920594991b7af01ba19339b9c26b",
+  "force_field": "GAFF2_mod",
+  "manifest_sha256": "a18588e16d702fba82bead7128e4aa808ffe4f9169cdc79c6a0805b84e488509",
+  "production_launched": false,
+  "schema_version": "phase6d.candidate_build_manifest.v1",
+  "selected_candidate_list_sha256": "cf8ff9299a7c0e3d7f507f28db344a43d8dbf9a06fb5ed873e1e181a282cbfd1",
+  "temperature_list": [
+    300,
+    400,
+    500,
+    600
+  ]
+}

@@ -1,0 +1,17 @@
+seed: 13
+train_path: phase6a_artifacts/pi1m_clean-transfer_ood.parquet
+output_dir: phase6a_runs/clean-transfer/pretrain_ood
+model:
+  layers: 8
+  hidden_size: 512
+  attention_heads: 8
+  intermediate_size: 2048
+  dropout: 0.1
+  max_sequence_length: 192
+training:
+  epochs: 3
+  batch_size: 16
+  lr: 0.0002
+  weight_decay: 0.01
+  max_grad_norm: 1.0
+  mask_probability: 0.15

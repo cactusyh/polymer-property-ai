@@ -1,0 +1,8 @@
+{
+  "checkpoint_present_in_repository": false,
+  "external_checkpoint_path": "/tmp/phase6m_smoke_9br6u3vv/run/best.pt",
+  "checkpoint_sha256": "1196dc80abd4a6907517aff173d5c0b75b4d35a95cd0957046ffc219ca6e65e8",
+  "corpus_sha256": "fbc44e2c343570c5c6e07f5de76fa781956bb1d795b9a981f330c88774ec70e2",
+  "training_commit": "18c33147695733db74c888e6e594a9f5c35601e3",
+  "reload_passed": true
+}

@@ -1,0 +1,7 @@
+{
+  "commit": "d70bbf12ac59f13ae09563fedf522d17ae156f75",
+  "interpreter": ".venv-phase6a/bin/python",
+  "pip_check_exit_code": 0,
+  "pip_check_output": "No broken requirements found.",
+  "schema_version": "phase6s.environment_manifest.v1"
+}

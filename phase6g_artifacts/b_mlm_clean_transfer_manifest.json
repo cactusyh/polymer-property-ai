@@ -1,0 +1,12 @@
+{
+  "checkpoint_status": "BLOCKER_UNVERIFIED",
+  "corpus": "phase6a_artifacts/pi1m_clean-transfer_random.parquet",
+  "corpus_rows": 988561,
+  "corpus_sha256": "fbc44e2c343570c5c6e07f5de76fa781956bb1d795b9a981f330c88774ec70e2",
+  "old_locked_holdout_excluded": true,
+  "overlap_sample": [],
+  "overlap_with_valid_tg_ids": 0,
+  "policy": "clean-transfer",
+  "schema_version": "phase6g.b_mlm_clean_transfer_manifest.v1",
+  "training_executed": false
+}

@@ -1,0 +1,7 @@
+{
+  "schema_version": "phase6x.b_mlm_checkpoint_provenance.v1",
+  "status": "BLOCKED_RESUME_DETERMINISM",
+  "full_training_executed": false,
+  "artifact_generation_commit": "59f793ffea4a01ce658aae33cdeb0d88783edd90",
+  "checkpoint_sha256": null
+}

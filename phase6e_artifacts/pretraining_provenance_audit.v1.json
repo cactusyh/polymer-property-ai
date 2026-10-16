@@ -1,0 +1,7 @@
+{
+  "B_MLM_available": false,
+  "checkpoint_provenance": "No verified B_MLM checkpoint supplied; no pretrained label used",
+  "locked_holdout_used": false,
+  "structure_encoder": "RDKit Morgan radius=2, nBits=256",
+  "unsupervised_overlap_audit": "Phase6B immutable artifact retained; no new unsupervised pretraining run"
+}

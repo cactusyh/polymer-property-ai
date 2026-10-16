@@ -1,0 +1,124 @@
+{
+  "locked_holdout_excluded": true,
+  "results": [
+    {
+      "MAE": 38.12894053983562,
+      "N": 702,
+      "R2": 0.7797019299613379,
+      "RMSE": 52.378210588067084,
+      "Spearman": 0.8891102460439497,
+      "checkpoint_sha256": null,
+      "confidence_interval": {
+        "ci95_high": -53.10644093602206,
+        "ci95_low": -64.91061579219529,
+        "delta_rmse_mean": -59.22342335114469,
+        "delta_rmse_median": -59.188450279976706,
+        "resamples": 500,
+        "seed": 13,
+        "unit": "chemical_group"
+      },
+      "data_manifest_sha256": "c994e92cc825d947d6f27b6eca03e89b04baad2eaa9daeb0e9438de9ec9efecf",
+      "model": "MORGAN_RIDGE",
+      "pretraining_policy": "none",
+      "protocol": "random",
+      "seed": 13,
+      "split": "validation"
+    },
+    {
+      "MAE": 35.489196865297096,
+      "N": 699,
+      "R2": 0.7857764018923166,
+      "RMSE": 48.37017149285584,
+      "Spearman": 0.8934470564053554,
+      "checkpoint_sha256": null,
+      "confidence_interval": {
+        "ci95_high": -50.188363797086765,
+        "ci95_low": -61.8078342004895,
+        "delta_rmse_mean": -56.20122410155533,
+        "delta_rmse_median": -56.17588357744306,
+        "resamples": 500,
+        "seed": 13,
+        "unit": "chemical_group"
+      },
+      "data_manifest_sha256": "c994e92cc825d947d6f27b6eca03e89b04baad2eaa9daeb0e9438de9ec9efecf",
+      "model": "MORGAN_RIDGE",
+      "pretraining_policy": "none",
+      "protocol": "random",
+      "seed": 13,
+      "split": "test"
+    },
+    {
+      "MAE": 46.116267598093984,
+      "N": 713,
+      "R2": 0.6136064020792538,
+      "RMSE": 60.60191594421202,
+      "Spearman": 0.8024008317416822,
+      "checkpoint_sha256": null,
+      "confidence_interval": {
+        "ci95_high": -34.98541931486982,
+        "ci95_low": -46.353482676035696,
+        "delta_rmse_mean": -40.56949639458047,
+        "delta_rmse_median": -40.75194435380392,
+        "resamples": 500,
+        "seed": 13,
+        "unit": "chemical_group"
+      },
+      "data_manifest_sha256": "c994e92cc825d947d6f27b6eca03e89b04baad2eaa9daeb0e9438de9ec9efecf",
+      "model": "MORGAN_RIDGE",
+      "pretraining_policy": "none",
+      "protocol": "ood",
+      "seed": 13,
+      "split": "validation"
+    },
+    {
+      "MAE": 42.115396022448536,
+      "N": 886,
+      "R2": 0.7206724078805387,
+      "RMSE": 56.31198346268588,
+      "Spearman": 0.8098956245598434,
+      "checkpoint_sha256": null,
+      "confidence_interval": {
+        "ci95_high": -54.382160950553384,
+        "ci95_low": -64.13594462030744,
+        "delta_rmse_mean": -59.36054961354908,
+        "delta_rmse_median": -59.41077038833839,
+        "resamples": 500,
+        "seed": 13,
+        "unit": "chemical_group"
+      },
+      "data_manifest_sha256": "c994e92cc825d947d6f27b6eca03e89b04baad2eaa9daeb0e9438de9ec9efecf",
+      "model": "MORGAN_RIDGE",
+      "pretraining_policy": "none",
+      "protocol": "ood",
+      "seed": 13,
+      "split": "test"
+    },
+    {
+      "model": "PSMILES_RANDOM_INITIALIZED",
+      "reason": "full neural fine-tuning is not launched without a verified clean-transfer gate",
+      "status": "NOT_RUN"
+    },
+    {
+      "model": "B_MLM_CLEAN_TRANSFER",
+      "status": "BLOCKED_UNVERIFIED_CHECKPOINT"
+    },
+    {
+      "model": "PRODUCTION_PRETRAINED",
+      "status": "REPORTED_SEPARATELY_NOT_RUN"
+    }
+  ],
+  "schema_version": "phase6g.full_tg_structure_benchmark.v1",
+  "split_counts": {
+    "ood_split": {
+      "test": 886,
+      "train": 5541,
+      "validation": 713
+    },
+    "random_split": {
+      "test": 699,
+      "train": 5739,
+      "validation": 702
+    }
+  },
+  "valid_records_after_locked_exclusion": 7140
+}

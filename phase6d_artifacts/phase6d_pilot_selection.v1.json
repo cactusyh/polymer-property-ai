@@ -1,0 +1,86 @@
+{
+  "candidate_manifest_sha256": "a18588e16d702fba82bead7128e4aa808ffe4f9169cdc79c6a0805b84e488509",
+  "candidates": [
+    {
+      "build_metadata": "phase6d_runs/pilot_builds/poly_98bc13bed4455c1f/build_metadata.json",
+      "build_metadata_sha256": "549e37b705705ba61bccacf74403eef915f3261e9b58b7399cd7c9d8175dfaf3",
+      "canonical_psmiles": "*CCCCCCCNC(=O)CCCCC(=O)N*",
+      "chemical_cluster": 6,
+      "force_field": "GAFF2_mod",
+      "gpu_index": 0,
+      "polymer_id": "poly_98bc13bed4455c1f",
+      "structure_data": "phase6d_runs/pilot_builds/poly_98bc13bed4455c1f/structure.data",
+      "structure_hash": "98bc13bed4455c1fca1981d0b519eab8d1f09e62577a4c0ece5b9c8680f97ef9",
+      "structure_sha256": "ae1368f44e8705a30880efbf670433367c2430c34e43ed3efaa01dc68664ce85",
+      "temperature_set_K": [
+        600,
+        500,
+        400,
+        300
+      ],
+      "topology_status": "PASS_VALIDATED"
+    },
+    {
+      "build_metadata": "bulk_md_tg_build_preflight/poly_db696efd35d8326b/attempt_1/poly_db696efd35d8326b/build_metadata.json",
+      "build_metadata_sha256": "c0cb5ea1521f0b5fa5f50fb1aa968edaa49cad19f82e3f9f575df3950e9c60a0",
+      "canonical_psmiles": "*Cc1cccc(CNC(=O)/C=C(\\C)C(=O)N*)c1",
+      "chemical_cluster": 1720,
+      "force_field": "GAFF2_mod",
+      "gpu_index": 1,
+      "polymer_id": "poly_db696efd35d8326b",
+      "structure_data": "bulk_md_tg_build_preflight/poly_db696efd35d8326b/attempt_1/poly_db696efd35d8326b/structure.data",
+      "structure_hash": "db696efd35d8326b0b251827480a0453467aa0d1d47e4f30989e823154fc3071",
+      "structure_sha256": "c90641a9ebe046f3d60a81c803ba92627ed6a2553f99964071bd45f279abeca9",
+      "temperature_set_K": [
+        600,
+        500,
+        400,
+        300
+      ],
+      "topology_status": "PASS_VALIDATED"
+    },
+    {
+      "build_metadata": "bulk_md_tg_build_preflight/poly_a5cce35c85e525e3/attempt_1/poly_a5cce35c85e525e3/build_metadata.json",
+      "build_metadata_sha256": "c851c302df2d3eea1c116b688872e55cf5bf8237851258f6f1c188cb6dc4821a",
+      "canonical_psmiles": "*CCCCCCNC(=O)CCC(C)CC(=O)N*",
+      "chemical_cluster": 1823,
+      "force_field": "GAFF2_mod",
+      "gpu_index": 2,
+      "polymer_id": "poly_a5cce35c85e525e3",
+      "structure_data": "bulk_md_tg_build_preflight/poly_a5cce35c85e525e3/attempt_1/poly_a5cce35c85e525e3/structure.data",
+      "structure_hash": "a5cce35c85e525e37537ad70f38fef0294e638a30607f873617fc90ba9a24e10",
+      "structure_sha256": "64a5714323e4278cda2a554cd25000bb460376cd5cdbc3abf12195c0c72c2b7b",
+      "temperature_set_K": [
+        600,
+        500,
+        400,
+        300
+      ],
+      "topology_status": "PASS_VALIDATED"
+    },
+    {
+      "build_metadata": "bulk_md_tg_build_preflight/poly_df7c069ad0b2d467/attempt_2/poly_df7c069ad0b2d467/build_metadata.json",
+      "build_metadata_sha256": "a5ab9036e6fb4644bf1141f68152d6f9a8994d05c282e5bfb6b44a7ca0e9d43a",
+      "canonical_psmiles": "*CC(*)(C)C(=O)OCCCCCCCCCCn1c2ccccc2c2cc(/C=C/C3=C(C#N)C(=C(C#N)C#N)OC3(C)C)ccc21",
+      "chemical_cluster": 2241,
+      "force_field": "GAFF2_mod",
+      "gpu_index": 3,
+      "polymer_id": "poly_df7c069ad0b2d467",
+      "structure_data": "bulk_md_tg_build_preflight/poly_df7c069ad0b2d467/attempt_2/poly_df7c069ad0b2d467/structure.data",
+      "structure_hash": "df7c069ad0b2d4676bfea7fe456b357db3d430ade77fa4965b928ae8e42d42c8",
+      "structure_sha256": "64ea789b44c2613a35252f5c77f61ed3f47207439e611248acdb09b75696642b",
+      "temperature_set_K": [
+        600,
+        500,
+        400,
+        300
+      ],
+      "topology_status": "PASS_VALIDATED"
+    }
+  ],
+  "created_at_utc": "2026-10-10T12:59:41+00:00",
+  "locked_holdout_used": false,
+  "schema_version": "phase6d.pilot_selection.v1",
+  "selected_candidate_list_sha256": "cf8ff9299a7c0e3d7f507f28db344a43d8dbf9a06fb5ed873e1e181a282cbfd1",
+  "selection_strategy": "valid topology/force-field exports from the frozen expansion list, four distinct chemical clusters, deterministic structure-hash tie break"
+}

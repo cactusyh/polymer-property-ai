@@ -1,0 +1,38 @@
+{
+  "derived_formulas": {
+    "density_400_minus_300": "density[400 K] - density[300 K]",
+    "density_500_minus_400": "density[500 K] - density[400 K]",
+    "density_600_minus_300": "density[600 K] - density[300 K]",
+    "density_600_minus_500": "density[600 K] - density[500 K]",
+    "density_temperature_slope": "OLS slope(density, temperature_K)",
+    "mobility_temperature_slope": "OLS slope(mobility, temperature_K) when present",
+    "torsion_temperature_slope": "OLS slope(torsion, temperature_K) when present",
+    "volume_400_minus_300": "volume[400 K] - volume[300 K]",
+    "volume_500_minus_400": "volume[500 K] - volume[400 K]",
+    "volume_600_minus_300": "volume[600 K] - volume[300 K]",
+    "volume_600_minus_500": "volume[600 K] - volume[500 K]",
+    "volume_temperature_slope": "OLS slope(volume, temperature_K)"
+  },
+  "missingness": "A true field mask is emitted for each unavailable source value.",
+  "row_granularity": "polymer-temperature",
+  "schema_version": "phase6d.bulk_md_descriptor.v1",
+  "temperatures_K": [
+    300,
+    400,
+    500,
+    600
+  ],
+  "units": {
+    "density": "workflow documented units",
+    "equilibration_time_ps": "ps",
+    "temperature_mean": "K",
+    "valid_frame_count": "count",
+    "volume": "workflow documented units"
+  },
+  "unsupported_descriptors": [
+    "radius_of_gyration",
+    "end_to_end_distance",
+    "mobility",
+    "torsion"
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "schema_version": "phase6o.environment_manifest.v1",
+  "interpreter": "/inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/.venv-phase6a/bin/python",
+  "pip_check_output": "No broken requirements found.",
+  "pip_check_exit_code": 0,
+  "commit": "f66e5ccf77d2c07b495b3f8d170ee18cc5996613"
+}

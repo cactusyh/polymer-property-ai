@@ -77,6 +77,34 @@ Generated final artifacts:
 
 Scientific defaults: do not use Rouse relaxation times as default targets; use quality weights and validity flags for MD multitask losses; keep duplicate canonical polymers in one PI1M split.
 
+## Phase 6A unified benchmark
+
+Prepare the leakage-safe identity contract from the real registries:
+
+```bash
+python scripts/prepare_phase6a_manifest.py
+```
+
+Run only the deterministic CPU software smoke test (synthetic fixtures are not
+scientific training data):
+
+```bash
+python scripts/run_phase6a_smoke.py
+```
+
+The three inference modes are `structure_only`, `chain_md_observed`, and
+`chain_md_predicted`. Phase 6A does not extract bulk-MD descriptors or use the
+LOCKED_HOLDOUT for feature selection; those actions are reserved for Phase 6B.
+
+## Phase 6B frozen bulk-MD evaluation
+
+Phase 6B reconciles the authoritative 150-polymer bulk cohort, freezes descriptors
+from the validated multi-temperature registry, selects models with DEVELOPMENT
+only nested validation, and evaluates the LOCKED_HOLDOUT once. Use
+`python scripts/run_phase6b.py reconcile`, then `freeze`, then `evaluate`.
+The immutable result record prevents a second holdout evaluation. The 120/30
+assignment and 119/29 all-temperature completion counts are reported separately.
+
 ## Tg Proof-of-Concept Commands
 
 Prepare Tg canonical registry, random/OOD splits, low-data subsets, strict PI1M corpus, and strict MD manifests:
@@ -106,3 +134,11 @@ python scripts/finetune_tg.py --config configs/finetune_tg_random.yaml --seeds 1
 python scripts/finetune_tg.py --config configs/finetune_tg_ood.yaml --seeds 13,17,23,29,31
 python scripts/evaluate_tg.py
 ```
+# Phase 6H
+
+Phase 6H uses the frozen development descriptors and existing single-chain MD
+tables. It corrects the Morgan/Ridge target intercept, fits MD diagnostics
+out-of-fold, and excludes historical LOCKED_HOLDOUT identities. No new MD
+simulations are launched. The clean-transfer B_MLM checkpoint is used only
+when its corpus, exclusion, training, and checkpoint provenance are complete;
+otherwise it remains `BLOCKED_UNVERIFIED`.

@@ -1,0 +1,7 @@
+{
+  "schema_version": "phase6r.environment_manifest.v1",
+  "interpreter": ".venv-phase6a/bin/python",
+  "pip_check_exit_code": 0,
+  "pip_check_output": "No broken requirements found.",
+  "training_commit": "30fed613defe975e9c9098ca5d26a58ffec53039"
+}

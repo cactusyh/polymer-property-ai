@@ -1,0 +1,14 @@
+schema_version: 6a.1.0
+manifest: phase6a_artifacts/manifest.v1.json
+identity_registry: phase6a_artifacts/identity_registry.parquet
+policies: [clean-transfer, production]
+structure_encoders: [morgan, random_psmiles, pi1m_mlm]
+inference_modes: [structure_only, chain_md_observed, chain_md_predicted]
+fusion: [gated, concat]
+auxiliary_md_loss: [false, true]
+splits: [random, ood]
+tasks: [Tg, band_gap_chain, band_gap_bulk, electron_affinity, ionization_energy, atomization_energy]
+seed: 13
+full_training: false
+bulk_md_feature_selection: false
+locked_holdout_policy: identity-only exclusion until Phase 6B

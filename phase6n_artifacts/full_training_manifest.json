@@ -1,0 +1,9 @@
+{
+  "status": "BLOCKED_TRAINING",
+  "checkpoint_present_in_repository": false,
+  "external_checkpoint_path": "/tmp/phase6n_resume_e8i3lcp7/run/best.pt",
+  "checkpoint_sha256": "cae0150ad6f23b7b227bbdbb7d302b910acf56ac1a4844c759d3e141d92fcc0c",
+  "corpus_sha256": "fbc44e2c343570c5c6e07f5de76fa781956bb1d795b9a981f330c88774ec70e2",
+  "training_commit": "6a66e84da25985cc37cad1749f8d702eec500823",
+  "smoke_only": true
+}

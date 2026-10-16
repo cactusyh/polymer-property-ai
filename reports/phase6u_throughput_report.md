@@ -1,0 +1,27 @@
+# Phase 6U production throughput
+
+{
+  "schema_version": "phase6u.throughput_benchmark.v1",
+  "status": "PASS",
+  "command": "/inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/.venv-phase6a/bin/python scripts/pretrain_pi1m.py --config configs/pretrain_pi1m.yaml --train-path /inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/phase6a_artifacts/pi1m_clean-transfer_random.parquet --token-cache /inspire/ssd/project/sais-suiren-foundation-model-prediction/checkpoints/phase6t_token_cache --output-dir /tmp/phase6u-prod-be9igejx --device cuda --max-steps 2 --limit 64",
+  "training_execution_commit": "7972d259f1aaefb99bdcbe960f7c8a2f2dc4d05f",
+  "cache_path": "/inspire/ssd/project/sais-suiren-foundation-model-prediction/checkpoints/phase6t_token_cache",
+  "corpus_sha256": "fbc44e2c343570c5c6e07f5de76fa781956bb1d795b9a981f330c88774ec70e2",
+  "cache_sha256": "c1af57a902fdbf065008473eb9e759a2d6b55dc852965fac125d3d52cbb76f68",
+  "vocabulary_sha256": "c8e878d8339041a098e6507ec5fa2a0ce8e9633c2f2771582cfb929eff4e5869",
+  "steps": 2,
+  "elapsed_seconds": 9.885341960936785,
+  "median_step_seconds": 0.34544768370687956,
+  "p95_step_seconds": 0.559590676613152,
+  "examples_per_second": 46.316709460342985,
+  "masked_tokens_per_second": null,
+  "gpu": "NVIDIA H800",
+  "device": "cuda",
+  "gpu_memory_peak_bytes": 836876288,
+  "model_input_loss_grad_cuda": true,
+  "tokenization_calls_in_training_loop": 0,
+  "persistent_cache_used": true,
+  "full_training_executed": false,
+  "checkpoint_scope": "SMOKE",
+  "stderr_tail": "/inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/miniforge3/envs/polymer-gpu/lib/python3.11/site-packages/torch/nn/modules/transformer.py:379: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True\n  warnings.warn(\n/inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/scripts/pretrain_pi1m.py:260: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.\n  scaler = torch.cuda.amp.GradScaler(enabled=device.type == \"cuda\")\n/inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/scripts/pretrain_pi1m.py:318: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.\n  with torch.cuda.amp.autocast(enabled=device.type == \"cuda\"):\n"
+}

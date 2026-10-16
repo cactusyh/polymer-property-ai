@@ -1,0 +1,6 @@
+{
+  "status": "BLOCKED_TRAINING",
+  "full_training_executed": false,
+  "checkpoint_scope": "SMOKE",
+  "checkpoint_present_in_repository": false
+}

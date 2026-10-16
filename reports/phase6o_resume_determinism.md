@@ -1,0 +1,16 @@
+# Phase 6O resume determinism
+
+{
+  "schema_version": "phase6o.resume_determinism_audit.v1",
+  "status": "RESUME_SMOKE_PASS_FULL_TRAINING_READY",
+  "full_training_executed": false,
+  "checkpoint_scope": "SMOKE",
+  "uninterrupted_returncode": 0,
+  "split_returncode": 0,
+  "resume_returncode": 0,
+  "loss_equal": true,
+  "step_equal": true,
+  "corpus_sha256": "fbc44e2c343570c5c6e07f5de76fa781956bb1d795b9a981f330c88774ec70e2",
+  "training_commit": "f66e5ccf77d2c07b495b3f8d170ee18cc5996613",
+  "pip_check_exit_code": 0
+}

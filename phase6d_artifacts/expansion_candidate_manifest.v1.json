@@ -1,0 +1,45 @@
+{
+  "append_only": true,
+  "candidate_list_sha256": "5f1964d498db589494708ec3a3a48fa6a163b123f459365bf82b92aec344898d",
+  "candidate_selection_configuration": {
+    "excluded_assignments": [
+      "LOCKED_HOLDOUT",
+      "DEVELOPMENT"
+    ],
+    "existing_cohort_excluded": true,
+    "locked_holdout_values_or_descriptors_used": false,
+    "pool_size": 128,
+    "priority": [
+      "valid_Tg",
+      "single_chain_MD",
+      "chemical_cluster_coverage",
+      "stable_structure_hash_tie_break"
+    ],
+    "target_values_used_for_selection": false
+  },
+  "created_at_utc": "2026-10-10T12:29:32+00:00",
+  "locked_holdout_exclusion": {
+    "intersection_with_selected": [],
+    "locked_count": 30,
+    "statement": "All LOCKED_HOLDOUT identities were excluded before ranking and selection."
+  },
+  "pilot_size": 8,
+  "schema_version": "phase6d.expansion_manifest.v1",
+  "selected_candidate_list_sha256": "cf8ff9299a7c0e3d7f507f28db344a43d8dbf9a06fb5ed873e1e181a282cbfd1",
+  "selected_count": 128,
+  "simulation_started": false,
+  "source_manifest_hashes": {
+    "data/processed/bulk_md_tg_build_preflight_structural_universe.csv": "c8832afc39bed51a1d99dcd23678678d2a58bfda639ac2001153b496629b3558",
+    "data/processed/bulk_md_tg_final_150_multitemp_registry.csv": "32dedbbfd5ba56cae869230bfe4e03038fbf3931d7fc526d0bda44a1ca64e2bc",
+    "data/processed/bulk_md_tg_final_cohort_150_split.csv": "fc5e2add7d1f9de32ffca09002e335a242c015a8b12e688506ebab26618b7228",
+    "data/processed/md_psmiles_mapping.csv": "3a2737ada79a82a4f4b7e6cd0173b27abcbb66b798c7d8cad3132a2001c3e3c4",
+    "data/processed/md_registry.csv": "ed0a61adf7a09fb5470604924cf915ba475dccfe978441e0ea37472004ed612c",
+    "data/raw/properties/tg/tg.csv": "b12ad9604ed02ad3890bdd7ef80c0eaf83a035924b00096882bce480758c56b7"
+  },
+  "temperatures_K": [
+    300,
+    400,
+    500,
+    600
+  ]
+}

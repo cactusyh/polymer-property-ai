@@ -1,0 +1,9 @@
+{
+  "feature_selection": "coverage >= 0.80; variance > 1e-12; redundancy abs correlation < 0.98, training fold only",
+  "log_transforms": [],
+  "missing_values": "explicit masks plus median imputation inside each training fold",
+  "random_seed": 13,
+  "scaler": "RobustScaler fitted on training fold only",
+  "sha256": "740d5281ceb3fc3b84e5b2371ae19ca1d8bd7a80a726fd2ea65b59dbe960ff32",
+  "version": "phase6b_preprocessing.v1"
+}

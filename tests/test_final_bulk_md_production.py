@@ -46,4 +46,5 @@ class Tests(unittest.TestCase):
    with patch.object(m,'thermo',return_value=[]),patch.object(m.subprocess,'Popen',side_effect=AssertionError('must not launch MD')):
     result=m.stage(p,'in.x','fixed input','out.restart','out.data',100000,'gpu')
    self.assertEqual(result['gpu_runtime_seconds'],12)
-unittest.main()
+if __name__ == "__main__":
+ unittest.main()

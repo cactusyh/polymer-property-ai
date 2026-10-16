@@ -1,0 +1,18 @@
+{
+  "schema_version": "phase6t.environment_manifest.v2",
+  "interpreter": "/inspire/ssd/project/sais-suiren-foundation-model-prediction/public/yh/pm/pm2/.venv-phase6a/bin/python",
+  "artifact_generation_commit": "60f353f2b2d3311b30afe9f0a8025997562628fd",
+  "probe": {
+    "python": "3.11.16 (main, Sep  2 2026, 23:39:52) [GCC 15.3.0]",
+    "torch": "2.5.1",
+    "cuda": "12.1",
+    "cuda_available": true,
+    "gpu": "NVIDIA H800",
+    "fsspec": "2026.9.0",
+    "sympy": "1.13.1",
+    "pyarrow": "25.0.0",
+    "rdkit": "2026.03.6"
+  },
+  "pip_check_exit_code": 0,
+  "pip_check_output": "No broken requirements found."
+}

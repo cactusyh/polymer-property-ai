@@ -1,0 +1,32 @@
+# Phase 6V cache
+
+{
+  "schema_version": "phase6v.cache_manifest.v1",
+  "cache_path": "/inspire/ssd/project/sais-suiren-foundation-model-prediction/checkpoints/phase6t_token_cache",
+  "corpus_rows": 988561,
+  "train_rows": 968879,
+  "excluded_non_train_rows": 19682,
+  "max_sequence_length": 192,
+  "corpus_sha256": "fbc44e2c343570c5c6e07f5de76fa781956bb1d795b9a981f330c88774ec70e2",
+  "token_ids_sha256": "28ce44df591fa5b4693d3e209149b33d8f5c2f533a8b496d52133a5ae6cf6e49",
+  "lengths_sha256": "1cbf75440c3d255cf8afdf69e29cdbfd8b134fc42cc443946d50754c6ebb6e9d",
+  "vocabulary_sha256": "c8e878d8339041a098e6507ec5fa2a0ce8e9633c2f2771582cfb929eff4e5869",
+  "train_indices_sha256": "08c0f2ece0ca4f0cb44928b37bb9028ae25215733e1fbb7474ded9a2e05f6c20",
+  "row_identity_sha256": "0daa640d36592143f26b0a70f999e2e9bbbf38a737e799bf4748ffb9052f01e4",
+  "combined_cache_sha256": "23d228a681d045716d33a693d3157251d6498b05897b8da5252e2973066d716e",
+  "tokenizer_configuration": {
+    "special_tokens": [
+      "<PAD>",
+      "<MASK>",
+      "<UNK>",
+      "<CLS>",
+      "<SEP>"
+    ],
+    "max_sequence_length": 192,
+    "order": "source corpus row order"
+  },
+  "split_counts": {
+    "train": 968879,
+    "validation": 19682
+  }
+}

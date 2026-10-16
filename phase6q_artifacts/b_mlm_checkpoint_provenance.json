@@ -1,0 +1,14 @@
+{
+  "schema_version": "phase6q.b_mlm_checkpoint_provenance.v1",
+  "status": "BLOCKED_TRAINING",
+  "training_execution_commit": "4e00730603657b2b4eecdca6330227bfb8d8df5a",
+  "artifact_generation_commit": "4e00730603657b2b4eecdca6330227bfb8d8df5a",
+  "corpus_sha256": "fbc44e2c343570c5c6e07f5de76fa781956bb1d795b9a981f330c88774ec70e2",
+  "corpus_row_count": 988561,
+  "checkpoint_sha256": "9473b62b838c3aef155bfa2d6501a49ca326c4cfe2e85a39c28f602058d2f215",
+  "checkpoint_path": "/tmp/phase6q_full_bmlm/last.pt",
+  "full_training_executed": false,
+  "checkpoint_scope": "FULL_RUN_PARTIAL_RESUME",
+  "training_end_status": "INTERRUPTED_CPU_BOUND_GPU_PATH",
+  "resume_command": ".venv-phase6a/bin/python scripts/pretrain_pi1m.py --config configs/pretrain_pi1m.yaml --train-path phase6a_artifacts/pi1m_clean-transfer_random.parquet --output-dir /tmp/phase6q_full_bmlm --device cuda --resume"
+}

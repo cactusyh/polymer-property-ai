@@ -1,0 +1,14 @@
+# Phase 6V integrity audit
+
+{
+  "schema_version": "phase6v.integrity_audit.v1",
+  "status": "BLOCKED_TRAINING",
+  "full_training_executed": false,
+  "locked_holdout_target_values_read": false,
+  "locked_holdout_artifacts_modified": false,
+  "bulk_md_simulation_launched": false,
+  "benchmark_execution_commit": "3664290292dc065f7f7b4112e61e1f9609b5b5ea",
+  "artifact_generation_commit": "3664290292dc065f7f7b4112e61e1f9609b5b5ea",
+  "source_phase6u_commit": "3664290292dc065f7f7b4112e61e1f9609b5b5ea",
+  "combined_cache_sha256": "23d228a681d045716d33a693d3157251d6498b05897b8da5252e2973066d716e"
+}

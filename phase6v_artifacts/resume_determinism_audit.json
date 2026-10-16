@@ -1,0 +1,7 @@
+{
+  "schema_version": "phase6v.resume_determinism_audit.v1",
+  "status": "BLOCKED_TRAINING",
+  "executed": false,
+  "reason": "Four-step uninterrupted versus two-step-plus-resume full-state comparison remains outstanding; no exact determinism claim made.",
+  "benchmark_execution_commit": "3664290292dc065f7f7b4112e61e1f9609b5b5ea"
+}

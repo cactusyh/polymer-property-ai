@@ -1,0 +1,213 @@
+{
+  "models": {
+    "both": {
+      "correction_mean_abs": 19.77123370694804,
+      "correction_positive_fraction": 0.5,
+      "final": {
+        "MAE": 123.56080273392156,
+        "R2": -1.034825986356588,
+        "RMSE": 148.26381917666902,
+        "n": 184
+      },
+      "fold_choices": [
+        {
+          "alpha": 10.0,
+          "gate": 0.5,
+          "inner_mse": 22834.46437711219,
+          "n_train": 151,
+          "n_valid": 33,
+          "outer_fold": 0
+        },
+        {
+          "alpha": 10.0,
+          "gate": 0.25,
+          "inner_mse": 22138.109074084456,
+          "n_train": 144,
+          "n_valid": 40,
+          "outer_fold": 1
+        },
+        {
+          "alpha": 10.0,
+          "gate": 0.0,
+          "inner_mse": 22922.50771294475,
+          "n_train": 145,
+          "n_valid": 39,
+          "outer_fold": 2
+        },
+        {
+          "alpha": 100.0,
+          "gate": 0.1,
+          "inner_mse": 21325.203290247864,
+          "n_train": 145,
+          "n_valid": 39,
+          "outer_fold": 3
+        },
+        {
+          "alpha": 100.0,
+          "gate": 0.5,
+          "inner_mse": 20726.138212244725,
+          "n_train": 151,
+          "n_valid": 33,
+          "outer_fold": 4
+        }
+      ],
+      "modality": "both",
+      "n": 184,
+      "paired_delta_vs_structure": {
+        "ci95_high": 0.4817558646200282,
+        "ci95_low": -1.7400008350611924,
+        "delta_rmse_mean": -0.6171473495732831,
+        "delta_rmse_median": -0.6176707470729639,
+        "resamples": 1000,
+        "seed": 13,
+        "unit": "chemical_group"
+      },
+      "residual_prediction": {
+        "MAE": 124.36194863686498,
+        "R2": -1.5538983268993762,
+        "RMSE": 149.79146648088792,
+        "n": 184
+      }
+    },
+    "bulk": {
+      "correction_mean_abs": 10.788994191240713,
+      "correction_positive_fraction": 0.35714285714285715,
+      "final": {
+        "MAE": 128.8870949498508,
+        "R2": -1.0559708354031194,
+        "RMSE": 151.78484029862375,
+        "n": 224
+      },
+      "fold_choices": [
+        {
+          "alpha": 10.0,
+          "gate": 0.25,
+          "inner_mse": 23580.386481491467,
+          "n_train": 179,
+          "n_valid": 45,
+          "outer_fold": 0
+        },
+        {
+          "alpha": 10.0,
+          "gate": 1.0,
+          "inner_mse": 22778.789114649437,
+          "n_train": 179,
+          "n_valid": 45,
+          "outer_fold": 1
+        },
+        {
+          "alpha": 10.0,
+          "gate": 0.0,
+          "inner_mse": 23612.511283687218,
+          "n_train": 179,
+          "n_valid": 45,
+          "outer_fold": 2
+        },
+        {
+          "alpha": 10.0,
+          "gate": 0.0,
+          "inner_mse": 22573.814031183207,
+          "n_train": 179,
+          "n_valid": 45,
+          "outer_fold": 3
+        },
+        {
+          "alpha": 10.0,
+          "gate": 0.0,
+          "inner_mse": 21775.95397059128,
+          "n_train": 180,
+          "n_valid": 44,
+          "outer_fold": 4
+        }
+      ],
+      "modality": "bulk",
+      "n": 224,
+      "paired_delta_vs_structure": {
+        "ci95_high": 1.051339306371593,
+        "ci95_low": -0.1980060771901918,
+        "delta_rmse_mean": 0.41383576937116795,
+        "delta_rmse_median": 0.41835531879063126,
+        "resamples": 1000,
+        "seed": 13,
+        "unit": "chemical_group"
+      },
+      "residual_prediction": {
+        "MAE": 128.50990336556566,
+        "R2": -1.7854072989510525,
+        "RMSE": 151.40233123935238,
+        "n": 224
+      }
+    },
+    "chain": {
+      "correction_mean_abs": 15.561009329662525,
+      "correction_positive_fraction": 0.5271739130434783,
+      "final": {
+        "MAE": 124.45907350897551,
+        "R2": -1.0576966215439008,
+        "RMSE": 149.09470419033053,
+        "n": 184
+      },
+      "fold_choices": [
+        {
+          "alpha": 10.0,
+          "gate": 0.5,
+          "inner_mse": 22998.453584998195,
+          "n_train": 151,
+          "n_valid": 33,
+          "outer_fold": 0
+        },
+        {
+          "alpha": 10.0,
+          "gate": 0.25,
+          "inner_mse": 22234.778426932684,
+          "n_train": 144,
+          "n_valid": 40,
+          "outer_fold": 1
+        },
+        {
+          "alpha": 10.0,
+          "gate": 0.5,
+          "inner_mse": 22727.483176300066,
+          "n_train": 145,
+          "n_valid": 39,
+          "outer_fold": 2
+        },
+        {
+          "alpha": 10.0,
+          "gate": 0.0,
+          "inner_mse": 21329.512986413567,
+          "n_train": 145,
+          "n_valid": 39,
+          "outer_fold": 3
+        },
+        {
+          "alpha": 1000.0,
+          "gate": 1.0,
+          "inner_mse": 20860.03947406574,
+          "n_train": 151,
+          "n_valid": 33,
+          "outer_fold": 4
+        }
+      ],
+      "modality": "chain",
+      "n": 184,
+      "paired_delta_vs_structure": {
+        "ci95_high": 1.2711466181092306,
+        "ci95_low": -0.820508470894579,
+        "delta_rmse_mean": 0.22390148608697574,
+        "delta_rmse_median": 0.20900908019726216,
+        "resamples": 1000,
+        "seed": 13,
+        "unit": "chemical_group"
+      },
+      "residual_prediction": {
+        "MAE": 124.52228805700206,
+        "R2": -1.5336566537496585,
+        "RMSE": 149.19667740657414,
+        "n": 184
+      }
+    }
+  },
+  "schema_version": "phase6f.residual_fusion_results.v1",
+  "structure_oof_source": "phase6e_artifacts/per_polymer_oof_predictions.v1.csv"
+}

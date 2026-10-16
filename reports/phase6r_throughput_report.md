@@ -1,0 +1,17 @@
+# Phase 6R throughput report
+
+The benchmark confirmed a CPU-bound pipeline: repeated Python tokenization/collation dominates, while CUDA allocation exists but utilization remains near zero. Full training was not launched.
+
+{
+  "schema_version": "phase6r.throughput_benchmark.v1",
+  "status": "BLOCKED_THROUGHPUT",
+  "command": ".venv-phase6a/bin/python scripts/pretrain_pi1m.py --config /tmp/phase6r_bench.yaml --train-path phase6a_artifacts/pi1m_clean-transfer_random.parquet --output-dir /tmp/phase6r_bench --device cuda --smoke --max-steps 10 --limit 2048",
+  "training_commit": "30fed613defe975e9c9098ca5d26a58ffec53039",
+  "corpus_sha256": "fbc44e2c343570c5c6e07f5de76fa781956bb1d795b9a981f330c88774ec70e2",
+  "gpu": "NVIDIA H800",
+  "cuda_available": true,
+  "gpu_memory_allocated_observed": true,
+  "gpu_utilization_observed": "near 0% in sampled nvidia-smi; CPU process ~98%",
+  "root_cause": "per-batch Python tokenization/collation and insufficiently batched input pipeline dominate execution",
+  "full_training_launched": false
+}

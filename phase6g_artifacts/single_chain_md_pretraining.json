@@ -1,0 +1,28 @@
+{
+  "auxiliary_training": {
+    "auxiliary_masked_loss": "OOF_DIAGNOSTIC",
+    "no_auxiliary_loss": "NOT_RUN",
+    "observed_late_fusion": "Phase 6H matched OOF diagnostics",
+    "predicted_cross_fitted": "not fabricated",
+    "task_weighted_auxiliary": "NOT_RUN"
+  },
+  "coverage": {
+    "Re_over_Rg": 5554,
+    "contact_fraction": 0,
+    "log_Rg": 5554,
+    "log_torsion_transition_rate": 5553,
+    "relative_shape_anisotropy": 5554,
+    "torsion_entropy": 0
+  },
+  "in_sample_diagnostics": "not used",
+  "schema_version": "phase6h.single_chain_md_pretraining.v2",
+  "target_diagnostics": [],
+  "target_order": [
+    "log_Rg",
+    "Re_over_Rg",
+    "relative_shape_anisotropy",
+    "contact_fraction",
+    "torsion_entropy",
+    "log_torsion_transition_rate"
+  ]
+}

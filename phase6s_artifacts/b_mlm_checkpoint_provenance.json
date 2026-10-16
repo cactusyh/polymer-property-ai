@@ -1,0 +1,7 @@
+{
+  "checkpoint_scope": "NONE",
+  "corpus_sha256": "fbc44e2c343570c5c6e07f5de76fa781956bb1d795b9a981f330c88774ec70e2",
+  "full_training_executed": false,
+  "schema_version": "phase6s.b_mlm_checkpoint_provenance.v1",
+  "status": "BLOCKED_TRAINING"
+}

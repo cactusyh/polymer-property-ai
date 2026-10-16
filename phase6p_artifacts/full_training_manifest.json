@@ -1,0 +1,7 @@
+{
+  "schema_version": "phase6p.full_training_manifest.v1",
+  "status": "BLOCKED_TRAINING",
+  "full_training_executed": false,
+  "checkpoint_scope": "SMOKE",
+  "checkpoint_present_in_repository": false
+}

@@ -1,0 +1,12 @@
+{
+  "b_mlm_status": "BLOCKED_UNVERIFIED",
+  "base_commit": "6fe744d6f53f0134dca0fcc4c946cc1cd370adc8",
+  "branch": "codex/phase-6i-verified-bmlm-nested-multimodal-tg",
+  "bulk_md_simulation_launched": false,
+  "decision": "DO_NOT_LAUNCH_NEW_BULK_MD",
+  "environment_status": "BLOCKED_INCONSISTENT_ENVIRONMENT",
+  "locked_holdout_artifacts_modified": false,
+  "locked_holdout_target_values_read": false,
+  "ridge_version": "phase6h_intercept_v1",
+  "schema_version": "phase6i.integrity_audit.v1"
+}

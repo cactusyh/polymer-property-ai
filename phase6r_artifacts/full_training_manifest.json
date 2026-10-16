@@ -1,0 +1,8 @@
+{
+  "schema_version": "phase6r.full_training_manifest.v1",
+  "status": "BLOCKED_THROUGHPUT",
+  "full_training_executed": false,
+  "checkpoint_path": "/tmp/phase6q_full_bmlm/last.pt",
+  "checkpoint_sha256": "9473b62b838c3aef155bfa2d6501a49ca326c4cfe2e85a39c28f602058d2f215",
+  "resume_command": ".venv-phase6a/bin/python scripts/pretrain_pi1m.py --config configs/pretrain_pi1m.yaml --train-path phase6a_artifacts/pi1m_clean-transfer_random.parquet --output-dir /tmp/phase6q_full_bmlm --device cuda --resume"
+}

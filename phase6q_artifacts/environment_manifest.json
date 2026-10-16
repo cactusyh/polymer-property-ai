@@ -1,0 +1,13 @@
+{
+  "schema_version": "phase6q.environment_manifest.v1",
+  "interpreter": ".venv-phase6a/bin/python",
+  "python": ".venv-phase6a/bin/python -V",
+  "pip_check_exit_code": 0,
+  "pip_check_output": "No broken requirements found.",
+  "training_commit": "4e00730603657b2b4eecdca6330227bfb8d8df5a",
+  "cuda_probe": [
+    "2.5.1",
+    "True",
+    "NVIDIA H800"
+  ]
+}

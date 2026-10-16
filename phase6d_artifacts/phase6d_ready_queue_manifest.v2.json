@@ -1,0 +1,19 @@
+{
+  "build_failure_count": 21,
+  "build_pass_candidates": 103,
+  "duplicate_output_path": false,
+  "duplicate_pair_count": 0,
+  "errors": [],
+  "excluded_locked_holdout_tasks": 120,
+  "excluded_pilot_tasks": 16,
+  "manifest_sha256": "a18588e16d702fba82bead7128e4aa808ffe4f9169cdc79c6a0805b84e488509",
+  "missing_input_count": 0,
+  "missing_structure_data_count": 0,
+  "production_launched": false,
+  "ready_candidate_count": 103,
+  "ready_queue_sha256": "40f98667b3c58012c1dfcbb50a00297f9225573c4f7c147fd32229208948cb69",
+  "ready_temperature_task_count": 412,
+  "schema_version": "phase6d.ready_queue_manifest.v2",
+  "status": "PASS",
+  "total_remaining_candidates": 124
+}

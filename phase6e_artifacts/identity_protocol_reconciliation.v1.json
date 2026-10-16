@@ -1,0 +1,30 @@
+{
+  "assigned": {
+    "phase6b_development": 120,
+    "phase6b_locked_holdout": 30,
+    "phase6d_selected": 128
+  },
+  "completed": {
+    "phase6b_development": 118,
+    "phase6d_expansion": 102,
+    "phase6d_pilot": 4
+  },
+  "identity_overlap_with_phase6b": 0,
+  "primary_cohort": "all complete DEVELOPMENT-labeled rows with explicit protocol column; protocol sensitivity retained separately",
+  "protocols": {
+    "phase6b": "existing final registry; 100/200 ps blocks with historical GAFF workflow",
+    "phase6d": "GAFF2_mod/lammps lj/cut repair workflow; 1 fs; NVT20+NPT100 equilibration; NPT200 production"
+  },
+  "reported_phase6d_arithmetic": {
+    "combined_complete_candidates": 106,
+    "combined_complete_temperature_rows": 424,
+    "pilot_complete_candidates": 4,
+    "pilot_complete_temperature_rows": 16,
+    "production_complete_candidates": 102,
+    "production_complete_temperature_rows": 408
+  },
+  "single_chain_complete_feature_intersection": 184,
+  "single_chain_mapping": 204,
+  "unique_complete_polymers": 224,
+  "valid_tg_labels": 224
+}

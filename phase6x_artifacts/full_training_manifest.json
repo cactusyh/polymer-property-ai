@@ -1,0 +1,8 @@
+{
+  "schema_version": "phase6x.full_training_manifest.v1",
+  "status": "BLOCKED_RESUME_DETERMINISM",
+  "full_training_executed": false,
+  "train_rows": 968879,
+  "excluded_non_train_rows": 19682,
+  "artifact_generation_commit": "59f793ffea4a01ce658aae33cdeb0d88783edd90"
+}
